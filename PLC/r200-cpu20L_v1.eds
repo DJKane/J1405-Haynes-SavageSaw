@@ -1,0 +1,849 @@
+$ EZ-EDS Version 3.27.1.20191218 Generated Electronic Data Sheet
+
+[File]
+        DescText = "RMC200 CPU20L Motion Controller EDS file";
+        CreateDate = 05-02-2020;
+        CreateTime = 12:32:30;
+        ModDate = 09-15-2020;
+        ModTime = 09:00:45;
+        Revision = 1.1;
+        HomeURL = "http://www.deltamotion.com/files/eds/r200-cpu20L_v1.eds";
+
+[Device]
+        VendCode = 590;
+        VendName = "Delta Computer Systems, Inc.";
+        ProdType = 43;
+        ProdTypeStr = "Generic Device";
+        ProdCode = 5;
+        MajRev = 1;
+        MinRev = 1;
+        ProdName = "RMC200 CPU20L";
+        Catalog = "R200-CPU20L";
+        Icon = "r200-cpu20L.ico";
+
+[Device Classification]
+        Class1 = EtherNetIP;
+
+[Params]
+        Param1 =
+                0,                      $ reserved, shall equal 0
+                6,"20 F5 24 01 30 02",  $ Link Path Size, Link Path
+                0x0210,                 $ Descriptor
+                0xD3,                   $ Data Type
+                4,                      $ Data Size in bytes
+                "Configuration Capability",    $ name
+                "",                     $ units
+                "Interface capability flags",    $ help string
+                ,,0x95,                 $ min, max, default data values
+                ,,,,                    $ mult, div, base, offset scaling
+                ,,,,                    $ mult, div, base, offset links
+                ;                       $ decimal places
+
+        Param2 =
+                0,
+                ,,
+                0x0004,
+                0xC8,
+                4,
+                "Cyclic Interval",
+                "ms",
+                "",
+                1000,10000000,20000,
+                1,1000,1,0,
+                ,,,,
+                ;
+
+        Param3 =
+                0,
+                ,,
+                0x0004,
+                0xC7,
+                2,
+                "Produced Data Length",
+                "regs",
+                "",
+                4,1440,128,
+                1,4,1,0,
+                ,,,,
+                ;
+
+        Param4 =
+                0,
+                ,,
+                0x0004,
+                0xC7,
+                2,
+                "Consumed Data Length",
+                "regs",
+                "",
+                4,1440,80,
+                1,4,1,0,
+                ,,,,
+                ;
+
+        Param5 =
+                0,
+                ,,
+                0x0004,
+                0xC7,
+                2,
+                "Produced Data Length 2",
+                "regs",
+                "",
+                4,500,128,
+                1,4,1,0,
+                ,,,,
+                ;
+
+        Param6 =
+                0,
+                ,,
+                0x0004,
+                0xC7,
+                2,
+                "Consumed Data Length 2",
+                "regs",
+                "",
+                4,496,80,
+                1,4,1,0,
+                ,,,,
+                ;
+
+        Param7 =
+                0,
+                ,,
+                0x0004,
+                0xC7,
+                2,
+                "Produced Data Length 3",
+                "regs",
+                "",
+                4,500,128,
+                1,4,1,0,
+                ,,,,
+                ;
+
+        Param8 =
+                0,
+                ,,
+                0x0004,
+                0xC7,
+                2,
+                "Consumed Data Length 3",
+                "regs",
+                "",
+                4,496,80,
+                1,4,1,0,
+                ,,,,
+                ;
+
+        Param100 =
+                0,
+                ,,
+                0x0A30,
+                0xCA,
+                4,
+                "Produced Data Item",
+                "",
+                "",
+                ,,0,
+                ,,,,
+                ,,,,
+                ;
+
+        Param101 =
+                0,
+                ,,
+                0x0A00,
+                0xCA,
+                4,
+                "Consumed Data Item",
+                "",
+                "",
+                ,,0,
+                ,,,,
+                ,,,,
+                ;
+
+[Assembly]
+        Revision = 2;
+        Object_Name = "Assembly Object";
+        Object_Class_Code = 0x04;
+        MaxInst = 8;
+        Number_Of_Static_Instances = 7;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Number of Instances
+        Instance_Attributes =
+                3,                      $ Data
+                4;                      $ Size
+        Class_Services = 0x0E;          $ Get_Attribute_Single
+        Instance_Services =
+                0x0E,                   $ Get_Attribute_Single
+                0x10;                   $ Set_Attribute_Single
+
+        Assem1 =
+                "Produced Data",        $ Name
+                "20 04 24 01 30 03",    $ Path
+                1440,                   $ Size
+                0x0000,                 $ Descriptor
+                ,,                      $ Reserved, Reserved
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100;
+
+        Assem2 =
+                "Consumed Data",        $ Name
+                "20 04 24 02 30 03",    $ Path
+                1440,                   $ Size
+                0x0000,                 $ Descriptor
+                ,,                      $ Reserved, Reserved
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101;
+
+        Assem5 =
+                "Produced Data 2",      $ Name
+                "20 04 24 05 30 03",    $ Path
+                500,                    $ Size
+                0x0000,                 $ Descriptor
+                ,,                      $ Reserved, Reserved
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100;
+
+        Assem6 =
+                "Consumed Data 2",      $ Name
+                "20 04 24 06 30 03",    $ Path
+                496,                    $ Size
+                0x0000,                 $ Descriptor
+                ,,                      $ Reserved, Reserved
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101;
+
+        Assem7 =
+                "Produced Data 3",      $ Name
+                "20 04 24 07 30 03",    $ Path
+                500,                    $ Size
+                0x0000,                 $ Descriptor
+                ,,                      $ Reserved, Reserved
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,32,Param100,
+                32,Param100,32,Param100,32,Param100,32,Param100,32,Param100;
+
+        Assem8 =
+                "Consumed Data 3",      $ Name
+                "20 04 24 08 30 03",    $ Path
+                496,                    $ Size
+                0x0000,                 $ Descriptor
+                ,,                      $ Reserved, Reserved
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,32,Param101,
+                32,Param101,32,Param101,32,Param101,32,Param101;
+
+[Connection Manager]
+        Revision = 1;
+        Object_Name = "Connection Manager Object";
+        Object_Class_Code = 0x06;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Instance_Attributes =
+                1,                      $ Open Requests
+                2,                      $ Open Format Rejects
+                3,                      $ Open Resource Rejects
+                4,                      $ Open Other Rejects
+                5,                      $ Close Requests
+                6,                      $ Close Format Rejects
+                7,                      $ Close Other Rejects
+                8,                      $ Connection Timeouts
+                9,                      $ Connection Entry List
+                11,                     $ CPU Utilization
+                15,                     $ I/O Packets per Second
+                16,                     $ Percent I/O Utilization
+                17,                     $ Explicit Packets per Second
+                18,                     $ Missed I/O Packets
+                19,                     $ CIP I/O Connections
+                20;                     $ CIP Explicit Connections
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x02,                   $ Set_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x04,                   $ Set_Attribute_List
+                0x0E,                   $ Get_Attribute_Single
+                0x10,                   $ Set_Attribute_Single
+                0x4E,                   $ Forward_Close
+                0x54,                   $ Forward_Open
+                0x5B;                   $ Large_Forward_Open
+
+        Connection1 =
+                0x04010002,             $ Class 1, Cyclic, Exclusive Owner
+                0x66640405,             $ O->T: fixed size, 32-bit run/idle header, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,Param4,Assem2,   $ O->T RPI, Size, Format
+                Param2,Param3,Assem1,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Input/Output 1",
+                "",
+                "20 04 24 04 2C 02 2C 01";
+
+        Connection2 =
+                0x02010002,             $ Class 1, Cyclic, Input Only
+                0x66640305,             $ O->T: fixed size, heartbeat, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,0,,              $ O->T RPI, Size, Format
+                Param2,Param3,Assem1,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Input Only 1",
+                "",
+                "20 04 24 04 2C 20 2C 01";
+
+        Connection3 =
+                0x01010002,             $ Class 1, Cyclic, Listen Only
+                0x66640305,             $ O->T: fixed size, heartbeat, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,0,,              $ O->T RPI, Size, Format
+                Param2,Param3,Assem1,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Listen Only 1",
+                "",
+                "20 04 24 04 2C 21 2C 01";
+
+        Connection4 =
+                0x04010002,             $ Class 1, Cyclic, Exclusive Owner
+                0x66640405,             $ O->T: fixed size, 32-bit run/idle header, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,Param6,Assem6,   $ O->T RPI, Size, Format
+                Param2,Param5,Assem5,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Input/Output 2",
+                "",
+                "20 04 24 04 2C 06 2C 05";
+
+        Connection5 =
+                0x02010002,             $ Class 1, Cyclic, Input Only
+                0x66640305,             $ O->T: fixed size, heartbeat, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,0,,              $ O->T RPI, Size, Format
+                Param2,Param5,Assem5,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Input Only 2",
+                "",
+                "20 04 24 04 2C 20 2C 05";
+
+        Connection6 =
+                0x01010002,             $ Class 1, Cyclic, Listen Only
+                0x66640305,             $ O->T: fixed size, heartbeat, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,0,,              $ O->T RPI, Size, Format
+                Param2,Param5,Assem5,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Listen Only 2",
+                "",
+                "20 04 24 04 2C 21 2C 05";
+
+        Connection7 =
+                0x04010002,             $ Class 1, Cyclic, Exclusive Owner
+                0x66640405,             $ O->T: fixed size, 32-bit run/idle header, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,Param8,Assem8,   $ O->T RPI, Size, Format
+                Param2,Param7,Assem7,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Input/Output 3",
+                "",
+                "20 04 24 04 2C 08 2C 07";
+
+        Connection8 =
+                0x02010002,             $ Class 1, Cyclic, Input Only
+                0x66640305,             $ O->T: fixed size, heartbeat, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,0,,              $ O->T RPI, Size, Format
+                Param2,Param7,Assem7,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Input Only 3",
+                "",
+                "20 04 24 04 2C 20 2C 07";
+
+        Connection9 =
+                0x01010002,             $ Class 1, Cyclic, Listen Only
+                0x66640305,             $ O->T: fixed size, heartbeat, POINT2POINT, SCHEDULED or HIGH
+                                        $ T->O: fixed size, modeless, POINT2POINT or MULTICAST, SCHEDULED or HIGH
+                Param2,0,,              $ O->T RPI, Size, Format
+                Param2,Param7,Assem7,   $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Listen Only 3",
+                "",
+                "20 04 24 04 2C 21 2C 07";
+
+        Connection10 =
+                0x00000000,             $ Trigger and Transport Mask
+                0x00110000,             $ Connection Parameters (NULL/NULL)
+                ,0,,                    $ O->T RPI, Size, Format
+                ,0,,                    $ T->O RPI, Size, Format
+                ,,                      $ Proxy Config Size, Format
+                ,,                      $ Target Config Size, Format
+                "Ping",
+                "",
+                "20 01 24 01";
+
+[Port]
+        Revision = 2;
+        Object_Name = "Port Object";
+        Object_Class_Code = 0xF4;
+        MaxInst = 2;
+        Number_Of_Static_Instances = 2;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3,                      $ Num Instances
+                8,                      $ Entry Port
+                9;                      $ Port Instance Info
+        Instance_Attributes =
+                1,                      $ Port Type
+                2,                      $ Port Number
+                3,                      $ Link Object
+                4,                      $ Port Name
+                5,                      $ Port Type Name
+                7,                      $ Port Number and Node Address
+                10;                     $ Port Routing Capabilities
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x0E;                   $ Get_Attribute_Single
+
+        Port1 =
+                TCP,                    $ Port Type
+                "EtherNet/IP port",     $ Port Name
+                "20 F5 24 01",          $ Link Object
+                2,                      $ Port Number
+                0x00,                   $ Port Routing Capabilities
+                ;                       $ Associated Comm. Objects
+        Port2 =
+                590_DeltaUSB,           $ Port Type
+                "USB port",             $ Port Name
+                ,                       $ Link Object
+                3,                      $ Port Number
+                0x00,                   $ Port Routing Capabilities
+                ;                       $ Associated Comm. Objects
+
+[Capacity]
+        MaxIOConnections = 4;
+        MaxMsgConnections = 16;
+        MaxConsumersPerMcast = 4;
+        TSpec1 = TxRx, 2, 6000;
+        TSpec2 = TxRx, 1446, 6000;
+
+[DLR Class]
+        Revision = 3;
+        Object_Name = "Device Level Ring Object";
+        Object_Class_Code = 0x47;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Ring_Supervisor_Capable = No;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Num Instances
+        Instance_Attributes =
+                1,                      $ Network Topology
+                2,                      $ Network Status
+                10,                     $ Active Supervisor Address
+                12;                     $ Capability Flags
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x0E;                   $ Get_Attribute_Single
+
+[TCP/IP Interface Class]
+        Revision = 4;
+        Object_Name = "TCP/IP Interface Object";
+        Object_Class_Code = 0xF5;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Num Instances
+        Instance_Attributes =
+                1,                      $ Status
+                2,                      $ Configuration Capability
+                3,                      $ Configuration Control
+                4,                      $ Physical Link Object
+                5,                      $ Interface Configuration
+                6,                      $ Host Name
+                8,                      $ TTL Value
+                9,                      $ Mcast Config
+                10,                     $ SelectAcd
+                11,                     $ LastConflictDetected
+                13,                     $ EncapInactivityTimeout
+                14,                     $ IANA Port Admin
+                15,                     $ IANA Protocol Admin
+                16,                     $ Active TCP Connections
+                17;                     $ Non-CIP Encapsulation Messages per Second
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x02,                   $ Set_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x04,                   $ Set_Attribute_List
+                0x0E,                   $ Get_Attribute_Single
+                0x10,                   $ Set_Attribute_Single
+                0x4C,                   $ Set_Port_Admin_State
+                0x4D;                   $ Set_Protocol_Admin_State
+
+[Ethernet Link Class]
+        Revision = 4;
+        Object_Name = "Ethernet Link Object";
+        Object_Class_Code = 0xF6;
+        MaxInst = 2;
+        Number_Of_Static_Instances = 2;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Num Instances
+        Instance_Attributes =
+                1,                      $ Interface Speed
+                2,                      $ Interface Flags
+                3,                      $ Physical Address
+                4,                      $ Interface Counters
+                5,                      $ Media Counters
+                6,                      $ Interface Control
+                7,                      $ Interface Type
+                8,                      $ Interface State
+                9,                      $ Admin State
+                10,                     $ Interface Label
+                11,                     $ Interface Capability
+                12,                     $ HC Interface Counters
+                13,                     $ HC Media Counters
+                14,                     $ Ethernet Errors
+                15;                     $ Link Down Counter
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x04,                   $ Set_Attribute_List
+                0x0E,                   $ Get_Attribute_Single
+                0x10,                   $ Set_Attribute_Single
+                0x4C;                   $ Get_And_Clear
+
+        InterfaceLabel1 = "Enet1";
+        InterfaceLabel2 = "Enet2";
+        InterfaceType1 = 2;             $ Twisted pair
+        InterfaceType2 = 2;             $ Twisted pair
+
+[Identity Class]
+        Revision = 1;
+        Object_Name = "Identity Object";
+        Object_Class_Code = 0x01;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Instance_Attributes =
+                1,                      $ Vendor ID
+                2,                      $ Device Type
+                3,                      $ Product Code
+                4,                      $ Revision
+                5,                      $ Status
+                6,                      $ Serial Number
+                7,                      $ Product Name
+                8,                      $ State
+                20;                     $ Uptime
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x05,                   $ Reset
+                0x0E,                   $ Get_Attribute_Single
+                0x4B;                   $ Flash_LEDs
+
+[Message Router Class]
+        Revision = 1;
+        Object_Name = "Message Router Object";
+        Object_Class_Code = 0x02;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Instance_Attributes =
+                1,                      $ Object List
+                2;                      $ Number Available
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x0A,                   $ Multiple_Service_Packet
+                0x0E;                   $ Get_Attribute_Single
+
+[File Class]
+        Revision = 1;
+        Object_Name = "File Object";
+        Object_Class_Code = 0x37;
+        MaxInst = 200;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3,                      $ Num Instances
+                32;                     $ Directory
+        Instance_Attributes =
+                1,                      $ State
+                2,                      $ Instance Name
+                3,                      $ File Format Version
+                4,                      $ File Name
+                5,                      $ File Revision
+                6,                      $ File Size
+                7,                      $ File Checksum
+                8,                      $ Invocation Method
+                9,                      $ File Save Parameters
+                10,                     $ File Access Rule
+                11;                     $ File Encoding Format
+        Class_Services = 0x0E;          $ Get_Attribute_Single
+        Instance_Services =
+                0x03,                   $ Get_Attribute_List
+                0x0E,                   $ Get_Attribute_Single
+                0x4B,                   $ Initiate_Upload
+                0x4F;                   $ Upload_Transfer
+
+[Base Energy Class]
+        Revision = 2;
+        Object_Name = "Base Energy Object";
+        Object_Class_Code = 0x4E;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Num Instances
+        Instance_Attributes =
+                1,                      $ Energy/Resource Type
+                2,                      $ Base Energy Object Capabilities
+                3,                      $ Energy Accuracy
+                7,                      $ Consumed Energy Odometer
+                9,                      $ Net Energy Odometer
+                10,                     $ Energy Transfer Rate
+                12;                     $ Energy Type Specific Object Path
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x0E;                   $ Get_Attribute_Single
+
+[Electrical Energy Class]
+        Revision = 2;
+        Object_Name = "Electrical Energy Object";
+        Object_Class_Code = 0x4F;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Num Instances
+        Instance_Attributes =
+                1,                      $ Real Energy Consumed Odometer
+                3,                      $ Real Energy Net Odometer
+                9,                      $ Line Frequency
+                13,                     $ Average Current
+                18,                     $ Average L-N Voltage
+                27,                     $ Total Real Power
+                41;                     $ Associated Base Energy Object Path
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x01,                   $ Get_Attributes_All
+                0x03,                   $ Get_Attribute_List
+                0x0E;                   $ Get_Attribute_Single
+
+[QoS Class]
+        Revision = 1;
+        Object_Name = "QoS Object";
+        Object_Class_Code = 0x48;
+        MaxInst = 1;
+        Number_Of_Static_Instances = 1;
+        Max_Number_Of_Dynamic_Instances = 0;
+        Class_Attributes =
+                1,                      $ Revision
+                2,                      $ Max Instance
+                3;                      $ Num Instances
+        Instance_Attributes =
+                1,                      $ 802.1Q Tag Enable
+                2,                      $ DSCP PTP Event
+                3,                      $ DSCP PTP General
+                4,                      $ DSCP Urgent
+                5,                      $ DSCP Scheduled
+                6,                      $ DSCP High
+                7,                      $ DSCP Low
+                8;                      $ DSCP Explicit
+        Class_Services =
+                0x01,                   $ Get_Attributes_All
+                0x0E;                   $ Get_Attribute_Single
+        Instance_Services =
+                0x03,                   $ Get_Attribute_List
+                0x04,                   $ Set_Attribute_List
+                0x0E,                   $ Get_Attribute_Single
+                0x10;                   $ Set_Attribute_Single
+
