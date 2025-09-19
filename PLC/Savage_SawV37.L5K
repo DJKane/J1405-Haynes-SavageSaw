@@ -1,0 +1,622 @@
+﻿(*********************************************
+
+  Import-Export
+  Version   := RSLogix 5000 v37.01
+  Owner     := , 
+  Exported  := Sat Sep  6 13:32:51 2025
+
+  Note:  File encoded in UTF-8.  Only edit file in a program 
+         which supports UTF-8 (like Notepad, not Wordpad).
+
+**********************************************)
+IE_VER := 2.28;
+
+CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
+                       Major := 37,
+                       TimeSlice := 20,
+                       ShareUnusedTimeSlice := 1,
+                       RedundancyEnabled := 0,
+                       KeepTestEditsOnSwitchOver := 0,
+                       DataTablePadPercentage := 50,
+                       SecurityCode := 0,
+                       ChangesToDetect := 16#ffff_ffff_ffff_ffff,
+                       SFCExecutionControl := "CurrentActive",
+                       SFCRestartPosition := "MostRecent",
+                       SFCLastScan := "DontScan",
+                       SerialNumber := 16#60ff_308e,
+                       MatchProjectToController := No,
+                       CanUseRPIFromProducer := No,
+                       InhibitAutomaticFirmwareUpdate := 0,
+                       PassThroughConfiguration := EnabledWithAppend,
+                       DownloadProjectDocumentationAndExtendedProperties := Yes,
+                       ReportMinorOverflow := 0,
+                       DataExchangeId := {A25F4E3F-DFA8-4AF6-9FD5-88C1404291ED})
+	DATATYPE Kane_OUT_DATA1 (FamilyType := NoFamily)
+		REAL Unassigned_Var_Table_12;
+		REAL Unassigned_Var_Table_13;
+		REAL Unassigned_Var_Table_14;
+		REAL Unassigned_Var_Table_15;
+		REAL Unassigned_Var_Table_16;
+		REAL Unassigned_Var_Table_17;
+		REAL Unassigned_Var_Table_18;
+		REAL Unassigned_Var_Table_19;
+		REAL Unassigned_Var_Table_20;
+		REAL Unassigned_Var_Table_21;
+	END_DATATYPE
+
+	DATATYPE RMC_IN (FamilyType := NoFamily)
+		DINT xCutStatus;
+		DINT yBedStatus;
+		DINT zDepthStatus;
+		REAL xCutPosition;
+		REAL yBedPosition;
+		REAL zDepthPosition;
+	END_DATATYPE
+
+	DATATYPE RMC_OUT (FamilyType := NoFamily)
+		REAL xCutPosnCommand;
+		REAL yBedPosnCommand;
+		REAL zDepthPosnCommand;
+		REAL xCutVelocity;
+		REAL yBedVelocity;
+		REAL zDepthVelocity;
+	END_DATATYPE
+
+	MODULE Local (Parent := "Local",
+	              ParentModPortId := 1,
+	              CatalogNumber := "1769-L19ER-BB1B",
+	              Vendor := 1,
+	              ProductType := 14,
+	              ProductCode := 152,
+	              Major := 37,
+	              Minor := 11,
+	              ChassisSize := 9,
+	              Slot := 0,
+	              Mode := 2#0000_0000_0000_0001,
+	              CompatibleModule := 0,
+	              KeyMask := 2#0000_0000_0001_1111)
+	END_MODULE
+
+	MODULE Discrete_IO (Parent := "Local",
+	                    ParentModPortId := 1,
+	                    CatalogNumber := "Embedded",
+	                    Vendor := 1,
+	                    ProductType := 7,
+	                    ProductCode := 1140,
+	                    Major := 37,
+	                    Minor := 11,
+	                    PortLabel := "RxBACKPLANE",
+	                    Slot := 1,
+	                    Mode := 2#0000_0000_0000_0001,
+	                    CompatibleModule := 1,
+	                    KeyMask := 2#0000_0000_0001_1111,
+	                    DataExchangeId := {CF7C4065-E2A1-427D-BCF9-D7C207528A94})
+			ExtendedProp := [[[___<public><ConfigID>100</ConfigID><CatNum>Embedded</CatNum></public>___]]]
+			ConfigData  := [84,113,1,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000
+		,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,0,0,0,0,0,0];
+			CONNECTION Data (Rate := 20000,
+			                 EventID := 0,
+			                 Unicast := No)
+					InputData  := [0,0];
+					OutputData  := [0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE Analog0_1 (Parent := "Local",
+	                  ParentModPortId := 1,
+	                  CatalogNumber := "1734-IE2V/C",
+	                  Vendor := 1,
+	                  ProductType := 115,
+	                  ProductCode := 55,
+	                  Major := 3,
+	                  Minor := 5,
+	                  PortLabel := "RxBACKPLANE",
+	                  Slot := 2,
+	                  CommMethod := 536870913,
+	                  ConfigMethod := 8388609,
+	                  Mode := 2#0000_0000_0000_0000,
+	                  CompatibleModule := 1,
+	                  KeyMask := 2#0000_0000_0001_1111,
+	                  DataExchangeId := {2C27A8FF-B2DF-4E28-994D-E539E896B1BD})
+			ExtendedProp := [[[___<public><ConfigID>102</ConfigID><CatNum>1734-IE2V</CatNum></public>___]]]
+			ConfigData  := [46,123,1,0,10000,0,500,9500,200,9800,2,0,0,0,0,10000,0,500,9500,200,9800,2,0,0,2,100];
+			CONNECTION InputData (Rate := 80000,
+			                      EventID := 0,
+			                      Unicast := No)
+					InputData  := [0,0,0,1,1];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE Analog2_3 (Parent := "Local",
+	                  ParentModPortId := 1,
+	                  CatalogNumber := "1734-IE2V/C",
+	                  Vendor := 1,
+	                  ProductType := 115,
+	                  ProductCode := 55,
+	                  Major := 3,
+	                  Minor := 4,
+	                  PortLabel := "RxBACKPLANE",
+	                  Slot := 3,
+	                  CommMethod := 536870913,
+	                  ConfigMethod := 8388609,
+	                  Mode := 2#0000_0000_0000_0000,
+	                  CompatibleModule := 1,
+	                  KeyMask := 2#0000_0000_0001_1111,
+	                  DataExchangeId := {9F26FB98-27F3-4567-8DB5-91F497A6F565})
+			ExtendedProp := [[[___<public><ConfigID>102</ConfigID><CatNum>1734-IE2V</CatNum></public>___]]]
+			ConfigData  := [46,123,1,0,10000,0,500,9500,200,9800,2,0,0,0,0,10000,0,500,9500,200,9800,2,0,0,2,100];
+			CONNECTION InputData (Rate := 80000,
+			                      EventID := 0,
+			                      Unicast := No)
+					InputData  := [0,0,0,21,21];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE Analog4_5 (Parent := "Local",
+	                  ParentModPortId := 1,
+	                  CatalogNumber := "1734-IE2V/C",
+	                  Vendor := 1,
+	                  ProductType := 115,
+	                  ProductCode := 55,
+	                  Major := 3,
+	                  Minor := 1,
+	                  PortLabel := "RxBACKPLANE",
+	                  Slot := 4,
+	                  CommMethod := 536870913,
+	                  ConfigMethod := 8388609,
+	                  Mode := 2#0000_0000_0000_0000,
+	                  CompatibleModule := 1,
+	                  KeyMask := 2#0000_0000_0001_1111,
+	                  DataExchangeId := {E1E9289A-316B-4060-B299-2F043344D2A0})
+			ExtendedProp := [[[___<public><ConfigID>102</ConfigID><CatNum>1734-IE2V</CatNum></public>___]]]
+			ConfigData  := [46,123,1,0,10000,0,500,9500,200,9800,2,0,0,0,0,10000,0,500,9500,200,9800,2,0,0,2,100];
+			CONNECTION InputData (Rate := 80000,
+			                      EventID := 0,
+			                      Unicast := No)
+					InputData  := [0,0,0,0,0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE SpindleControl (Parent := "Local",
+	                       ParentModPortId := 1,
+	                       CatalogNumber := "1734-OE2V/C",
+	                       Vendor := 1,
+	                       ProductType := 115,
+	                       ProductCode := 56,
+	                       Major := 3,
+	                       Minor := 1,
+	                       PortLabel := "RxBACKPLANE",
+	                       Slot := 5,
+	                       CommMethod := 536870913,
+	                       ConfigMethod := 8388609,
+	                       Mode := 2#0000_0000_0000_0000,
+	                       CompatibleModule := 1,
+	                       KeyMask := 2#0000_0000_0001_1111,
+	                       DataExchangeId := {0E8D2BD3-CE4F-477F-AB5D-5EF83F55CC9C})
+			ExtendedProp := [[[___<public><ConfigID>402</ConfigID><CatNum>1734-OE2V</CatNum></public>___]]]
+			ConfigData  := [44,123,1,0,0,0,10000,-32768,32767,1,1,1,0,0,0,0,0,0,10000,-32768,32767,1,1,1,0,0,0];
+			CONNECTION OutputData (Rate := 80000,
+			                       EventID := 0,
+			                       Unicast := No)
+					InputData  := [0,0,0];
+					OutputData  := [0,0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE $NoName (Parent := "Local",
+	            ParentModPortId := 1,
+	            CatalogNumber := "1734-OA4/C",
+	            Vendor := 1,
+	            ProductType := 7,
+	            ProductCode := 290,
+	            Major := 3,
+	            Minor := 22,
+	            PortLabel := "RxBACKPLANE",
+	            Slot := 6,
+	            CommMethod := 536870913,
+	            Mode := 2#0000_0000_0000_0000,
+	            CompatibleModule := 1,
+	            KeyMask := 2#0000_0000_0001_1111,
+	            DataExchangeId := {D0D6F8AB-C65C-4226-B974-8059C6DB3226})
+			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
+			ConfigData  := [12,103,1,0,0,0,0];
+			CONNECTION OutputData (Rate := 20000,
+			                       EventID := 0,
+			                       Unicast := No)
+					InputData  := [0];
+					OutputData  := [0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE $NoName (Parent := "Local",
+	            ParentModPortId := 1,
+	            CatalogNumber := "1734-OA4/C",
+	            Vendor := 1,
+	            ProductType := 7,
+	            ProductCode := 290,
+	            Major := 3,
+	            Minor := 1,
+	            PortLabel := "RxBACKPLANE",
+	            Slot := 7,
+	            CommMethod := 536870913,
+	            Mode := 2#0000_0000_0000_0000,
+	            CompatibleModule := 1,
+	            KeyMask := 2#0000_0000_0001_1111,
+	            DataExchangeId := {0B9C7D6F-D97A-4435-A46B-580DDA3FCF7A})
+			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
+			ConfigData  := [12,103,1,0,0,0,0];
+			CONNECTION OutputData (Rate := 20000,
+			                       EventID := 0,
+			                       Unicast := No)
+					InputData  := [0];
+					OutputData  := [0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE $NoName (Parent := "Local",
+	            ParentModPortId := 1,
+	            CatalogNumber := "1734-OA4/C",
+	            Vendor := 1,
+	            ProductType := 7,
+	            ProductCode := 290,
+	            Major := 3,
+	            Minor := 1,
+	            PortLabel := "RxBACKPLANE",
+	            Slot := 8,
+	            CommMethod := 536870913,
+	            Mode := 2#0000_0000_0000_0000,
+	            CompatibleModule := 1,
+	            KeyMask := 2#0000_0000_0001_1111,
+	            DataExchangeId := {2D537EB8-BE75-4EE8-885C-54FCA74DB874})
+			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
+			ConfigData  := [12,103,1,0,0,0,0];
+			CONNECTION OutputData (Rate := 20000,
+			                       EventID := 0,
+			                       Unicast := No)
+					InputData  := [0];
+					OutputData  := [0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE RemoteHPU (Parent := "Local",
+	                  ParentModPortId := 2,
+	                  CatalogNumber := "1734-AENTR/C",
+	                  Vendor := 1,
+	                  ProductType := 12,
+	                  ProductCode := 196,
+	                  Major := 7,
+	                  Minor := 13,
+	                  PortLabel := "ENet",
+	                  ChassisSize := 8,
+	                  Slot := 0,
+	                  NodeAddress := "192.168.3.11",
+	                  CommMethod := 805306369,
+	                  Mode := 2#0000_0000_0000_0000,
+	                  CompatibleModule := 1,
+	                  KeyMask := 2#0000_0000_0001_1111,
+	                  DataExchangeId := {4B119CA4-9A7E-4214-91AD-D48FD9F09E4A})
+			ExtendedProp := [[[___<public><ConfigID>262145</ConfigID><CatNum>1734-AENTR</CatNum></public>___]]]
+			CONNECTION Output (Rate := 20000,
+			                   EventID := 0,
+			                   Unicast := Yes)
+					InputData  := [-249,-1,[0,0,0,0,0,15,15,15]];
+					OutputData  := [-249,-1,[0,0,0,0,0,0,0,0]];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE AnalogIn5_6 (Parent := "RemoteHPU",
+	                    ParentModPortId := 1,
+	                    CatalogNumber := "1734-IE2V/C",
+	                    Vendor := 1,
+	                    ProductType := 115,
+	                    ProductCode := 55,
+	                    Major := 3,
+	                    Minor := 5,
+	                    PortLabel := "RxBACKPLANE",
+	                    Slot := 1,
+	                    CommMethod := 536870913,
+	                    ConfigMethod := 8388609,
+	                    Mode := 2#0000_0000_0000_0000,
+	                    CompatibleModule := 1,
+	                    KeyMask := 2#0000_0000_0001_1111,
+	                    DataExchangeId := {E4CD1004-C626-4742-8423-90797921D565})
+			ExtendedProp := [[[___<public><ConfigID>102</ConfigID><CatNum>1734-IE2V</CatNum></public>___]]]
+			ConfigData  := [46,123,1,0,10000,0,500,9500,200,9800,2,0,0,0,0,10000,0,500,9500,200,9800,2,0,0,2,100];
+			CONNECTION InputData (Rate := 80000,
+			                      EventID := 0,
+			                      Unicast := Yes)
+					InputData  := [0,10565,10565,-87,-87];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE $NoName (Parent := "RemoteHPU",
+	            ParentModPortId := 1,
+	            CatalogNumber := "1734-IB8/C",
+	            Vendor := 1,
+	            ProductType := 7,
+	            ProductCode := 216,
+	            Major := 3,
+	            Minor := 1,
+	            PortLabel := "RxBACKPLANE",
+	            Slot := 2,
+	            CommMethod := 1073741824,
+	            Mode := 2#0000_0000_0000_0000,
+	            CompatibleModule := 1,
+	            KeyMask := 2#0000_0000_0001_1111,
+	            DataExchangeId := {EE30E39C-B4D8-40D2-A13F-3970658EECFE})
+			ExtendedProp := [[[___<public><ConfigID>262147</ConfigID><CatNum>1734-IB8</CatNum></public>___]]]
+			ConfigData  := [40,103,1,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {A6D36380-2F97-4003-824A-14E2426FDD63});
+	END_MODULE
+
+	MODULE InputDC0_8 (Parent := "RemoteHPU",
+	                   ParentModPortId := 1,
+	                   CatalogNumber := "1734-IB8/C",
+	                   Vendor := 1,
+	                   ProductType := 7,
+	                   ProductCode := 216,
+	                   Major := 3,
+	                   Minor := 22,
+	                   PortLabel := "RxBACKPLANE",
+	                   Slot := 3,
+	                   CommMethod := 1073741824,
+	                   Mode := 2#0000_0000_0000_0000,
+	                   CompatibleModule := 1,
+	                   KeyMask := 2#0000_0000_0001_1111,
+	                   DataExchangeId := {AA5323F8-D4E5-4570-91D8-7B83125B5CCC})
+			ExtendedProp := [[[___<public><ConfigID>262147</ConfigID><CatNum>1734-IB8</CatNum></public>___]]]
+			ConfigData  := [40,103,1,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {38A5D103-83BD-4C64-99D5-FC03F8B82C23});
+	END_MODULE
+
+	MODULE $NoName (Parent := "RemoteHPU",
+	            ParentModPortId := 1,
+	            CatalogNumber := "1734-IB8/C",
+	            Vendor := 1,
+	            ProductType := 7,
+	            ProductCode := 216,
+	            Major := 3,
+	            Minor := 1,
+	            PortLabel := "RxBACKPLANE",
+	            Slot := 4,
+	            CommMethod := 1073741824,
+	            Mode := 2#0000_0000_0000_0000,
+	            CompatibleModule := 1,
+	            KeyMask := 2#0000_0000_0001_1111,
+	            DataExchangeId := {EA9B29C5-9551-43F7-817E-55B5B4887432})
+			ExtendedProp := [[[___<public><ConfigID>262147</ConfigID><CatNum>1734-IB8</CatNum></public>___]]]
+			ConfigData  := [40,103,1,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {BE06067D-789E-48A3-AA80-A6C931062639});
+	END_MODULE
+
+	MODULE OutputDC0_3 (Parent := "RemoteHPU",
+	                    ParentModPortId := 1,
+	                    CatalogNumber := "1734-OB4E/C",
+	                    Vendor := 1,
+	                    ProductType := 7,
+	                    ProductCode := 134,
+	                    Major := 3,
+	                    Minor := 2,
+	                    PortLabel := "RxBACKPLANE",
+	                    Slot := 5,
+	                    CommMethod := 1073741824,
+	                    ConfigMethod := 8388611,
+	                    Mode := 2#0000_0000_0000_0000,
+	                    CompatibleModule := 1,
+	                    KeyMask := 2#0000_0000_0001_1111,
+	                    DataExchangeId := {8F99B989-18A9-4430-99A5-BD8A62FE2AE8})
+			ExtendedProp := [[[___<public><ConfigID>262156</ConfigID><CatNum>1734-OB4E</CatNum></public>___]]]
+			ConfigData  := [16,123,1,0,0,0,0,15,0,0,0];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {81983F69-E514-4BAC-9A9B-795FAEFE1734});
+			OutputAliasComments (RADIX := Binary,
+			            DataExchangeId := {4EE456A0-64B6-487D-ABF4-3F0C5113AAE6});
+	END_MODULE
+
+	MODULE OutputDC4_7 (Parent := "RemoteHPU",
+	                    ParentModPortId := 1,
+	                    CatalogNumber := "1734-OB4E/C",
+	                    Vendor := 1,
+	                    ProductType := 7,
+	                    ProductCode := 134,
+	                    Major := 3,
+	                    Minor := 2,
+	                    PortLabel := "RxBACKPLANE",
+	                    Slot := 6,
+	                    CommMethod := 1073741824,
+	                    ConfigMethod := 8388611,
+	                    Mode := 2#0000_0000_0000_0000,
+	                    CompatibleModule := 1,
+	                    KeyMask := 2#0000_0000_0001_1111,
+	                    DataExchangeId := {32FD6558-7441-4C63-9EE8-60F50D927A2F})
+			ExtendedProp := [[[___<public><ConfigID>262156</ConfigID><CatNum>1734-OB4E</CatNum></public>___]]]
+			ConfigData  := [16,123,1,0,0,0,0,15,0,0,0];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {D6939142-04C0-4D56-A564-2FA9066436B4});
+			OutputAliasComments (RADIX := Binary,
+			            DataExchangeId := {DB11E4A4-AA75-4F14-AA77-A276678CEB35});
+	END_MODULE
+
+	MODULE Kane (Parent := "Local",
+	             ParentModPortId := 2,
+	             CatalogNumber := "R200-CPU20L",
+	             Vendor := 590,
+	             ProductType := 43,
+	             ProductCode := 5,
+	             Major := 1,
+	             Minor := 1,
+	             PortLabel := "ENet",
+	             NodeAddress := "192.168.3.12",
+	             Mode := 2#0000_0000_0000_0000,
+	             CompatibleModule := 1,
+	             KeyMask := 2#0000_0000_0001_1111,
+	             SafetyEnabled := 0,
+	             DataExchangeId := {93105D03-E833-4416-87C2-29B876ABE3D4})
+			ExtendedProp := [[[___<public><PL>01<Version Name=$Q1.1$Q/><Connection Name=$Q_200424042C022C01$Q Format=$Q4$Q/></PL><CatNum>R200-CPU20L</CatNum><DataTypeFormats><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 01 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 02 30 03$Q Format=$Q1$Q Type=$QOutput$Q/></DataTypeFormats></public>___]]]
+			CONNECTION _200424042C022C01 (Rate := 20000,
+			                              InputSize := 32,
+			                              OutputSize := 28,
+			                              EventID := 0,
+			                              Priority := Scheduled,
+			                              InputConnectionType := Unicast,
+			                              InputProductionTrigger := Cyclic,
+			                              ConnectionPath := "20 04 24 04 2c 02 2c 01",
+			                              InputTagSuffix := "I1",
+			                              OutputTagSuffix := "O1")
+					InputData  := [0,[2.00000000e+000,1.50547149e-036,1.50547149e-036,3.78560028e+001,3.78560028e+001,0.00000000e+000
+		,0.00000000e+000]];
+					OutputData  := [[2.00000000e+000,9.99899960e+000,2.20000000e+000,3.29999995e+000,4.40000010e+000,5.50000000e+000
+		,6.95999985e+001]];
+			END_CONNECTION
+
+	END_MODULE
+
+	TAG
+		InBackGaugePot OF Local:3:I.Ch1Data (RADIX := Decimal,
+		            DataExchangeId := {6483E1D4-B5F7-4793-9AC9-A8D6B481AC99});
+		inMS1HydraulicPump OF Local:1:I.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {6C86BD59-F781-43D9-B727-371529CBF264});
+		inMS2HydraulicKidneyLoop OF Local:1:I.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {67F39228-C630-459B-83B1-B389AE83581C});
+		InMS3HydCoolingFan OF Local:1:I.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {B2D90655-5078-4DEE-9571-3726ADEAACB8});
+		inMS4CoolantStarter OF Local:1:I.Data.4 (RADIX := Decimal,
+		            DataExchangeId := {BD7DDFB4-0BFD-4C85-B77F-03612D4C66E6});
+		inMS5SwarfPump OF Local:1:I.Data.5 (RADIX := Decimal,
+		            DataExchangeId := {29918BC3-0C07-4EE1-A1EA-F3FB6B37A62B});
+		inMS6SwarfConveyor OF Local:1:I.Data.6 (RADIX := Decimal,
+		            DataExchangeId := {1EECB47E-CD47-4098-99A4-899DB001DE68});
+		inRaiseLowerPot OF Local:2:I.Ch1Data (RADIX := Decimal,
+		            DataExchangeId := {D2C70B29-7D70-4834-BDCD-499B5E8B2B3B});
+		inSpindleAside OF Local:4:I.Ch0Data (RADIX := Decimal,
+		            DataExchangeId := {940C8831-7972-4A50-92AA-F2C60168B413});
+		inSpindleBside OF Local:4:I.Ch1Data (RADIX := Decimal,
+		            DataExchangeId := {F1646682-5521-4D4D-964A-7D9F351AAD51});
+		inSpindleSpeed OF Local:2:I.Ch0Data (RADIX := Decimal,
+		            DataExchangeId := {8E33B023-33CA-48B6-A82E-C4F1E161756C});
+		inSR1SafetyRelay OF Local:1:I.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {366AB894-C128-431F-852B-63397D83BF32});
+		inTraversePot OF Local:3:I.Ch0Data (RADIX := Decimal,
+		            DataExchangeId := {0ED68D47-1F63-40A5-A1CA-B9DEA14FA815});
+		outLaserLine OF Local:8:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {CDB559FF-86E2-43F3-9858-737996C443AF});
+		outMS1Hydraulic OF Local:6:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {0280884E-BA40-4C23-AADC-FB094EDF7EC4});
+		outMS2KidneyLoop OF Local:6:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {0755783A-2CC1-4729-977C-A9503E4CBADA});
+		outMS3HydraulicCooling OF Local:6:O.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {53FE209C-3916-4A97-A846-EC7932A0CD8E});
+		outMS4Coolant OF Local:6:O.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {770CE8DE-83E0-4425-8A91-5B8A181756C8});
+		outMS5SwarfPump OF Local:7:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {F36F72CE-E76B-42C8-A833-6F2DB4D4A3EE});
+		outMS6SwarfConveyor OF Local:7:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {B802DFF0-7E97-4CD1-847B-8AC8A87BED5A});
+		outSpindleMotor OF Local:5:O.Ch1Data (RADIX := Decimal,
+		            DataExchangeId := {5B2F5758-3E7D-4CE2-BE33-EB1B0D834B9D});
+		outSpindlePump OF Local:5:O.Ch0Data (RADIX := Decimal,
+		            DataExchangeId := {9B0FBCFD-F11E-4DA4-89A3-65D6179184CF});
+		outStackLtAmber OF Local:8:O.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {E51133B5-9BCA-4CBD-BF3C-59969E1ECD50});
+		outStackLtGreen OF Local:8:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {528B4842-0B1E-4675-9C0C-B651F10035BE});
+		outStackLtRed OF Local:8:O.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {B574107E-1C87-4A46-A9C9-F4A175310E23});
+		RMC_Busy : BOOL (RADIX := Decimal) := 0;
+		RMC_In : RMC_IN  := [67113540,67113540,1108831372,3.78560028e+001,0.00000000e+000,0.00000000e+000];
+		RMC_Out : RMC_OUT  := [9.99899960e+000,2.20000000e+000,3.29999995e+000,4.40000010e+000,5.50000000e+000,6.95999985e+001
+				];
+		RMC_SendRequest : BOOL (RADIX := Decimal) := 0;
+		tbOnOff : BOOL (RADIX := Decimal) := 0;
+		test : DINT (RADIX := Decimal) := 0;
+		tmrTest : TIMER  := [0,1000,0];
+	END_TAG
+
+	PROGRAM Inputs (MAIN := "Main",
+	                MODE := 0,
+	                DisableFlag := 0,
+	                UseAsFolder := 0)
+		TAG
+		END_TAG
+
+		ROUTINE inAnalog 
+		END_ROUTINE
+
+		ROUTINE Main 
+		END_ROUTINE
+
+		CHILD_PROGRAMS
+		END_CHILD_PROGRAMS
+
+	END_PROGRAM
+
+	PROGRAM MainProgram (MAIN := "Main",
+	                     MODE := 0,
+	                     DisableFlag := 0,
+	                     UseAsFolder := 0)
+		TAG
+		END_TAG
+
+		ROUTINE Main 
+				N: JSR(RMC,0);
+		END_ROUTINE
+
+		ROUTINE RMC 
+				N: CPS(Kane:I1.Data[1],RMC_In,1);
+				N: XIC(RMC_SendRequest)XIO(RMC_Busy)EQ(Kane:I1.Data[0],Kane:O1.Data[0])[CPS(RMC_Out,Kane:O1.Data[1],10) ,CPT(Kane:O1.Data[0],(Kane:I1.Data[0]+1)MOD 1000) ,OTL(RMC_Busy) ];
+				N: XIC(RMC_Busy)EQ(Kane:I1.Data[0],Kane:O1.Data[0])[OTU(RMC_Busy) ,OTU(RMC_SendRequest) ];
+				N: XIC(tbOnOff)XIC(tmrTest.DN)ADD(test,1,test);
+				N: XIC(tbOnOff)XIO(tmrTest.DN)TON(tmrTest,?,?);
+		END_ROUTINE
+
+		CHILD_PROGRAMS
+		END_CHILD_PROGRAMS
+
+	END_PROGRAM
+
+	TASK MainTask (Type := CONTINUOUS,
+	               Rate := 10,
+	               Priority := 10,
+	               Watchdog := 500,
+	               DisableUpdateOutputs := No,
+	               InhibitTask := No)
+			MainProgram;
+			Inputs;
+	END_TASK
+
+CONFIG CST(SystemTimeMasterID := 0) END_CONFIG
+
+CONFIG EthernetNetwork(SupervisorModeEnabled := 0,
+	                                 SupervisorPrecedence := 0,
+	                                 BeaconInterval := 400,
+	                                 BeaconTimeout := 1960,
+	                                 VLANID := 0) END_CONFIG
+
+CONFIG EthernetPort1(Label := "1",
+	                             PortEnabled := 1) END_CONFIG
+
+CONFIG EthernetPort2(Label := "2",
+	                             PortEnabled := 1) END_CONFIG
+
+CONFIG TimeSynchronize(Priority1 := 128,
+	                                 Priority2 := 128,
+	                                 PTPEnable := 0) END_CONFIG
+
+CONFIG WallClockTime(LocalTimeAdjustment := 0,
+	                     TimeZone := 0) END_CONFIG
+
+END_CONTROLLER
+
