@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Project
-    SWVersion="5.07.0"
+    SWVersion="5.08.1"
     ProjectName="Kane"
     Author=""
     ProjDesc=""
@@ -51,6 +51,7 @@
           FeatureStatus="6"
           FeatureSerNo="2KJ0380"
           EnabledFeatures="4"
+          EnableRTC="1"
           TimeZone="UTC"
           Port1Enable="1"
           Port1Config="AutoNeg"
@@ -73,8 +74,8 @@
           ProAddr="16#00008000"
           ConAddr="16#00400000"
           IODataMode="0"
-          IO2ProAddr="16#00100014"
-          IO2ConAddr="16#00008208"
+          IO2ProAddr="16#00008003"
+          IO2ConAddr="16#00400006"
           IO2DataMode="0"
           IO3ProAddr="16#000080F0"
           IO3ConAddr="16#00008280"
@@ -752,40 +753,22 @@
       <IndirectDataMap>
          <MapEntry
              Offset="0"
-             RegisterAddress="%MD256.0"/>
-         <MapEntry
-             Offset="1"
-             RegisterAddress="%MD257.0"/>
-         <MapEntry
-             Offset="2"
-             RegisterAddress="%MD258.0"/>
-         <MapEntry
-             Offset="3"
              RegisterAddress="%MD256.20"/>
          <MapEntry
-             Offset="4"
+             Offset="1"
              RegisterAddress="%MD257.20"/>
          <MapEntry
-             Offset="5"
+             Offset="2"
              RegisterAddress="%MD258.20"/>
          <MapEntry
-             Offset="10"
-             RegisterAddress="%MD1024.0"/>
+             Offset="3"
+             RegisterAddress="%MD256.0"/>
          <MapEntry
-             Offset="11"
-             RegisterAddress="%MD1024.1"/>
+             Offset="4"
+             RegisterAddress="%MD257.0"/>
          <MapEntry
-             Offset="12"
-             RegisterAddress="%MD1024.2"/>
-         <MapEntry
-             Offset="13"
-             RegisterAddress="%MD1024.3"/>
-         <MapEntry
-             Offset="14"
-             RegisterAddress="%MD1024.4"/>
-         <MapEntry
-             Offset="15"
-             RegisterAddress="%MD1024.5"/>
+             Offset="5"
+             RegisterAddress="%MD258.0"/>
       </IndirectDataMap>
       <AddressMapModbus/>
       <AddressMapDF1/>
@@ -834,22 +817,22 @@
              DefaultValue="0"/>
          <Variable
              Offset="1"
-             TagName="yBedPosnCOmmand"
-             Format="REAL"
-             DefaultValue="0"/>
-         <Variable
-             Offset="2"
-             TagName="zDepthPosnCommand"
-             Format="REAL"
-             DefaultValue="0"/>
-         <Variable
-             Offset="3"
              TagName="xCutVelocity"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
-             Offset="4"
+             Offset="2"
+             TagName="yBedPosnCommand"
+             Format="REAL"
+             DefaultValue="0"/>
+         <Variable
+             Offset="3"
              TagName="yBedVelocity"
+             Format="REAL"
+             DefaultValue="0"/>
+         <Variable
+             Offset="4"
+             TagName="zDepthPosnCommand"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
@@ -859,8 +842,66 @@
              DefaultValue="0"/>
          <Variable
              Offset="6"
-             TagName="StartProgram"
-             Format="REAL"
+             TagName="xCutControl"
+             Format="DWORD"
+             DefaultValue="16#00000000"/>
+         <Variable
+             Offset="7"
+             TagName="yBedControl"
+             Format="DWORD"
+             DefaultValue="16#00000000"/>
+         <Variable
+             Offset="8"
+             TagName="zDepthControl"
+             Format="DWORD"
+             DefaultValue="16#00000000"/>
+         <Variable
+             Offset="12"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="13"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="14"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="15"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="16"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="17"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="18"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="19"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="20"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="21"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="22"
+             Format="DINT"
+             DefaultValue="0"/>
+         <Variable
+             Offset="23"
+             Format="DINT"
              DefaultValue="0"/>
       </VariableTable>
       <DiscreteIO>
@@ -940,7 +981,8 @@
       <UserProgramMgr
           EnableExprLogging="True"
           EnableICMDLogging="True"
-          InitializeProgTriggers="True">
+          InitializeProgTriggers="True"
+          InsertAxisName="True">
          <UserProgram
              Name="Background Events"
              Type="POLL"
@@ -957,17 +999,21 @@
             <ProgramBlock
                 Type="POLL">
                <PollItem
-                   Condition="StartProgram = 1.0"
-                   Task0Action="MoveAxis"
+                   Condition="xCutControl.0 = 1"
+                   Task0Action="MoveXAxis"
                    Description=""/>
                <PollItem
-                   Condition="StartProgram =2.0"
-                   Task0Action="MoveAxisAgain"
+                   Condition="xCutControl.1 = 1 AND xCutControl.2 = 0"
+                   Task0Action="JogXPos"
+                   Description=""/>
+               <PollItem
+                   Condition="xCutControl.1 = 1 AND xCutControl.2 = 1"
+                   Task0Action="JogXNeg"
                    Description=""/>
             </ProgramBlock>
          </UserProgram>
          <UserProgram
-             Name="MoveAxis"
+             Name="MoveXAxis"
              Type="STEP"
              Number="0"
              Desc=""
@@ -980,8 +1026,8 @@
                   <Command
                       Command="20"
                       CmdAxes="1"
-                      CmdPrm1="10.0"
-                      CmdPrm2="2.0"
+                      CmdPrm1="xCutPosnCommand"
+                      CmdPrm2="xCutVelocity"
                       CmdPrm3="100.0"
                       CmdPrm4="100.0"
                       CmdPrm5="Nearest (0)"/>
@@ -992,7 +1038,7 @@
             </ProgramBlock>
          </UserProgram>
          <UserProgram
-             Name="MoveAxisAgain"
+             Name="JogXPos"
              Type="STEP"
              Number="1"
              Desc=""
@@ -1003,13 +1049,36 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="20"
+                      Command="37"
                       CmdAxes="1"
-                      CmdPrm1="1.0"
-                      CmdPrm2="2.0"
+                      CmdPrm1="xCutVelocity"
+                      CmdPrm2="100.0"
                       CmdPrm3="100.0"
-                      CmdPrm4="100.0"
-                      CmdPrm5="Nearest (0)"/>
+                      CmdPrm4="Positive (+1)"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="JogXNeg"
+             Type="STEP"
+             Number="2"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="37"
+                      CmdAxes="1"
+                      CmdPrm1="xCutVelocity"
+                      CmdPrm2="100.0"
+                      CmdPrm3="100.0"
+                      CmdPrm4="Negative (-1)"/>
                </Step>
                <Transition>
                   <End/>
