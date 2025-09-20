@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Sat Sep 20 15:22:18 2025
+  Exported  := Sat Sep 20 16:17:45 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -342,7 +342,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	                  Major := 7,
 	                  Minor := 13,
 	                  PortLabel := "ENet",
-	                  ChassisSize := 8,
+	                  ChassisSize := 6,
 	                  Slot := 0,
 	                  NodeAddress := "192.168.3.11",
 	                  CommMethod := 805306369,
@@ -354,8 +354,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 			CONNECTION Output (Rate := 20000,
 			                   EventID := 0,
 			                   Unicast := Yes)
-					InputData  := [-249,-1,[0,0,0,0,0,15,15,15]];
-					OutputData  := [-249,-1,[0,0,0,0,0,0,0,0]];
+					InputData  := [0,0,[0,0,0,0,0,0]];
+					OutputData  := [0,0,[0,0,0,0,0,0]];
 			END_CONNECTION
 
 	END_MODULE
@@ -414,7 +414,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	                    ProductType := 7,
 	                    ProductCode := 216,
 	                    Major := 3,
-	                    Minor := 1,
+	                    Minor := 22,
 	                    PortLabel := "RxBACKPLANE",
 	                    Slot := 3,
 	                    CommMethod := 1073741824,
@@ -437,7 +437,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	                    Major := 3,
 	                    Minor := 2,
 	                    PortLabel := "RxBACKPLANE",
-	                    Slot := 5,
+	                    Slot := 4,
 	                    CommMethod := 1073741824,
 	                    ConfigMethod := 8388611,
 	                    Mode := 2#0000_0000_0000_0000,
@@ -461,7 +461,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	                    Major := 3,
 	                    Minor := 2,
 	                    PortLabel := "RxBACKPLANE",
-	                    Slot := 6,
+	                    Slot := 5,
 	                    CommMethod := 1073741824,
 	                    ConfigMethod := 8388611,
 	                    Mode := 2#0000_0000_0000_0000,
