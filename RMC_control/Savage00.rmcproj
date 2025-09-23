@@ -812,48 +812,67 @@
       <VariableTable>
          <Variable
              Offset="0"
-             TagName="xCutPosnCommand"
+             TagName="xGaugePosnCommand"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
              Offset="1"
-             TagName="xCutVelocity"
+             TagName="xGaugeVelocity"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
              Offset="2"
-             TagName="yBedPosnCommand"
+             TagName="yTraversePosnCommand"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
              Offset="3"
-             TagName="yBedVelocity"
+             TagName="yTraverseVelocity"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
              Offset="4"
-             TagName="zDepthPosnCommand"
+             TagName="zRaiseLowerPosnCommand"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
              Offset="5"
-             TagName="zDepthVelocity"
+             TagName="zRaiseLowerVelocity"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
              Offset="6"
-             TagName="xCutControl"
+             TagName="xGaugeControl"
              Format="DWORD"
+             Bit0Name="CommandMove"
+             Bit1Name="CommandJog"
+             Bit2Name="Reverse"
+             Bit3Name="Stop"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="7"
-             TagName="yBedControl"
+             TagName="yTraverseControl"
              Format="DWORD"
+             Bit0Name="CommandMove"
+             Bit1Name="CommandJog"
+             Bit2Name="Reverse"
+             Bit3Name="Stop"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="8"
-             TagName="zDepthControl"
+             TagName="zRaiseLowerControl"
              Format="DWORD"
+             Bit0Name="CommandMove"
+             Bit1Name="CommandJog"
+             Bit2Name="Reverse"
+             Bit3Name="Stop"
+             DefaultValue="16#00000000"/>
+         <Variable
+             Offset="9"
+             TagName="CommonControl"
+             Format="DWORD"
+             Bit0Name="Enable"
+             Bit1Name="Reset"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="12"
@@ -999,16 +1018,60 @@
             <ProgramBlock
                 Type="POLL">
                <PollItem
-                   Condition="xCutControl.0 = 1"
+                   Condition="CommonControl.Enable"
+                   Task0Action="Enable"
+                   Description=""/>
+               <PollItem
+                   Condition="CommonControl.Reset"
+                   Task0Action="Reset"
+                   Description=""/>
+               <PollItem
+                   Condition="xGaugeControl.CommandMove"
                    Task0Action="MoveXAxis"
                    Description=""/>
                <PollItem
-                   Condition="xCutControl.1 = 1 AND xCutControl.2 = 0"
+                   Condition="xGaugeControl.Stop"
+                   Task0Action="StopX"
+                   Description=""/>
+               <PollItem
+                   Condition="xGaugeControl.CommandJog AND NOT xGaugeControl.Reverse"
                    Task0Action="JogXPos"
                    Description=""/>
                <PollItem
-                   Condition="xCutControl.1 = 1 AND xCutControl.2 = 1"
+                   Condition="xGaugeControl.CommandJog AND xGaugeControl.Reverse"
                    Task0Action="JogXNeg"
+                   Description=""/>
+               <PollItem
+                   Condition="yTraverseControl.CommandMove"
+                   Task0Action="MoveYAxis"
+                   Description=""/>
+               <PollItem
+                   Condition="yTraverseControl.Stop"
+                   Task0Action="StopY"
+                   Description=""/>
+               <PollItem
+                   Condition="yTraverseControl.CommandJog AND NOT yTraverseControl.Reverse"
+                   Task0Action="JogYPos"
+                   Description=""/>
+               <PollItem
+                   Condition="yTraverseControl.CommandJog AND yTraverseControl.Reverse"
+                   Task0Action="JogYNeg"
+                   Description=""/>
+               <PollItem
+                   Condition="zRaiseLowerControl.CommandMove"
+                   Task0Action="MoveZAxis"
+                   Description=""/>
+               <PollItem
+                   Condition="zRaiseLowerControl.Stop"
+                   Task0Action="StopZ"
+                   Description=""/>
+               <PollItem
+                   Condition="zRaiseLowerControl.CommandJog AND NOT zRaiseLowerControl.Reverse"
+                   Task0Action="JogZPos"
+                   Description=""/>
+               <PollItem
+                   Condition="zRaiseLowerControl.CommandJog AND zRaiseLowerControl.Reverse"
+                   Task0Action="JogZNeg"
                    Description=""/>
             </ProgramBlock>
          </UserProgram>
@@ -1225,6 +1288,109 @@
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Negative (-1)"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="Reset"
+             Type="STEP"
+             Number="9"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="4"
+                      CmdAxes="1"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="Enable"
+             Type="STEP"
+             Number="10"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="4"
+                      CmdAxes="2"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="StopX"
+             Type="STEP"
+             Number="11"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="6"
+                      CmdAxes="1"
+                      CmdPrm1="100.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="StopY"
+             Type="STEP"
+             Number="12"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="6"
+                      CmdAxes="2"
+                      CmdPrm1="100.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="StopZ"
+             Type="STEP"
+             Number="13"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="6"
+                      CmdAxes="4"
+                      CmdPrm1="100.0"/>
                </Step>
                <Transition>
                   <End/>
