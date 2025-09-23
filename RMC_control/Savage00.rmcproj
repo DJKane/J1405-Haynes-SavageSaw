@@ -848,6 +848,7 @@
              Bit1Name="CommandJog"
              Bit2Name="Reverse"
              Bit3Name="Stop"
+             Bit4Name="Zero"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="7"
@@ -857,6 +858,7 @@
              Bit1Name="CommandJog"
              Bit2Name="Reverse"
              Bit3Name="Stop"
+             Bit4Name="Zero"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="8"
@@ -866,6 +868,7 @@
              Bit1Name="CommandJog"
              Bit2Name="Reverse"
              Bit3Name="Stop"
+             Bit4Name="Zero"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="9"
@@ -1072,6 +1075,18 @@
                <PollItem
                    Condition="zRaiseLowerControl.CommandJog AND zRaiseLowerControl.Reverse"
                    Task0Action="JogZNeg"
+                   Description=""/>
+               <PollItem
+                   Condition="xGaugeControl.Zero"
+                   Task0Action="ZeroX"
+                   Description=""/>
+               <PollItem
+                   Condition="yTraverseControl.Zero"
+                   Task0Action="ZeroY"
+                   Description=""/>
+               <PollItem
+                   Condition="zRaiseLowerControl.Zero"
+                   Task0Action="ZeroZ"
                    Description=""/>
             </ProgramBlock>
          </UserProgram>
@@ -1391,6 +1406,69 @@
                       Command="6"
                       CmdAxes="4"
                       CmdPrm1="100.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="ZeroX"
+             Type="STEP"
+             Number="14"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="49"
+                      CmdAxes="1"
+                      CmdPrm1="0.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="ZeroY"
+             Type="STEP"
+             Number="15"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="49"
+                      CmdAxes="2"
+                      CmdPrm1="0.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="ZeroZ"
+             Type="STEP"
+             Number="16"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="49"
+                      CmdAxes="4"
+                      CmdPrm1="0.0"/>
                </Step>
                <Transition>
                   <End/>
