@@ -5,3 +5,4 @@
 *.rmcproj.lock
 *.rmcproj.meta
 ~$*.xlsx
+temp*

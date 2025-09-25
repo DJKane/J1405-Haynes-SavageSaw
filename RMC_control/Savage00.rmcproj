@@ -9,7 +9,7 @@
    <Controller
        Type="RMC200"
        Name="Kane"
-       CommunicationPath="USB/22L240170::CIP"
+       CommunicationPath="TCPIP/192.168.3.12::CIP"
        CipBridgePath=""
        CipBridgeSize="500"
        SerNo="22L240170"
@@ -73,10 +73,10 @@
           EncapInactTO="120"
           ProAddr="16#00008000"
           ConAddr="16#00400000"
-          IODataMode="0"
-          IO2ProAddr="16#00008003"
+          IODataMode="1"
+          IO2ProAddr="16#00008006"
           IO2ConAddr="16#00400006"
-          IO2DataMode="0"
+          IO2DataMode="1"
           IO3ProAddr="16#000080F0"
           IO3ConAddr="16#00008280"
           IO3DataMode="0"
@@ -113,7 +113,7 @@
           OutputType0="Analog"
           OutputModule0="Slot_3"
           OutputChannel0="0"
-          Name="xTraverse"
+          Name="xGauge"
           AxisNumber="0"
           LinearPositionUnitCustom="in"
           SimWizMaxPos="300.0"
@@ -122,7 +122,7 @@
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
           FilterConfig="16#00000000"
-          PositionScale="5e-04"
+          PositionScale="0.001"
           ActualPositionCut-offFreq="0"
           PriUnits="4"
           AxisModeLinearRotary="0"
@@ -140,7 +140,7 @@
           VelErrorTolerance="1"
           InPositionTolerance="0.05"
           PosErrorTolerance="0.25"
-          OutputGain="1"
+          OutputGain="0.01"
           DeadbandTolerance="0"
           OutputDeadband="0"
           ValveLin="0"
@@ -165,7 +165,7 @@
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
-          SimMode="1"
+          SimMode="0"
           SimType="2"
           SimSysGainP="0.3"
           SimSysGainN="0.3"
@@ -258,7 +258,7 @@
           OutputType0="Analog"
           OutputModule0="Slot_3"
           OutputChannel0="1"
-          Name="yCross"
+          Name="yTraverse"
           AxisNumber="1"
           LinearPositionUnitCustom="in"
           SimWizMaxPos="300.0"
@@ -403,7 +403,7 @@
           OutputType0="Analog"
           OutputModule0="Slot_3"
           OutputChannel0="2"
-          Name="zDepth"
+          Name="zRaiseLower"
           AxisNumber="2"
           LinearPositionUnitCustom="in"
           SimWizMaxPos="300.0"
@@ -723,15 +723,77 @@
           RunProgInput="0"
           EnablePreScan="1"
           StopTasksOnHalt="16#00000001"
-          StartupMode="0"
+          StartupMode="2"
           AutoEnableAxes="1"
           AxisHaltBitMask="16#FFFFFFFF"/>
       <ShortcutKeySet
           Name="Set 0">
          <ShortcutKey
-             Key="0"/>
+             Key="0">
+            <ShortcutAction
+                Axis="0"
+                Command="6"
+                Param1="100.0"
+                Param2="0.0"
+                Param3="0.0"
+                Param4="0.0"
+                Param5="0.0"
+                Param6="0.0"
+                Param7="0.0"
+                Param8="0.0"
+                Param9="0.0"/>
+            <ShortcutAction
+                Axis="1"
+                Command="7"
+                Param1="0.0"
+                Param2="0.0"
+                Param3="0.0"
+                Param4="0.0"
+                Param5="0.0"
+                Param6="0.0"
+                Param7="0.0"
+                Param8="0.0"
+                Param9="0.0"/>
+            <ShortcutAction
+                Axis="2"
+                Command="0"
+                Param1=""
+                Param2=""
+                Param3=""
+                Param4=""
+                Param5=""
+                Param6=""
+                Param7=""
+                Param8=""
+                Param9=""/>
+            <ShortcutAction
+                Axis="3"
+                Command="0"
+                Param1=""
+                Param2=""
+                Param3=""
+                Param4=""
+                Param5=""
+                Param6=""
+                Param7=""
+                Param8=""
+                Param9=""/>
+         </ShortcutKey>
          <ShortcutKey
-             Key="1"/>
+             Key="1">
+            <ShortcutAction
+                Axis="0"
+                Command="6"
+                Param1="100.0"
+                Param2="0.0"
+                Param3="0.0"
+                Param4="0.0"
+                Param5="0.0"
+                Param6="0.0"
+                Param7="0.0"
+                Param8="0.0"
+                Param9="0.0"/>
+         </ShortcutKey>
          <ShortcutKey
              Key="2"/>
          <ShortcutKey
@@ -747,7 +809,20 @@
          <ShortcutKey
              Key="8"/>
          <ShortcutKey
-             Key="9"/>
+             Key="9">
+            <ShortcutAction
+                Axis="0"
+                Command="4"
+                Param1="0.0"
+                Param2="0.0"
+                Param3="0.0"
+                Param4="0.0"
+                Param5="0.0"
+                Param6="0.0"
+                Param7="0.0"
+                Param8="0.0"
+                Param9="0.0"/>
+         </ShortcutKey>
       </ShortcutKeySet>
       <Curves/>
       <IndirectDataMap>
@@ -762,12 +837,21 @@
              RegisterAddress="%MD258.20"/>
          <MapEntry
              Offset="3"
-             RegisterAddress="%MD256.0"/>
+             RegisterAddress="%MD256.141"/>
          <MapEntry
              Offset="4"
-             RegisterAddress="%MD257.0"/>
+             RegisterAddress="%MD257.141"/>
          <MapEntry
              Offset="5"
+             RegisterAddress="%MD258.141"/>
+         <MapEntry
+             Offset="6"
+             RegisterAddress="%MD256.0"/>
+         <MapEntry
+             Offset="7"
+             RegisterAddress="%MD257.0"/>
+         <MapEntry
+             Offset="8"
              RegisterAddress="%MD258.0"/>
       </IndirectDataMap>
       <AddressMapModbus/>
@@ -1104,8 +1188,8 @@
                   <Command
                       Command="20"
                       CmdAxes="1"
-                      CmdPrm1="xCutPosnCommand"
-                      CmdPrm2="xCutVelocity"
+                      CmdPrm1="xGaugePosnCommand"
+                      CmdPrm2="xGaugeVelocity"
                       CmdPrm3="100.0"
                       CmdPrm4="100.0"
                       CmdPrm5="Nearest (0)"/>
@@ -1129,7 +1213,7 @@
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="xCutVelocity"
+                      CmdPrm1="xGaugeVelocity"
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Positive (+1)"/>
@@ -1153,7 +1237,7 @@
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="xCutVelocity"
+                      CmdPrm1="xGaugeVelocity"
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Negative (-1)"/>
@@ -1177,8 +1261,8 @@
                   <Command
                       Command="20"
                       CmdAxes="1"
-                      CmdPrm1="yBedPosnCommand"
-                      CmdPrm2="yBedVelocity"
+                      CmdPrm1="yTraversePosnCommand"
+                      CmdPrm2="yTraverseVelocity"
                       CmdPrm3="100.0"
                       CmdPrm4="100.0"
                       CmdPrm5="Nearest (0)"/>
@@ -1202,7 +1286,7 @@
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="yBedVelocity"
+                      CmdPrm1="yTraverseVelocity"
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Positive (+1)"/>
@@ -1226,7 +1310,7 @@
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="yBedVelocity"
+                      CmdPrm1="yTraverseVelocity"
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Negative (-1)"/>
@@ -1250,8 +1334,8 @@
                   <Command
                       Command="20"
                       CmdAxes="1"
-                      CmdPrm1="zDepthPosnCommand"
-                      CmdPrm2="zDepthVelocity"
+                      CmdPrm1="zRaiseLowerPosnCommand"
+                      CmdPrm2="zRaiseLowerVelocity"
                       CmdPrm3="100.0"
                       CmdPrm4="100.0"
                       CmdPrm5="Nearest (0)"/>
@@ -1275,7 +1359,7 @@
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="zDepthVelocity"
+                      CmdPrm1="zRaiseLowerVelocity"
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Positive (+1)"/>
@@ -1299,7 +1383,7 @@
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="zDepthVelocity"
+                      CmdPrm1="zRaiseLowerVelocity"
                       CmdPrm2="100.0"
                       CmdPrm3="100.0"
                       CmdPrm4="Negative (-1)"/>
@@ -1341,8 +1425,8 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="4"
-                      CmdAxes="2"/>
+                      Command="7"
+                      CmdAxes="1"/>
                </Step>
                <Transition>
                   <End/>
@@ -1469,6 +1553,38 @@
                       Command="49"
                       CmdAxes="4"
                       CmdPrm1="0.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="ResetControl"
+             Type="STEP"
+             Number="17"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="4"
+                      CmdAxes="0"/>
+               </Step>
+               <Transition>
+                  <Jump
+                      Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="7"
+                      CmdAxes="0"/>
                </Step>
                <Transition>
                   <End/>
