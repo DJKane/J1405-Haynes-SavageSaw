@@ -848,15 +848,6 @@
              Offset="5"
              RegisterAddress="%MD258.141"/>
          <MapEntry
-             Offset="6"
-             RegisterAddress="%MD256.55"/>
-         <MapEntry
-             Offset="7"
-             RegisterAddress="%MD257.55"/>
-         <MapEntry
-             Offset="8"
-             RegisterAddress="%MD258.55"/>
-         <MapEntry
              Offset="32"
              RegisterAddress="%MD256.0"/>
          <MapEntry
@@ -865,6 +856,15 @@
          <MapEntry
              Offset="34"
              RegisterAddress="%MD258.0"/>
+         <MapEntry
+             Offset="35"
+             RegisterAddress="%MD256.55"/>
+         <MapEntry
+             Offset="36"
+             RegisterAddress="%MD257.55"/>
+         <MapEntry
+             Offset="37"
+             RegisterAddress="%MD258.55"/>
       </IndirectDataMap>
       <AddressMapModbus/>
       <AddressMapDF1/>
@@ -1679,6 +1679,22 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="50"
+                      CmdAxes="1"
+                      CmdPrm1="0.0"
+                      CmdPrm2="H Rising (0)"
+                      CmdPrm3="Single (0)"
+                      CmdPrm4="H (0)"/>
+               </Step>
+               <Transition>
+                  <Jump
+                      Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>

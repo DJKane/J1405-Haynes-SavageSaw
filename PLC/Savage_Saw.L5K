@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Fri Sep 26 15:19:19 2025
+  Exported  := Fri Sep 26 15:56:24 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -1179,7 +1179,6 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE RMC 
-				N: XIC(HydRun)OTE(MC_Enable);
 				N: [XIC(tbA1JogIn) ,XIC(tbA1JogOut) ,XIC(tbA2JogMinus) ,XIC(tbA2JogPlus) ,XIC(tbA3JogMinus) ,XIC(tbA3JogPlus) ]OSR(AnyJogStorage,AnyJogRise);
 				N: [XIC(SafetyRelayAutoReset) ,XIC(X_Fault) XIC(AnyJogRise) ]OTE(MC_Reset);
 				N: [XIC(tbNorthRef) ,XIC(NorthZero) ]XIO(tbSouthRef)XIO(X_AutoCut)OTE(NorthZero);
