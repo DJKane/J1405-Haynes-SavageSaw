@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Fri Sep 26 15:56:24 2025
+  Exported  := Fri Sep 26 16:22:51 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -729,7 +729,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 		            DataExchangeId := {6C3631B2-0311-409B-B2AE-FC3773E3B5F5});
 		NorthZero : BOOL (RADIX := Decimal) := 0;
 		OilWarm : BOOL (RADIX := Decimal) := 0;
-		outAnSpindleMotor OF Local:5:O.Ch0Data (RADIX := Decimal,
+		outAnSpindleMotor OF Local:5:O.Ch1Data (RADIX := Decimal,
 		            DataExchangeId := {2845F938-5F59-4D05-8D91-5DADBDA4E89B});
 		outAnSpindlePump OF Local:5:O.Ch0Data (RADIX := Decimal,
 		            DataExchangeId := {207287F1-9CCB-4AF0-A890-574CFB0AAAE9});
