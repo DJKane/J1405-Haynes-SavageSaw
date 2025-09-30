@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Fri Sep 26 16:22:51 2025
+  Exported  := Tue Sep 30 11:46:36 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -11,7 +11,7 @@
 **********************************************)
 IE_VER := 2.28;
 
-CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
+CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
                        Major := 37,
                        TimeSlice := 20,
                        ShareUnusedTimeSlice := 1,
@@ -24,7 +24,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
                        SFCExecutionControl := "CurrentActive",
                        SFCRestartPosition := "MostRecent",
                        SFCLastScan := "DontScan",
-                       SerialNumber := 16#60ff_308e,
+                       SerialNumber := 16#706c_3586,
                        MatchProjectToController := No,
                        CanUseRPIFromProducer := No,
                        InhibitAutomaticFirmwareUpdate := 0,
@@ -35,108 +35,109 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	DATATYPE AxisData (FamilyType := NoFamily)
 		REAL PositionActual;
 		REAL FinalOutput;
+		REAL VelocityActual;
 		REAL PositionTarget;
 		REAL VelocityTarget;
-		SINT ZZZZZZZZZZAxisData4 (Hidden := 1);
-		BIT InPosition ZZZZZZZZZZAxisData4 : 0;
-		BIT AtVelocity ZZZZZZZZZZAxisData4 : 1;
-		BIT OpenLoop ZZZZZZZZZZAxisData4 : 2;
-		BIT FaultInput ZZZZZZZZZZAxisData4 : 3;
-		BIT LimitPos ZZZZZZZZZZAxisData4 : 4;
-		BIT LimitNeg ZZZZZZZZZZAxisData4 : 5;
-		BIT Stopped ZZZZZZZZZZAxisData4 : 6;
-		BIT InputEstimated ZZZZZZZZZZAxisData4 : 7;
-		SINT ZZZZZZZZZZAxisData13 (Hidden := 1);
-		BIT OutputEnabled ZZZZZZZZZZAxisData13 : 0;
-		BIT TargetGeneratorDone ZZZZZZZZZZAxisData13 : 1;
-		BIT TargetGeneratorStateA ZZZZZZZZZZAxisData13 : 2;
-		BIT TargetGeneratorStateB ZZZZZZZZZZAxisData13 : 3;
-		BIT DirectOutput ZZZZZZZZZZAxisData13 : 4;
-		BIT Enabled ZZZZZZZZZZAxisData13 : 5;
-		BIT ExternalHalt ZZZZZZZZZZAxisData13 : 6;
-		BIT Halted ZZZZZZZZZZAxisData13 : 7;
-		SINT ZZZZZZZZZZAxisData22 (Hidden := 1);
-		BIT ForceControlled ZZZZZZZZZZAxisData22 : 0;
-		BIT ForceLimitEnabled ZZZZZZZZZZAxisData22 : 1;
-		BIT ForceLimited ZZZZZZZZZZAxisData22 : 2;
-		BIT AtForce ZZZZZZZZZZAxisData22 : 3;
-		BIT ForceInputEstimated ZZZZZZZZZZAxisData22 : 4;
-		BIT ForceTargetGeneratorDone ZZZZZZZZZZAxisData22 : 5;
-		BIT ForceTargetGeneratorStateA ZZZZZZZZZZAxisData22 : 6;
-		BIT ForceTargetGeneratorStateB ZZZZZZZZZZAxisData22 : 7;
-		SINT ZZZZZZZZZZAxisData31 (Hidden := 1);
-		BIT TargetGeneratorBusy ZZZZZZZZZZAxisData31 : 0;
-		BIT ForceTargetGeneratorBusy ZZZZZZZZZZAxisData31 : 1;
-		BIT FeedbackOK ZZZZZZZZZZAxisData31 : 2;
-		BIT FeedbackOkSecondary ZZZZZZZZZZAxisData31 : 3;
-		BIT StateMachineEnabled ZZZZZZZZZZAxisData31 : 4;
-		BIT zs29 ZZZZZZZZZZAxisData31 : 5;
-		BIT zs30 ZZZZZZZZZZAxisData31 : 6;
-		BIT CommandAcknowledged ZZZZZZZZZZAxisData31 : 7;
-		SINT ZZZZZZZZZZAxisData40 (Hidden := 1);
-		BIT Encoder_A_In ZZZZZZZZZZAxisData40 : 0;
-		BIT Encoder_A_WireBreak ZZZZZZZZZZAxisData40 : 1;
-		BIT Encoder_A_Fault ZZZZZZZZZZAxisData40 : 2;
-		BIT Encoder_B_In ZZZZZZZZZZAxisData40 : 3;
-		BIT Encoder_B_WireBreak ZZZZZZZZZZAxisData40 : 4;
-		BIT Encoder_B_Fault ZZZZZZZZZZAxisData40 : 5;
-		BIT Encoder_Z_In ZZZZZZZZZZAxisData40 : 6;
-		BIT Encoder_Z_WireBreak ZZZZZZZZZZAxisData40 : 7;
-		SINT ZZZZZZZZZZAxisData49 (Hidden := 1);
-		BIT Encoder_Z_Fault ZZZZZZZZZZAxisData49 : 0;
-		BIT Encoder_Z_Learning ZZZZZZZZZZAxisData49 : 1;
-		BIT HomeIn ZZZZZZZZZZAxisData49 : 2;
-		BIT HomeFault ZZZZZZZZZZAxisData49 : 3;
-		BIT HomeArmed ZZZZZZZZZZAxisData49 : 4;
-		BIT HomeLatched ZZZZZZZZZZAxisData49 : 5;
-		BIT RegistrationIn ZZZZZZZZZZAxisData49 : 6;
-		BIT Registration0_Armed ZZZZZZZZZZAxisData49 : 7;
-		SINT ZZZZZZZZZZAxisData58 (Hidden := 1);
-		BIT Registration0_Latched ZZZZZZZZZZAxisData58 : 0;
-		BIT Registration1_Armed ZZZZZZZZZZAxisData58 : 1;
-		BIT Registration1_Latched ZZZZZZZZZZAxisData58 : 2;
-		BIT CommandMove ZZZZZZZZZZAxisData58 : 3;
-		BIT CommandJog ZZZZZZZZZZAxisData58 : 4;
-		BIT CommandStop ZZZZZZZZZZAxisData58 : 5;
-		BIT CommandHome ZZZZZZZZZZAxisData58 : 6;
-		BIT CommandZero ZZZZZZZZZZAxisData58 : 7;
-		SINT ZZZZZZZZZZAxisData67 (Hidden := 1);
-		BIT CommandMoveRelative ZZZZZZZZZZAxisData67 : 0;
-		BIT CommandClearZero ZZZZZZZZZZAxisData67 : 1;
-		BIT z07 ZZZZZZZZZZAxisData67 : 2;
-		BIT z08 ZZZZZZZZZZAxisData67 : 3;
-		BIT z09 ZZZZZZZZZZAxisData67 : 4;
-		BIT z10 ZZZZZZZZZZAxisData67 : 5;
-		BIT z11 ZZZZZZZZZZAxisData67 : 6;
-		BIT z12 ZZZZZZZZZZAxisData67 : 7;
-		SINT ZZZZZZZZZZAxisData76 (Hidden := 1);
-		BIT z13 ZZZZZZZZZZAxisData76 : 0;
-		BIT z14 ZZZZZZZZZZAxisData76 : 1;
-		BIT z15 ZZZZZZZZZZAxisData76 : 2;
-		BIT z16 ZZZZZZZZZZAxisData76 : 3;
-		BIT z17 ZZZZZZZZZZAxisData76 : 4;
-		BIT z18 ZZZZZZZZZZAxisData76 : 5;
-		BIT z19 ZZZZZZZZZZAxisData76 : 6;
-		BIT z20 ZZZZZZZZZZAxisData76 : 7;
-		SINT ZZZZZZZZZZAxisData85 (Hidden := 1);
-		BIT z21 ZZZZZZZZZZAxisData85 : 0;
-		BIT z22 ZZZZZZZZZZAxisData85 : 1;
-		BIT z23 ZZZZZZZZZZAxisData85 : 2;
-		BIT z24 ZZZZZZZZZZAxisData85 : 3;
-		BIT z25 ZZZZZZZZZZAxisData85 : 4;
-		BIT z26 ZZZZZZZZZZAxisData85 : 5;
-		BIT z27 ZZZZZZZZZZAxisData85 : 6;
-		BIT z28 ZZZZZZZZZZAxisData85 : 7;
-		SINT ZZZZZZZZZZAxisData94 (Hidden := 1);
-		BIT z29 ZZZZZZZZZZAxisData94 : 0;
-		BIT z30 ZZZZZZZZZZAxisData94 : 1;
-		BIT z31 ZZZZZZZZZZAxisData94 : 2;
+		SINT ZZZZZZZZZZAxisData5 (Hidden := 1);
+		BIT InPosition ZZZZZZZZZZAxisData5 : 0;
+		BIT AtVelocity ZZZZZZZZZZAxisData5 : 1;
+		BIT OpenLoop ZZZZZZZZZZAxisData5 : 2;
+		BIT FaultInput ZZZZZZZZZZAxisData5 : 3;
+		BIT LimitPos ZZZZZZZZZZAxisData5 : 4;
+		BIT LimitNeg ZZZZZZZZZZAxisData5 : 5;
+		BIT Stopped ZZZZZZZZZZAxisData5 : 6;
+		BIT InputEstimated ZZZZZZZZZZAxisData5 : 7;
+		SINT ZZZZZZZZZZAxisData14 (Hidden := 1);
+		BIT OutputEnabled ZZZZZZZZZZAxisData14 : 0;
+		BIT TargetGeneratorDone ZZZZZZZZZZAxisData14 : 1;
+		BIT TargetGeneratorStateA ZZZZZZZZZZAxisData14 : 2;
+		BIT TargetGeneratorStateB ZZZZZZZZZZAxisData14 : 3;
+		BIT DirectOutput ZZZZZZZZZZAxisData14 : 4;
+		BIT Enabled ZZZZZZZZZZAxisData14 : 5;
+		BIT ExternalHalt ZZZZZZZZZZAxisData14 : 6;
+		BIT Halted ZZZZZZZZZZAxisData14 : 7;
+		SINT ZZZZZZZZZZAxisData23 (Hidden := 1);
+		BIT ForceControlled ZZZZZZZZZZAxisData23 : 0;
+		BIT ForceLimitEnabled ZZZZZZZZZZAxisData23 : 1;
+		BIT ForceLimited ZZZZZZZZZZAxisData23 : 2;
+		BIT AtForce ZZZZZZZZZZAxisData23 : 3;
+		BIT ForceInputEstimated ZZZZZZZZZZAxisData23 : 4;
+		BIT ForceTargetGeneratorDone ZZZZZZZZZZAxisData23 : 5;
+		BIT ForceTargetGeneratorStateA ZZZZZZZZZZAxisData23 : 6;
+		BIT ForceTargetGeneratorStateB ZZZZZZZZZZAxisData23 : 7;
+		SINT ZZZZZZZZZZAxisData32 (Hidden := 1);
+		BIT TargetGeneratorBusy ZZZZZZZZZZAxisData32 : 0;
+		BIT ForceTargetGeneratorBusy ZZZZZZZZZZAxisData32 : 1;
+		BIT FeedbackOK ZZZZZZZZZZAxisData32 : 2;
+		BIT FeedbackOkSecondary ZZZZZZZZZZAxisData32 : 3;
+		BIT StateMachineEnabled ZZZZZZZZZZAxisData32 : 4;
+		BIT zs29 ZZZZZZZZZZAxisData32 : 5;
+		BIT zs30 ZZZZZZZZZZAxisData32 : 6;
+		BIT CommandAcknowledged ZZZZZZZZZZAxisData32 : 7;
+		SINT ZZZZZZZZZZAxisData41 (Hidden := 1);
+		BIT Encoder_A_In ZZZZZZZZZZAxisData41 : 0;
+		BIT Encoder_A_WireBreak ZZZZZZZZZZAxisData41 : 1;
+		BIT Encoder_A_Fault ZZZZZZZZZZAxisData41 : 2;
+		BIT Encoder_B_In ZZZZZZZZZZAxisData41 : 3;
+		BIT Encoder_B_WireBreak ZZZZZZZZZZAxisData41 : 4;
+		BIT Encoder_B_Fault ZZZZZZZZZZAxisData41 : 5;
+		BIT Encoder_Z_In ZZZZZZZZZZAxisData41 : 6;
+		BIT Encoder_Z_WireBreak ZZZZZZZZZZAxisData41 : 7;
+		SINT ZZZZZZZZZZAxisData50 (Hidden := 1);
+		BIT Encoder_Z_Fault ZZZZZZZZZZAxisData50 : 0;
+		BIT Encoder_Z_Learning ZZZZZZZZZZAxisData50 : 1;
+		BIT HomeIn ZZZZZZZZZZAxisData50 : 2;
+		BIT HomeFault ZZZZZZZZZZAxisData50 : 3;
+		BIT HomeArmed ZZZZZZZZZZAxisData50 : 4;
+		BIT HomeLatched ZZZZZZZZZZAxisData50 : 5;
+		BIT RegistrationIn ZZZZZZZZZZAxisData50 : 6;
+		BIT Registration0_Armed ZZZZZZZZZZAxisData50 : 7;
+		SINT ZZZZZZZZZZAxisData59 (Hidden := 1);
+		BIT Registration0_Latched ZZZZZZZZZZAxisData59 : 0;
+		BIT Registration1_Armed ZZZZZZZZZZAxisData59 : 1;
+		BIT Registration1_Latched ZZZZZZZZZZAxisData59 : 2;
+		BIT CommandMove ZZZZZZZZZZAxisData59 : 3;
+		BIT CommandJog ZZZZZZZZZZAxisData59 : 4;
+		BIT CommandStop ZZZZZZZZZZAxisData59 : 5;
+		BIT CommandHome ZZZZZZZZZZAxisData59 : 6;
+		BIT CommandZero ZZZZZZZZZZAxisData59 : 7;
+		SINT ZZZZZZZZZZAxisData68 (Hidden := 1);
+		BIT CommandMoveRelative ZZZZZZZZZZAxisData68 : 0;
+		BIT CommandClearZero ZZZZZZZZZZAxisData68 : 1;
+		BIT z07 ZZZZZZZZZZAxisData68 : 2;
+		BIT z08 ZZZZZZZZZZAxisData68 : 3;
+		BIT z09 ZZZZZZZZZZAxisData68 : 4;
+		BIT z10 ZZZZZZZZZZAxisData68 : 5;
+		BIT z11 ZZZZZZZZZZAxisData68 : 6;
+		BIT z12 ZZZZZZZZZZAxisData68 : 7;
+		SINT ZZZZZZZZZZAxisData77 (Hidden := 1);
+		BIT z13 ZZZZZZZZZZAxisData77 : 0;
+		BIT z14 ZZZZZZZZZZAxisData77 : 1;
+		BIT z15 ZZZZZZZZZZAxisData77 : 2;
+		BIT z16 ZZZZZZZZZZAxisData77 : 3;
+		BIT z17 ZZZZZZZZZZAxisData77 : 4;
+		BIT z18 ZZZZZZZZZZAxisData77 : 5;
+		BIT z19 ZZZZZZZZZZAxisData77 : 6;
+		BIT z20 ZZZZZZZZZZAxisData77 : 7;
+		SINT ZZZZZZZZZZAxisData86 (Hidden := 1);
+		BIT z21 ZZZZZZZZZZAxisData86 : 0;
+		BIT z22 ZZZZZZZZZZAxisData86 : 1;
+		BIT z23 ZZZZZZZZZZAxisData86 : 2;
+		BIT z24 ZZZZZZZZZZAxisData86 : 3;
+		BIT z25 ZZZZZZZZZZAxisData86 : 4;
+		BIT z26 ZZZZZZZZZZAxisData86 : 5;
+		BIT z27 ZZZZZZZZZZAxisData86 : 6;
+		BIT z28 ZZZZZZZZZZAxisData86 : 7;
+		SINT ZZZZZZZZZZAxisData95 (Hidden := 1);
+		BIT z29 ZZZZZZZZZZAxisData95 : 0;
+		BIT z30 ZZZZZZZZZZAxisData95 : 1;
+		BIT z31 ZZZZZZZZZZAxisData95 : 2;
 		REAL PositionDisplay;
-		SINT ZZZZZZZZZZAxisData99 (Hidden := 1);
-		BIT MoveComplete ZZZZZZZZZZAxisData99 : 0;
-		BIT FollowingError ZZZZZZZZZZAxisData99 : 1;
-		BIT ServoFault ZZZZZZZZZZAxisData99 : 2;
-		BIT CommandAny ZZZZZZZZZZAxisData99 : 3;
+		SINT ZZZZZZZZZZAxisData100 (Hidden := 1);
+		BIT MoveComplete ZZZZZZZZZZAxisData100 : 0;
+		BIT FollowingError ZZZZZZZZZZAxisData100 : 1;
+		BIT ServoFault ZZZZZZZZZZAxisData100 : 2;
+		BIT CommandAny ZZZZZZZZZZAxisData100 : 3;
 	END_DATATYPE
 
 	DATATYPE Pass (FamilyType := NoFamily)
@@ -153,17 +154,17 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 
 	MODULE Local (Parent := "Local",
 	              ParentModPortId := 1,
-	              CatalogNumber := "1769-L19ER-BB1B",
+	              CatalogNumber := "1769-L18ER-BB1B",
 	              Vendor := 1,
 	              ProductType := 14,
-	              ProductCode := 152,
+	              ProductCode := 154,
 	              Major := 37,
 	              Minor := 11,
 	              ChassisSize := 9,
 	              Slot := 0,
 	              Mode := 2#0000_0000_0000_0001,
 	              CompatibleModule := 0,
-	              KeyMask := 2#0000_0000_0001_1111)
+	              KeyMask := 2#0000_0000_0000_0000)
 	END_MODULE
 
 	MODULE Discrete_IO (Parent := "Local",
@@ -409,7 +410,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	                    ProductType := 115,
 	                    ProductCode := 55,
 	                    Major := 3,
-	                    Minor := 5,
+	                    Minor := 4,
 	                    PortLabel := "RxBACKPLANE",
 	                    Slot := 1,
 	                    CommMethod := 536870913,
@@ -535,7 +536,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 	            DataExchangeId := {93105D03-E833-4416-87C2-29B876ABE3D4})
 			ExtendedProp := [[[___<public><PL>01<Version Name=$Q1.1$Q/><Connection Name=$Q_200424042C022C01$Q Format=$Q4$Q/><Connection Name=$Q_200424042C062C05$Q Format=$Q2$Q/></PL><Vendor>Delta Computer Systems, Inc.</Vendor><CatNum>R200-CPU20L</CatNum><DataTypeFormats><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 01 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 02 30 03$Q Format=$Q1$Q Type=$QOutput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 05 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 06 30 03$Q Format=$Q1$Q Type=$QOutput$Q/></DataTypeFormats></public>___]]]
 			CONNECTION _200424042C022C01 (Rate := 20000,
-			                              InputSize := 28,
+			                              InputSize := 40,
 			                              OutputSize := 24,
 			                              EventID := 0,
 			                              Priority := Scheduled,
@@ -545,7 +546,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 			                              InputTagSuffix := "I1",
 			                              OutputTagSuffix := "O1")
 					InputData  := [0,[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		]];
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000]];
 					OutputData  := [[6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001
 		]];
 			END_CONNECTION
@@ -576,10 +577,10 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 		AutoCutStateChange : BOOL (RADIX := Decimal) := 0;
 		AutoSpinCCW : BOOL (RADIX := Decimal) := 0;
 		AutoSpinCW : BOOL (RADIX := Decimal) := 0;
-		Axis : AxisData[3]  := [[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,48,51,-117,66,0,0,0,0,0,0,0,0.00000000e+000
-				,0],[1.50547149e-036,0.00000000e+000,0.00000000e+000,0.00000000e+000,-116,108,23,66,0,0,0,0,0,0,0,0.00000000e+000
-				,0],[1.50547149e-036,0.00000000e+000,0.00000000e+000,0.00000000e+000,0,0,0,-128,0,0,0,0,0,0,0,0.00000000e+000
-				,0]];
+		Axis : AxisData[3]  := [[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,48,51,-117
+				,66,0,0,0,0,0,0,0,0.00000000e+000,0],[1.50547149e-036,0.00000000e+000,0.00000000e+000,0.00000000e+000
+				,0.00000000e+000,-116,108,23,66,0,0,0,0,0,0,0,0.00000000e+000,0],[1.50547149e-036,0.00000000e+000,0.00000000e+000
+				,0.00000000e+000,0.00000000e+000,0,0,0,-128,0,0,0,0,0,0,0,0.00000000e+000,0]];
 		AxisX_Gauge OF Axis[0] ;
 		AxisY_Traverse OF Axis[1] ;
 		AxisZ_RaiseLower OF Axis[2] ;
@@ -968,7 +969,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 
 		ROUTINE S_RMC_Axis 
 				N: MOVE(RMC:I1.Data[iAxis],Axis[iAxis].PositionActual);
-				N: MOVE(RMC:I1.Data[iAxis+3],Axis[iAxis].FinalOutput);
+				N: MOVE(RMC:I1.Data[3+iAxis],Axis[iAxis].FinalOutput);
+				N: MOVE(RMC:I1.Data[6+iAxis],Axis[iAxis].VelocityActual);
 				N: XIC(RMC:I2.Data[iAxis].0)OTE(Axis[iAxis].InPosition);
 				N: XIC(RMC:I2.Data[iAxis].1)OTE(Axis[iAxis].AtVelocity);
 				N: XIC(RMC:I2.Data[iAxis].2)OTE(Axis[iAxis].OpenLoop);
@@ -1306,7 +1308,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L19ER-BB1B",
 
 		ROUTINE Clamps 
 				N: [XIC(tbGaugeClamp) XIC(HydRunning) ,XIC(outCr05GageGripperAdvance) ]XIO(tbGaugeUnclamp)OTE(outCr05GageGripperAdvance);
-				N: [XIC(X_AutoCut) XIO(AxisX_Gauge.InPosition) ,[XIC(tbWorkClamp) XIC(HydRunning) ,XIC(outCr04ClampAdvance) ] XIO(tbWorkUnclamp) XIO(X_Homing) XIC(AxisX_Gauge.InPosition) XIO(X_AutoCut) ][OTE(outCr04ClampAdvance) ,OTU(AxisX_Gauge.CommandJog) ];
+				N: [XIC(X_AutoCut) XIO(AxisX_Gauge.InPosition) ,[XIC(tbWorkClamp) XIC(HydRunning) ,XIC(outCr04ClampAdvance) ] XIO(tbWorkUnclamp) XIO(X_Homing) XIC(AxisX_Gauge.Stopped) XIO(X_AutoCut) ][OTE(outCr04ClampAdvance) ,OTU(AxisX_Gauge.CommandJog) ];
 		END_ROUTINE
 
 		ROUTINE Coolant 
