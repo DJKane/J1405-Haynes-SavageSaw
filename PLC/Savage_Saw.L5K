@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Tue Sep 30 11:46:36 2025
+  Exported  := Fri Oct 24 11:33:16 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -160,7 +160,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	              ProductCode := 154,
 	              Major := 37,
 	              Minor := 11,
-	              ChassisSize := 9,
+	              ChassisSize := 6,
 	              Slot := 0,
 	              Mode := 2#0000_0000_0000_0001,
 	              CompatibleModule := 0,
@@ -298,7 +298,170 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 
 	END_MODULE
 
-	MODULE HPU_Outputs (Parent := "Local",
+	MODULE Remote110V (Parent := "Local",
+	                   ParentModPortId := 2,
+	                   CatalogNumber := "1734-AENT/B",
+	                   Vendor := 1,
+	                   ProductType := 12,
+	                   ProductCode := 108,
+	                   Major := 5,
+	                   Minor := 13,
+	                   PortLabel := "ENet",
+	                   ChassisSize := 8,
+	                   Slot := 0,
+	                   NodeAddress := "192.168.3.11",
+	                   CommMethod := 805306369,
+	                   Mode := 2#0000_0000_0000_0000,
+	                   CompatibleModule := 1,
+	                   KeyMask := 2#0000_0000_0001_1111,
+	                   DataExchangeId := {22278128-2E9C-4FBB-A903-CFC9BA45CEBE})
+			ExtendedProp := [[[___<public><ConfigID>262145</ConfigID><CatNum>1734-AENT</CatNum></public>___]]]
+			CONNECTION Output (Rate := 20000,
+			                   EventID := 0,
+			                   Unicast := Yes)
+					InputData  := [0,0,[0,0,0,0,0,0,0,0]];
+					OutputData  := [0,0,[0,0,0,0,0,0,0,0]];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE InputAC0_4 (Parent := "Remote110V",
+	                   ParentModPortId := 1,
+	                   CatalogNumber := "1734-IA4/C",
+	                   Vendor := 1,
+	                   ProductType := 7,
+	                   ProductCode := 288,
+	                   Major := 3,
+	                   Minor := 22,
+	                   PortLabel := "RxBACKPLANE",
+	                   Slot := 1,
+	                   CommMethod := 1073741824,
+	                   Mode := 2#0000_0000_0000_0000,
+	                   CompatibleModule := 1,
+	                   KeyMask := 2#0000_0000_0001_1111,
+	                   DataExchangeId := {51127A61-6B4C-448D-91E0-9DD5A2EF02B2})
+			ExtendedProp := [[[___<public><ConfigID>262146</ConfigID><CatNum>1734-IA4</CatNum></public>___]]]
+			ConfigData  := [24,103,1,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {789DF36B-2F8A-450B-88CF-EF9C702010E3});
+	END_MODULE
+
+	MODULE InputAC5_8 (Parent := "Remote110V",
+	                   ParentModPortId := 1,
+	                   CatalogNumber := "1734-IA4/C",
+	                   Vendor := 1,
+	                   ProductType := 7,
+	                   ProductCode := 288,
+	                   Major := 3,
+	                   Minor := 22,
+	                   PortLabel := "RxBACKPLANE",
+	                   Slot := 2,
+	                   CommMethod := 1073741824,
+	                   Mode := 2#0000_0000_0000_0000,
+	                   CompatibleModule := 1,
+	                   KeyMask := 2#0000_0000_0001_1111,
+	                   DataExchangeId := {0CC5DB87-71B3-406E-A6A9-0735CFC95747})
+			ExtendedProp := [[[___<public><ConfigID>262146</ConfigID><CatNum>1734-IA4</CatNum></public>___]]]
+			ConfigData  := [24,103,1,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {95A6EBFB-095A-4027-AA32-2563344D54E3});
+	END_MODULE
+
+	MODULE InputAC9_12 (Parent := "Remote110V",
+	                    ParentModPortId := 1,
+	                    CatalogNumber := "1734-IA4/C",
+	                    Vendor := 1,
+	                    ProductType := 7,
+	                    ProductCode := 288,
+	                    Major := 3,
+	                    Minor := 22,
+	                    PortLabel := "RxBACKPLANE",
+	                    Slot := 3,
+	                    CommMethod := 1073741824,
+	                    Mode := 2#0000_0000_0000_0000,
+	                    CompatibleModule := 1,
+	                    KeyMask := 2#0000_0000_0001_1111,
+	                    DataExchangeId := {00835402-8DEF-4074-AB4B-93E9193D927A})
+			ExtendedProp := [[[___<public><ConfigID>262146</ConfigID><CatNum>1734-IA4</CatNum></public>___]]]
+			ConfigData  := [24,103,1,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {78763B0A-D2B9-4EF8-82B7-1723EB7721E7});
+	END_MODULE
+
+	MODULE InputAC13_16 (Parent := "Remote110V",
+	                     ParentModPortId := 1,
+	                     CatalogNumber := "1734-IA4/C",
+	                     Vendor := 1,
+	                     ProductType := 7,
+	                     ProductCode := 288,
+	                     Major := 3,
+	                     Minor := 22,
+	                     PortLabel := "RxBACKPLANE",
+	                     Slot := 4,
+	                     CommMethod := 1073741824,
+	                     Mode := 2#0000_0000_0000_0000,
+	                     CompatibleModule := 1,
+	                     KeyMask := 2#0000_0000_0001_1111,
+	                     DataExchangeId := {BABA9F7A-E5A6-4C93-B7A7-2D449A413EBE})
+			ExtendedProp := [[[___<public><ConfigID>262146</ConfigID><CatNum>1734-IA4</CatNum></public>___]]]
+			ConfigData  := [24,103,1,1000,1000,1000,1000,1000,1000,1000,1000];
+			InputAliasComments (RADIX := Binary,
+			            DataExchangeId := {3664B028-BF34-42CC-AEAB-87B8E890A06D});
+	END_MODULE
+
+	MODULE Light_Outputs (Parent := "Remote110V",
+	                      ParentModPortId := 1,
+	                      CatalogNumber := "1734-OA4/C",
+	                      Vendor := 1,
+	                      ProductType := 7,
+	                      ProductCode := 290,
+	                      Major := 3,
+	                      Minor := 22,
+	                      PortLabel := "RxBACKPLANE",
+	                      Slot := 5,
+	                      CommMethod := 536870913,
+	                      Mode := 2#0000_0000_0000_0000,
+	                      CompatibleModule := 1,
+	                      KeyMask := 2#0000_0000_0001_1111,
+	                      DataExchangeId := {40159BF4-C436-45D1-AD4C-64B43C522A6D})
+			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
+			ConfigData  := [12,103,1,0,0,0,0];
+			CONNECTION OutputData (Rate := 20000,
+			                       EventID := 0,
+			                       Unicast := No)
+					InputData  := [0];
+					OutputData  := [0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE Swarf_Outputs (Parent := "Remote110V",
+	                      ParentModPortId := 1,
+	                      CatalogNumber := "1734-OA4/C",
+	                      Vendor := 1,
+	                      ProductType := 7,
+	                      ProductCode := 290,
+	                      Major := 3,
+	                      Minor := 22,
+	                      PortLabel := "RxBACKPLANE",
+	                      Slot := 6,
+	                      CommMethod := 536870913,
+	                      Mode := 2#0000_0000_0000_0000,
+	                      CompatibleModule := 1,
+	                      KeyMask := 2#0000_0000_0001_1111,
+	                      DataExchangeId := {1EDAE284-B275-4519-9033-BC240DE8D7E8})
+			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
+			ConfigData  := [12,103,1,0,0,0,0];
+			CONNECTION OutputData (Rate := 20000,
+			                       EventID := 0,
+			                       Unicast := No)
+					InputData  := [0];
+					OutputData  := [0];
+			END_CONNECTION
+
+	END_MODULE
+
+	MODULE HPU_Outputs (Parent := "Remote110V",
 	                    ParentModPortId := 1,
 	                    CatalogNumber := "1734-OA4/C",
 	                    Vendor := 1,
@@ -307,64 +470,12 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	                    Major := 3,
 	                    Minor := 22,
 	                    PortLabel := "RxBACKPLANE",
-	                    Slot := 6,
+	                    Slot := 7,
 	                    CommMethod := 536870913,
 	                    Mode := 2#0000_0000_0000_0000,
 	                    CompatibleModule := 1,
 	                    KeyMask := 2#0000_0000_0001_1111,
-	                    DataExchangeId := {0D1234AA-9D86-42E0-BA90-999F515030A1})
-			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
-			ConfigData  := [12,103,1,0,0,0,0];
-			CONNECTION OutputData (Rate := 20000,
-			                       EventID := 0,
-			                       Unicast := No)
-					InputData  := [0];
-					OutputData  := [0];
-			END_CONNECTION
-
-	END_MODULE
-
-	MODULE Swarf_Outputs (Parent := "Local",
-	                      ParentModPortId := 1,
-	                      CatalogNumber := "1734-OA4/C",
-	                      Vendor := 1,
-	                      ProductType := 7,
-	                      ProductCode := 290,
-	                      Major := 3,
-	                      Minor := 22,
-	                      PortLabel := "RxBACKPLANE",
-	                      Slot := 7,
-	                      CommMethod := 536870913,
-	                      Mode := 2#0000_0000_0000_0000,
-	                      CompatibleModule := 1,
-	                      KeyMask := 2#0000_0000_0001_1111,
-	                      DataExchangeId := {A2435AD4-C45D-4F24-A04B-01E899257323})
-			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
-			ConfigData  := [12,103,1,0,0,0,0];
-			CONNECTION OutputData (Rate := 20000,
-			                       EventID := 0,
-			                       Unicast := No)
-					InputData  := [0];
-					OutputData  := [0];
-			END_CONNECTION
-
-	END_MODULE
-
-	MODULE Light_Outputs (Parent := "Local",
-	                      ParentModPortId := 1,
-	                      CatalogNumber := "1734-OA4/C",
-	                      Vendor := 1,
-	                      ProductType := 7,
-	                      ProductCode := 290,
-	                      Major := 3,
-	                      Minor := 22,
-	                      PortLabel := "RxBACKPLANE",
-	                      Slot := 8,
-	                      CommMethod := 536870913,
-	                      Mode := 2#0000_0000_0000_0000,
-	                      CompatibleModule := 1,
-	                      KeyMask := 2#0000_0000_0001_1111,
-	                      DataExchangeId := {AEB8AB29-342A-4894-9EB0-CE7481348062})
+	                    DataExchangeId := {F37C6314-8739-4C24-8AF1-7BE5610A7234})
 			ExtendedProp := [[[___<public><ConfigID>500</ConfigID><CatNum>1734-OA4</CatNum></public>___]]]
 			ConfigData  := [12,103,1,0,0,0,0];
 			CONNECTION OutputData (Rate := 20000,
@@ -387,7 +498,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	                  PortLabel := "ENet",
 	                  ChassisSize := 6,
 	                  Slot := 0,
-	                  NodeAddress := "192.168.3.11",
+	                  NodeAddress := "192.168.3.12",
 	                  CommMethod := 805306369,
 	                  Mode := 2#0000_0000_0000_0000,
 	                  CompatibleModule := 1,
@@ -528,13 +639,13 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	            Major := 1,
 	            Minor := 1,
 	            PortLabel := "ENet",
-	            NodeAddress := "192.168.3.12",
+	            NodeAddress := "192.168.3.13",
 	            Mode := 2#0000_0000_0000_0000,
 	            CompatibleModule := 1,
 	            KeyMask := 2#0000_0000_0001_1111,
 	            SafetyEnabled := 0,
 	            DataExchangeId := {93105D03-E833-4416-87C2-29B876ABE3D4})
-			ExtendedProp := [[[___<public><PL>01<Version Name=$Q1.1$Q/><Connection Name=$Q_200424042C022C01$Q Format=$Q4$Q/><Connection Name=$Q_200424042C062C05$Q Format=$Q2$Q/></PL><Vendor>Delta Computer Systems, Inc.</Vendor><CatNum>R200-CPU20L</CatNum><DataTypeFormats><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 01 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 02 30 03$Q Format=$Q1$Q Type=$QOutput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 05 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 06 30 03$Q Format=$Q1$Q Type=$QOutput$Q/></DataTypeFormats></public>___]]]
+			ExtendedProp := [[[___<public><PL>01<Version Name=$Q1.1$Q/><Connection Name=$Q_200424042C022C01$Q Format=$Q4$Q/><Connection Name=$Q_200424042C062C05$Q Format=$Q2$Q/></PL><CatNum>R200-CPU20L</CatNum><DataTypeFormats><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 01 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 02 30 03$Q Format=$Q1$Q Type=$QOutput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 05 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 06 30 03$Q Format=$Q1$Q Type=$QOutput$Q/></DataTypeFormats></public>___]]]
 			CONNECTION _200424042C022C01 (Rate := 20000,
 			                              InputSize := 40,
 			                              OutputSize := 24,
@@ -664,46 +775,48 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {F1646682-5521-4D4D-964A-7D9F351AAD51});
 		inAnSpindleSpeed OF Local:2:I.Ch0Data (RADIX := Decimal,
 		            DataExchangeId := {8E33B023-33CA-48B6-A82E-C4F1E161756C});
+		inEstopButton OF Local:1:I.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {2D19E0E7-862F-4268-9543-78D286E39D07});
 		inFl01OilLevelWarning OF RemoteHPU:3:I.0 (RADIX := Decimal,
 		            DataExchangeId := {D119FB35-0A9F-4FC6-8D38-F3BBEE64CD23});
 		inFl02OilLevelShutdownAlarm OF RemoteHPU:3:I.2 (RADIX := Decimal,
 		            DataExchangeId := {8AED894B-25A5-41C0-BDF7-88F9A90A57DF});
-		inLs01OvertravelMnsGauge OF Local:1:I.Data.8 (RADIX := Decimal,
-		            DataExchangeId := {23DB750C-2834-49A4-9007-D6E6B58F994E});
-		inLs02OvertravelPlsGauge OF Local:1:I.Data.9 (RADIX := Decimal,
-		            DataExchangeId := {BD338B61-9C84-419D-B5B7-B84A88205D2C});
-		inLs03OvertravelMnsTraverse OF Local:1:I.Data.10 (RADIX := Decimal,
-		            DataExchangeId := {2AA226E4-8B73-4380-9CD0-E61EB37BE104});
-		inLs04OvertravelPlsTraverse OF Local:1:I.Data.11 (RADIX := Decimal,
-		            DataExchangeId := {50F7320B-121C-4E7F-B5A9-9F78B57F92CE});
-		inLs05OvertravelMnsRaiseLower OF Local:1:I.Data.12 (RADIX := Decimal,
-		            DataExchangeId := {092BD230-6C92-4440-9A71-A50537BFF3F5});
-		inLs06OvertravelPlsRaiseLower OF Local:1:I.Data.13 (RADIX := Decimal,
-		            DataExchangeId := {8A24222D-FF7B-4295-85A5-923DADC7B362});
-		inLs07BladeGuard OF Local:1:I.Data.14 (RADIX := Decimal,
-		            DataExchangeId := {5A40C5D3-6B39-45E9-83B5-657FE718E71C});
-		inMS1HydraulicPump OF Local:1:I.Data.1 (RADIX := Decimal,
-		            DataExchangeId := {6C86BD59-F781-43D9-B727-371529CBF264});
-		inMS2HydraulicLoopPump OF Local:1:I.Data.2 (RADIX := Decimal,
-		            DataExchangeId := {67F39228-C630-459B-83B1-B389AE83581C});
-		inMS3HydCoolingFan OF Local:1:I.Data.3 (RADIX := Decimal,
-		            DataExchangeId := {B2D90655-5078-4DEE-9571-3726ADEAACB8});
-		inMS4CoolantPump OF Local:1:I.Data.4 (RADIX := Decimal,
-		            DataExchangeId := {BD7DDFB4-0BFD-4C85-B77F-03612D4C66E6});
-		inMS5SwarfPump OF Local:1:I.Data.5 (RADIX := Decimal,
-		            DataExchangeId := {29918BC3-0C07-4EE1-A1EA-F3FB6B37A62B});
-		inMS6SwarfConveyor OF Local:1:I.Data.6 (RADIX := Decimal,
-		            DataExchangeId := {1EECB47E-CD47-4098-99A4-899DB001DE68});
-		inPe01BladeDetect OF Local:1:I.Data.7 (RADIX := Decimal,
-		            DataExchangeId := {EC5E05B8-5C7A-4153-971A-DB2574EC8DD7});
+		inGaugeHomeSwitch OF Remote110V:2:I.2 (RADIX := Decimal,
+		            DataExchangeId := {21DAA5B7-ABCD-449D-BBB9-C195B07977CA});
+		inLs01OvertravelMnsGauge OF Remote110V:3:I.1 (RADIX := Decimal,
+		            DataExchangeId := {F7DD7AA5-7DD2-4667-8150-A3E338C1AF93});
+		inLs02OvertravelPlsGauge OF Remote110V:3:I.2 (RADIX := Decimal,
+		            DataExchangeId := {C2FDDFCE-9558-4FC3-87AF-DDBFE5FA7120});
+		inLs03OvertravelMnsTraverse OF Remote110V:3:I.3 (RADIX := Decimal,
+		            DataExchangeId := {D42004F4-D3F1-414E-963A-29259A78A9AD});
+		inLs04OvertravelPlsTraverse OF Remote110V:4:I.0 (RADIX := Decimal,
+		            DataExchangeId := {792A7A73-86AC-4534-B54F-DE2C17772158});
+		inLs05OvertravelMnsRaiseLower OF Remote110V:4:I.1 (RADIX := Decimal,
+		            DataExchangeId := {B6ABB0CE-2446-4165-B6DC-2D476A37A79F});
+		inLs06OvertravelPlsRaiseLower OF Remote110V:4:I.2 (RADIX := Decimal,
+		            DataExchangeId := {0484F243-3B18-402F-A136-3762981589E1});
+		inLs07BladeGuard OF Remote110V:4:I.3 (RADIX := Decimal,
+		            DataExchangeId := {893FE70C-E1CE-416A-B258-7CB7DB5D6485});
+		inMS1HydraulicPump OF Remote110V:1:I.0 (RADIX := Decimal,
+		            DataExchangeId := {88E1C03A-0361-449D-8C04-A18147C71F66});
+		inMS2HydraulicLoopPump OF Remote110V:1:I.1 (RADIX := Decimal,
+		            DataExchangeId := {D0C810D9-0BC5-407C-A969-EDAB3BB60514});
+		inMS3HydCoolingFan OF Remote110V:1:I.2 (RADIX := Decimal,
+		            DataExchangeId := {E3BC8EC6-F25A-4A79-B34D-D4F6F3B4B5C5});
+		inMS4CoolantPump OF Remote110V:1:I.3 (RADIX := Decimal,
+		            DataExchangeId := {86E2A350-F40D-476E-ABE9-702A14D99ACE});
+		inMS5SwarfPump OF Remote110V:2:I.0 (RADIX := Decimal,
+		            DataExchangeId := {9CD39DB4-863D-4E75-80C1-FDA77F606CE5});
+		inMS6SwarfConveyor OF Remote110V:2:I.1 (RADIX := Decimal,
+		            DataExchangeId := {4DDF13AB-5040-4D02-837C-446E84FE0600});
+		inPe01BladeDetect : BOOL (RADIX := Decimal) := 0;
 		inPs01LoopFilterDirty OF RemoteHPU:2:I.5 (RADIX := Decimal,
 		            DataExchangeId := {CFD7002E-253B-4E6F-B64B-0340319CED41});
 		inPs02PressureFilterDirty OF RemoteHPU:2:I.6 (RADIX := Decimal,
 		            DataExchangeId := {4D6DA4B0-7727-40A3-A6BE-EDB1EA84E601});
 		inPs03MotorCaseDrain OF RemoteHPU:2:I.7 (RADIX := Decimal,
 		            DataExchangeId := {8F6924E2-F441-4510-B763-1967247CB8DE});
-		inPs04SwarfFilterDirty OF Local:1:I.Data.15 (RADIX := Decimal,
-		            DataExchangeId := {095BF4DB-E430-498A-A41C-9D828FC328F0});
+		inPs04SwarfFilterDirty : BOOL (RADIX := Decimal) := 0;
 		inPx01Pump1Inlet OF RemoteHPU:2:I.0 (RADIX := Decimal,
 		            DataExchangeId := {1883E068-E3EC-4E9E-A781-416F524A6211});
 		inPx02Pump2Inlet OF RemoteHPU:2:I.1 (RADIX := Decimal,
@@ -714,12 +827,20 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {78E2A389-010A-4782-B58F-9B91C8B35177});
 		inPx05DrainValve OF RemoteHPU:2:I.4 (RADIX := Decimal,
 		            DataExchangeId := {8D82C4AF-945F-49B4-91FD-520427DFA1EA});
-		inSpare746 OF RemoteHPU:3:I.4 (RADIX := Decimal,
+		inRaiseLowerHomeSwitch OF Remote110V:3:I.0 (RADIX := Decimal,
+		            DataExchangeId := {8512D400-72CC-4AB0-9FE3-FCAF35F1BDB5});
+		inSpare234 OF RemoteHPU:3:I.4 (RADIX := Decimal,
 		            DataExchangeId := {058BAC4A-B391-4D87-933D-6CBA7311FD83});
-		inSpare747 OF RemoteHPU:3:I.5 (RADIX := Decimal,
+		inSpare235 OF RemoteHPU:3:I.5 (RADIX := Decimal,
 		            DataExchangeId := {4CAF891C-DF48-45BF-8E21-74A5A5315BF6});
+		inSpare236 OF RemoteHPU:3:I.6 (RADIX := Decimal,
+		            DataExchangeId := {2EA15C21-7292-48AB-881E-07D45E1D711A});
+		inSpare237 OF RemoteHPU:3:I.7 (RADIX := Decimal,
+		            DataExchangeId := {14A4A216-85B7-4FCA-8EA0-5273338596A2});
 		inSR1SafetyRelay OF Local:1:I.Data.0 (RADIX := Decimal,
 		            DataExchangeId := {366AB894-C128-431F-852B-63397D83BF32});
+		inTraverseHomeSwitch OF Remote110V:2:I.3 (RADIX := Decimal,
+		            DataExchangeId := {E597DD69-6596-4322-8EA5-1BCF7167F821});
 		inTs01OilTempWarning OF RemoteHPU:3:I.1 (RADIX := Decimal,
 		            DataExchangeId := {B6D1767F-39E7-44B6-9ABB-A618F4C4FD12});
 		inTs02OilTempShutdownAlarm OF RemoteHPU:3:I.3 (RADIX := Decimal,
@@ -742,38 +863,44 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {0B4838BA-DDDB-4401-A9CF-17FA78FE5A9F});
 		outCr04ClampAdvance OF RemoteHPU:5:O.0 (RADIX := Decimal,
 		            DataExchangeId := {7CE4C5F9-6D0F-46AD-AF54-6791AC7E9FD9});
-		outCr05GageGripperAdvance OF RemoteHPU:5:O.1 (RADIX := Decimal,
-		            DataExchangeId := {93B80833-BC00-4B4D-8A95-171FE9DD01FF});
-		outCrlLaserLight OF Local:8:O.Data.0 (RADIX := Decimal,
-		            DataExchangeId := {1343B655-DEEE-4B02-A49B-CDC8C3B3FF9C});
-		outLtaStackLtAmber OF Local:8:O.Data.2 (RADIX := Decimal,
-		            DataExchangeId := {CB102B36-860B-4692-8A90-30AE4E190843});
-		outLtgStackLtGreen OF Local:8:O.Data.1 (RADIX := Decimal,
-		            DataExchangeId := {76E1D6C9-3CF3-43B3-AFAE-ED875DFF164C});
-		outLtrStackLtRed OF Local:8:O.Data.3 (RADIX := Decimal,
-		            DataExchangeId := {793F0E93-6D4E-48EF-9CB6-6EE3B6CA2AB4});
-		outMs1HydrulicPump OF Local:6:O.Data.0 (RADIX := Decimal,
-		            DataExchangeId := {CFB4B123-0744-41EF-A043-AACE8C3111B1});
-		outMs2LoopPump OF Local:6:O.Data.1 (RADIX := Decimal,
-		            DataExchangeId := {90A40B14-CC38-4E57-AF7E-458FBFB9D564});
-		outMs3HydraulicCoolFan OF Local:6:O.Data.2 (RADIX := Decimal,
-		            DataExchangeId := {30A373A6-1724-432B-8077-068E35BE4351});
-		outMs4Coolant OF Local:6:O.Data.3 (RADIX := Decimal,
-		            DataExchangeId := {73CD2312-D22A-4844-9987-5797BDE3B028});
-		outMs5SwarfPump OF Local:7:O.Data.0 (RADIX := Decimal,
-		            DataExchangeId := {E7B61F77-7192-4CCD-8C97-4BE54925138C});
-		outMs6SwarfConveyor OF Local:7:O.Data.1 (RADIX := Decimal,
-		            DataExchangeId := {5351B322-DCDD-4212-915C-230121D4CAE7});
-		outSpare632 OF Local:7:O.Data.2 (RADIX := Decimal,
-		            DataExchangeId := {6D7A1941-DDC6-42E2-9730-2F6EF5F56725});
-		outSpare633 OF Local:7:O.Data.3 (RADIX := Decimal,
-		            DataExchangeId := {09CFCA69-26F8-4BF5-BD93-79ACF54D0289});
-		outSpare806 OF RemoteHPU:4:O.3 (RADIX := Decimal,
-		            DataExchangeId := {66EF03AC-9884-43DA-8224-63043E054007});
-		outSpare817 OF RemoteHPU:5:O.2 (RADIX := Decimal,
+		outCr05ClampRetract OF RemoteHPU:5:O.1 (RADIX := Decimal,
 		            DataExchangeId := {FEF8EE23-6EB6-4153-9D4E-8F57D1F5E072});
-		outSpare818 OF RemoteHPU:5:O.3 (RADIX := Decimal,
+		outCr06GaugeGripperAdvance OF RemoteHPU:5:O.2 (RADIX := Decimal,
+		            DataExchangeId := {93B80833-BC00-4B4D-8A95-171FE9DD01FF});
+		outCr07GaugeGripperRetract OF RemoteHPU:5:O.3 (RADIX := Decimal,
 		            DataExchangeId := {28F1C8AB-49A7-4B2B-A89C-7E913EC12602});
+		outCrlLaserLight OF Remote110V:7:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {836B7F3A-8094-4C4D-8E07-A672876198C4});
+		outGaugeHomeSwitch OF Local:1:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {746199DD-9FFE-439F-AD04-9C80D1755059});
+		outLtaStackLtAmber OF Remote110V:7:O.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {4E3C8008-F145-49B5-8F7C-8AF5470AB7BD});
+		outLtgStackLtGreen OF Remote110V:7:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {FDD8D23E-C156-4761-A7C4-FCB4A132E1A8});
+		outLtrStackLtRed OF Remote110V:7:O.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {97A2B868-6787-45B7-8E4D-7D63E9DD586D});
+		outMs1HydrulicPump OF Remote110V:5:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {389BB758-651E-40F7-BFE1-90C5E15A4D67});
+		outMs2LoopPump OF Remote110V:5:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {BD01109A-743F-4423-8AD9-4A366DFF4942});
+		outMs3HydraulicCoolFan OF Remote110V:5:O.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {AB7487F5-B5F5-4B4E-A6CE-693FDD616E39});
+		outMs4Coolant OF Remote110V:5:O.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {2CE85D8F-6DC8-4377-B655-0EDF1C1F60D5});
+		outMs5SwarfPump OF Remote110V:6:O.Data.0 (RADIX := Decimal,
+		            DataExchangeId := {781EF96C-D772-4B87-978F-3C86A2DBB2FC});
+		outMs6SwarfConveyor OF Remote110V:6:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {CA886397-7DC5-4490-BBC6-21FBE2CBDF5E});
+		outRaiseLowerHomeSwitch OF Local:1:O.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {2F4A45AB-BA96-42DC-870E-DF388848E7C6});
+		outSpare162 OF Remote110V:6:O.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {C4F4624A-9F0A-462E-97FF-6BEDFF4153F4});
+		outSpare163 OF Remote110V:6:O.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {5BF2A00F-863E-47ED-A43A-99BAE3D78072});
+		outSpare243 OF RemoteHPU:4:O.3 (RADIX := Decimal,
+		            DataExchangeId := {66EF03AC-9884-43DA-8224-63043E054007});
+		outTraverseHomeSwitch OF Local:1:O.Data.1 (RADIX := Decimal,
+		            DataExchangeId := {D111B862-FD95-4FAA-B821-8991E393B62C});
 		Pass : Pass[21]  := [[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
@@ -1307,7 +1434,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE Clamps 
-				N: [XIC(tbGaugeClamp) XIC(HydRunning) ,XIC(outCr05GageGripperAdvance) ]XIO(tbGaugeUnclamp)OTE(outCr05GageGripperAdvance);
+				N: [XIC(tbGaugeClamp) XIC(HydRunning) ,XIC(outCr06GaugeGripperAdvance) ]XIO(tbGaugeUnclamp)OTE(outCr06GaugeGripperAdvance);
 				N: [XIC(X_AutoCut) XIO(AxisX_Gauge.InPosition) ,[XIC(tbWorkClamp) XIC(HydRunning) ,XIC(outCr04ClampAdvance) ] XIO(tbWorkUnclamp) XIO(X_Homing) XIC(AxisX_Gauge.Stopped) XIO(X_AutoCut) ][OTE(outCr04ClampAdvance) ,OTU(AxisX_Gauge.CommandJog) ];
 		END_ROUTINE
 
@@ -1326,6 +1453,9 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 
 		ROUTINE Outputs 
 				N: FOR(RMC_Axis,iAxis,0,2,1);
+				N: XIC(inGaugeHomeSwitch)OTE(outGaugeHomeSwitch);
+				N: XIC(inTraverseHomeSwitch)OTE(outTraverseHomeSwitch);
+				N: XIC(inRaiseLowerHomeSwitch)OTE(outRaiseLowerHomeSwitch);
 				N: JSR(Hydraulics,0);
 				N: JSR(Coolant,0);
 				N: JSR(Clamps,0);
