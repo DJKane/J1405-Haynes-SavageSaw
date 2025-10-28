@@ -9,7 +9,7 @@
    <Controller
        Type="RMC200"
        Name="Kane"
-       CommunicationPath="TCPIP/192.168.3.12::CIP"
+       CommunicationPath="TCPIP/192.168.3.13::CIP"
        CipBridgePath=""
        CipBridgeSize="500"
        SerNo="22L240170"
@@ -61,7 +61,7 @@
           EnetLockFWUpdates="0"
           EnetLockIPSettingsUI="0"
           IPAddrMode="Static"
-          IPAddress="16#C0A8030C"
+          IPAddress="16#C0A8030D"
           SubnetMask="16#FFFFFF00"
           DefGateway="16#00000000"
           McastTTL="1"
