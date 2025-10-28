@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Fri Oct 24 11:33:16 2025
+  Exported  := Tue Oct 28 18:39:25 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -164,7 +164,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	              Slot := 0,
 	              Mode := 2#0000_0000_0000_0001,
 	              CompatibleModule := 0,
-	              KeyMask := 2#0000_0000_0000_0000)
+	              KeyMask := 2#0000_0000_0001_1111)
 	END_MODULE
 
 	MODULE Discrete_IO (Parent := "Local",
@@ -188,7 +188,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                 EventID := 0,
 			                 Unicast := No)
 					InputData  := [0,0];
-					OutputData  := [0];
+					OutputData  := [3];
 			END_CONNECTION
 
 	END_MODULE
@@ -214,7 +214,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			CONNECTION InputData (Rate := 80000,
 			                      EventID := 0,
 			                      Unicast := No)
-					InputData  := [0,0,0,1,1];
+					InputData  := [0,10562,10562,-87,-87];
 			END_CONNECTION
 
 	END_MODULE
@@ -240,7 +240,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			CONNECTION InputData (Rate := 80000,
 			                      EventID := 0,
 			                      Unicast := No)
-					InputData  := [0,0,0,21,21];
+					InputData  := [0,10565,1631,-87,0];
 			END_CONNECTION
 
 	END_MODULE
@@ -266,7 +266,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			CONNECTION InputData (Rate := 80000,
 			                      EventID := 0,
 			                      Unicast := No)
-					InputData  := [0,0,0,1,1];
+					InputData  := [0,10560,10560,-87,-87];
 			END_CONNECTION
 
 	END_MODULE
@@ -292,7 +292,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			CONNECTION OutputData (Rate := 50000,
 			                       EventID := 0,
 			                       Unicast := No)
-					InputData  := [0,1,1];
+					InputData  := [0,0,0];
 					OutputData  := [0,0];
 			END_CONNECTION
 
@@ -314,13 +314,14 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	                   Mode := 2#0000_0000_0000_0000,
 	                   CompatibleModule := 1,
 	                   KeyMask := 2#0000_0000_0001_1111,
+	                   TrackingGroups := 16#0000_0002,
 	                   DataExchangeId := {22278128-2E9C-4FBB-A903-CFC9BA45CEBE})
 			ExtendedProp := [[[___<public><ConfigID>262145</ConfigID><CatNum>1734-AENT</CatNum></public>___]]]
 			CONNECTION Output (Rate := 20000,
 			                   EventID := 0,
 			                   Unicast := Yes)
-					InputData  := [0,0,[0,0,0,0,0,0,0,0]];
-					OutputData  := [0,0,[0,0,0,0,0,0,0,0]];
+					InputData  := [-31,-1,[0,15,15,14,15,0,0,0]];
+					OutputData  := [-31,-1,[0,0,0,0,0,0,0,0]];
 			END_CONNECTION
 
 	END_MODULE
@@ -430,7 +431,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                       EventID := 0,
 			                       Unicast := No)
 					InputData  := [0];
-					OutputData  := [0];
+					OutputData  := [6];
 			END_CONNECTION
 
 	END_MODULE
@@ -456,7 +457,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                       EventID := 0,
 			                       Unicast := No)
 					InputData  := [0];
-					OutputData  := [0];
+					OutputData  := [1];
 			END_CONNECTION
 
 	END_MODULE
@@ -482,7 +483,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                       EventID := 0,
 			                       Unicast := No)
 					InputData  := [0];
-					OutputData  := [0];
+					OutputData  := [8];
 			END_CONNECTION
 
 	END_MODULE
@@ -508,7 +509,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			CONNECTION Output (Rate := 20000,
 			                   EventID := 0,
 			                   Unicast := Yes)
-					InputData  := [-61,-1,[0,0,0,0,15,15]];
+					InputData  := [-61,-1,[0,0,0,0,8,0]];
 					OutputData  := [-61,-1,[0,0,0,0,0,0]];
 			END_CONNECTION
 
@@ -535,7 +536,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			CONNECTION InputData (Rate := 80000,
 			                      EventID := 0,
 			                      Unicast := Yes)
-					InputData  := [0,10562,10562,-87,-87];
+					InputData  := [0,10576,10575,-87,-87];
 			END_CONNECTION
 
 	END_MODULE
@@ -656,9 +657,9 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                              ConnectionPath := "20 04 24 04 2c 02 2c 01",
 			                              InputTagSuffix := "I1",
 			                              OutputTagSuffix := "O1")
-					InputData  := [0,[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
-		,0.00000000e+000,0.00000000e+000,0.00000000e+000]];
-					OutputData  := [[6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001
+					InputData  := [0,[0.00000000e+000,3.78560028e+001,3.78560028e+001,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,1.82112748e-041,1.50694085e-036,1.50694085e-036]];
+					OutputData  := [[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 		]];
 			END_CONNECTION
 
@@ -672,8 +673,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                              ConnectionPath := "20 04 24 04 2c 06 2c 05",
 			                              InputTagSuffix := "I2",
 			                              OutputTagSuffix := "O2")
-					InputData  := [0,[0,0,0,0,0,0]];
-					OutputData  := [[1116418864,1116418864,1116418864,1116418864]];
+					InputData  := [0,[12996,67121732,67121732,0,0,0]];
+					OutputData  := [[1116418816,1116418816,1116418816,1116418864]];
 			END_CONNECTION
 
 	END_MODULE
@@ -688,42 +689,42 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		AutoCutStateChange : BOOL (RADIX := Decimal) := 0;
 		AutoSpinCCW : BOOL (RADIX := Decimal) := 0;
 		AutoSpinCW : BOOL (RADIX := Decimal) := 0;
-		Axis : AxisData[3]  := [[0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,48,51,-117
-				,66,0,0,0,0,0,0,0,0.00000000e+000,0],[1.50547149e-036,0.00000000e+000,0.00000000e+000,0.00000000e+000
-				,0.00000000e+000,-116,108,23,66,0,0,0,0,0,0,0,0.00000000e+000,0],[1.50547149e-036,0.00000000e+000,0.00000000e+000
-				,0.00000000e+000,0.00000000e+000,0,0,0,-128,0,0,0,0,0,0,0,0.00000000e+000,0]];
+		Axis : AxisData[3]  := [[0.00000000e+000,0.00000000e+000,1.82112748e-041,0.00000000e+000,0.00000000e+000,-60,50,0
+				,0,0,0,0,0,0,0,0,0.00000000e+000,0],[3.78560028e+001,0.00000000e+000,1.50694085e-036,0.00000000e+000
+				,0.00000000e+000,116,50,0,4,0,0,0,0,0,0,0,0.00000000e+000,0],[3.78560028e+001,0.00000000e+000,1.50694085e-036
+				,0.00000000e+000,0.00000000e+000,116,50,0,4,0,0,0,0,0,0,0,0.00000000e+000,0]];
 		AxisX_Gauge OF Axis[0] ;
 		AxisY_Traverse OF Axis[1] ;
 		AxisZ_RaiseLower OF Axis[2] ;
 		BladeChange10 : BOOL (RADIX := Decimal) := 0;
 		BladeChange10ONS : BOOL (RADIX := Decimal) := 0;
 		BladeChange20 : BOOL (RADIX := Decimal) := 0;
-		BladeChange20ONS : BOOL (RADIX := Decimal) := 0;
+		BladeChange20ONS : BOOL (RADIX := Decimal) := 1;
 		BladeChangeDone : BOOL (RADIX := Decimal) := 0;
 		BladeChangeStartONS : BOOL (RADIX := Decimal) := 0;
 		BladeChangeStateChange : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure10ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure10StopAll : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure15ClearZero : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure20ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure20ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure20Retract : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure30ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure30ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure30Traverse : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure40Lower : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure40ONS : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure50ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure40ONS : BOOL (RADIX := Decimal) := 1;
+		BladeMeasure50ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure50Stop : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure55ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure55ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure55Raise : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure60ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure60ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure60Stop : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure65Measure : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure65ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure65ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure70Calc : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure70ONS : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure75ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure70ONS : BOOL (RADIX := Decimal) := 1;
+		BladeMeasure75ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure75PartRef : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure80ONS : BOOL (RADIX := Decimal) := 0;
+		BladeMeasure80ONS : BOOL (RADIX := Decimal) := 1;
 		BladeMeasure80Return : BOOL (RADIX := Decimal) := 0;
 		BladeMeasureStartONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasureStateChange : BOOL (RADIX := Decimal) := 0;
@@ -734,24 +735,25 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		BumpDistance : REAL (RADIX := Float) := 0.00000000e+000;
 		BumpDistanceDry : REAL (RADIX := Float) := 0.00000000e+000;
 		BumpDistanceWet : REAL (RADIX := Float) := 0.00000000e+000;
-		ClampPressure : REAL (RADIX := Float) := 0.00000000e+000;
+		ClampPressure : REAL (RADIX := Float) := 5.06520166e+003;
 		CutEndPosition : REAL (RADIX := Float) := 0.00000000e+000;
 		CutForward : BOOL (RADIX := Decimal) := 0;
 		CutOnReturn : BOOL (RADIX := Decimal) := 0;
 		CutStartPosition : REAL (RADIX := Float) := 0.00000000e+000;
-		DryCutDepth : REAL (RADIX := Float) := 0.00000000e+000;
-		DryCutSpeed : REAL (RADIX := Float) := 0.00000000e+000;
+		DryCutDepth : REAL (RADIX := Float) := 2.99999993e-002;
+		DryCutSpeed : REAL (RADIX := Float) := 2.00000000e+002;
 		DryPasses : DINT (RADIX := Decimal) := 0;
-		Fault : BOOL (RADIX := Decimal) := 0;
+		Fault : BOOL (RADIX := Decimal) := 1;
 		FaultOSR : BOOL (RADIX := Decimal) := 0;
 		FaultRise : BOOL (RADIX := Decimal) := 0;
-		GaugePotScale : REAL (RADIX := Float) := 0.00000000e+000;
-		GaugeVelocityHome : REAL (RADIX := Float) := 0.00000000e+000;
-		GaugeVelocityJogMax : REAL (RADIX := Float) := 0.00000000e+000;
-		GaugeVelocityMax : REAL (RADIX := Float) := 0.00000000e+000;
-		hmiFaultMessageNumber : DINT (RADIX := Decimal) := 0;
+		GaugeGripping : BOOL (RADIX := Decimal) := 0;
+		GaugePotScale : REAL (RADIX := Float) := 2.44200259e-004;
+		GaugeVelocityHome : REAL (RADIX := Float) := 1.66700006e+000;
+		GaugeVelocityJogMax : REAL (RADIX := Float) := 8.33300018e+000;
+		GaugeVelocityMax : REAL (RADIX := Float) := 1.66669998e+001;
+		hmiFaultMessageNumber : DINT (RADIX := Decimal) := 16;
 		HorsepowerActual : REAL (RADIX := Float) := 0.00000000e+000;
-		HorsepowerScale : REAL (RADIX := Float) := 0.00000000e+000;
+		HorsepowerScale : REAL (RADIX := Float) := 6.63680136e-002;
 		HorsepowerTarget : REAL (RADIX := Float) := 0.00000000e+000;
 		HPUReadyToRun : BOOL (RADIX := Decimal) := 0;
 		HydReady : BOOL (RADIX := Decimal) := 0;
@@ -850,7 +852,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		MC_Reset OF RMC:O2.Data[3].0 (RADIX := Decimal,
 		            DataExchangeId := {6C3631B2-0311-409B-B2AE-FC3773E3B5F5});
 		NorthZero : BOOL (RADIX := Decimal) := 0;
-		OilWarm : BOOL (RADIX := Decimal) := 0;
+		OilWarm : BOOL (RADIX := Decimal) := 1;
 		outAnSpindleMotor OF Local:5:O.Ch1Data (RADIX := Decimal,
 		            DataExchangeId := {2845F938-5F59-4D05-8D91-5DADBDA4E89B});
 		outAnSpindlePump OF Local:5:O.Ch0Data (RADIX := Decimal,
@@ -923,18 +925,18 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				]];
-		PastPart : REAL (RADIX := Float) := 0.00000000e+000;
+		PastPart : REAL (RADIX := Float) := 6.00000000e+000;
 		Pi : REAL (RADIX := Float,
 		            Constant := Yes) := 3.14159274e+000;
-		RaiseLowerPotScale : REAL (RADIX := Float) := 0.00000000e+000;
-		RaiseLowerVelocityHome : REAL (RADIX := Float) := 0.00000000e+000;
-		RaiseLowerVelocityJogMax : REAL (RADIX := Float) := 0.00000000e+000;
-		RaiseLowerVelocityMax : REAL (RADIX := Float) := 0.00000000e+000;
+		RaiseLowerPotScale : REAL (RADIX := Float) := 2.44200259e-004;
+		RaiseLowerVelocityHome : REAL (RADIX := Float) := 3.33000000e-001;
+		RaiseLowerVelocityJogMax : REAL (RADIX := Float) := 5.00000000e-001;
+		RaiseLowerVelocityMax : REAL (RADIX := Float) := 1.00000000e+000;
 		RemainDepth : REAL (RADIX := Float) := 0.00000000e+000;
 		RpmTarget : REAL (RADIX := Float) := 0.00000000e+000;
-		RpmTarget105Pct : REAL (RADIX := Float) := 0.00000000e+000;
+		RpmTarget105Pct : REAL (RADIX := Float) := 8.75000000e+002;
 		SafetyRelayAutoReset : BOOL (RADIX := Decimal) := 0;
-		ServoPressure : REAL (RADIX := Float) := 0.00000000e+000;
+		ServoPressure : REAL (RADIX := Float) := 5.06471289e+003;
 		SFPM : REAL (RADIX := Float) := 0.00000000e+000;
 		SpinCCWActive : BOOL (RADIX := Decimal) := 0;
 		SpinCCWDemand : BOOL (RADIX := Decimal) := 0;
@@ -943,40 +945,40 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		SpinDemandFall : BOOL (RADIX := Decimal) := 0;
 		SpindleMotorOutputScale : REAL (RADIX := Float) := 0.00000000e+000;
 		SpindlePressure : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindlePressureCCW : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindlePressureCW : REAL (RADIX := Float) := 0.00000000e+000;
+		SpindlePressureCCW : REAL (RADIX := Float) := 1.28963367e+003;
+		SpindlePressureCW : REAL (RADIX := Float) := 1.28963367e+003;
 		SpindlePressureDisplay : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindlePressureScale : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindlePressureTarget : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindleRPM : REAL (RADIX := Float) := 0.00000000e+000;
+		SpindlePressureScale : REAL (RADIX := Float) := 7.34999990e+000;
+		SpindlePressureTarget : REAL (RADIX := Float) := 3.23399994e+002;
+		SpindleRPM : REAL (RADIX := Float) := 5.41508789e+003;
 		SpindleRPMAtTarget : BOOL (RADIX := Decimal) := 0;
-		SpindleRPMError : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindleRPMGate : REAL (RADIX := Float) := 0.00000000e+000;
+		SpindleRPMError : REAL (RADIX := Float) := 5.41508789e+003;
+		SpindleRPMGate : REAL (RADIX := Float) := 1.00000000e+002;
 		SpindleStall : BOOL (RADIX := Decimal) := 0;
-		SpindleStallPressure : REAL (RADIX := Float) := 0.00000000e+000;
-		SpindleStallRPM : REAL (RADIX := Float) := 0.00000000e+000;
+		SpindleStallPressure : REAL (RADIX := Float) := 1.36054420e+001;
+		SpindleStallRPM : REAL (RADIX := Float) := 1.00000000e+002;
 		State : DINT (RADIX := Decimal) := 0;
 		State200Build : BOOL (RADIX := Decimal) := 0;
 		State200ONS : BOOL (RADIX := Decimal) := 0;
 		State205 : BOOL (RADIX := Decimal) := 0;
-		State205ONS : BOOL (RADIX := Decimal) := 0;
-		State207ONS : BOOL (RADIX := Decimal) := 0;
+		State205ONS : BOOL (RADIX := Decimal) := 1;
+		State207ONS : BOOL (RADIX := Decimal) := 1;
 		State207TraverseInitial : BOOL (RADIX := Decimal) := 0;
 		State210Direction : BOOL (RADIX := Decimal) := 0;
-		State210ONS : BOOL (RADIX := Decimal) := 0;
-		State220ONS : BOOL (RADIX := Decimal) := 0;
+		State210ONS : BOOL (RADIX := Decimal) := 1;
+		State220ONS : BOOL (RADIX := Decimal) := 1;
 		State220TraverseToStart : BOOL (RADIX := Decimal) := 0;
 		State230StartSaw : BOOL (RADIX := Decimal) := 0;
 		State240 : BOOL (RADIX := Decimal) := 0;
-		State240ONS : BOOL (RADIX := Decimal) := 0;
+		State240ONS : BOOL (RADIX := Decimal) := 1;
 		State250CheckRPM : BOOL (RADIX := Decimal) := 0;
-		State250ONS : BOOL (RADIX := Decimal) := 0;
+		State250ONS : BOOL (RADIX := Decimal) := 1;
 		State260Cut : BOOL (RADIX := Decimal) := 0;
-		State260ONS : BOOL (RADIX := Decimal) := 0;
+		State260ONS : BOOL (RADIX := Decimal) := 1;
 		State280 : BOOL (RADIX := Decimal) := 0;
-		State280ONS : BOOL (RADIX := Decimal) := 0;
+		State280ONS : BOOL (RADIX := Decimal) := 1;
 		State285BladeMeasure : BOOL (RADIX := Decimal) := 0;
-		State290ONS : BOOL (RADIX := Decimal) := 0;
+		State290ONS : BOOL (RADIX := Decimal) := 1;
 		State290RaiseBlade : BOOL (RADIX := Decimal) := 0;
 		State299 : BOOL (RADIX := Decimal) := 0;
 		StepCount : DINT (RADIX := Decimal) := 0;
@@ -1017,29 +1019,30 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		tbZeroGauge : BOOL (RADIX := Decimal) := 0;
 		Thickness : REAL (RADIX := Float) := 0.00000000e+000;
 		timerAxisZ_RaiseLowerClearZero : TIMER  := [0,1000,0];
-		timerGaugeBrakeDelay : TIMER  := [0,2000,0];
-		timerRaiseLowerBrakeDelay : TIMER  := [0,2000,0];
+		timerGaugeBrakeDelay : TIMER  := [1714862,2000,2000];
+		timerRaiseLowerBrakeDelay : TIMER  := [1714888,2000,2000];
 		timerSpindleStall : TIMER  := [0,3000,0];
 		timerState250CheckRPM : TIMER  := [0,0,0];
-		timerTraverseBrakeDelay : TIMER  := [0,2000,0];
-		TraversePotScale : REAL (RADIX := Float) := 0.00000000e+000;
-		TraverseRange : REAL (RADIX := Float) := 0.00000000e+000;
-		TraverseVelocityHome : REAL (RADIX := Float) := 0.00000000e+000;
-		TraverseVelocityJogMax : REAL (RADIX := Float) := 0.00000000e+000;
-		TraverseVelocityMax : REAL (RADIX := Float) := 0.00000000e+000;
+		timerTraverseBrakeDelay : TIMER  := [1714878,2000,2000];
+		TraversePotScale : REAL (RADIX := Float) := 2.44200259e-004;
+		TraverseRange : REAL (RADIX := Float) := 1.28000000e+002;
+		TraverseVelocityHome : REAL (RADIX := Float) := 8.33299994e-001;
+		TraverseVelocityJogMax : REAL (RADIX := Float) := 8.33300018e+000;
+		TraverseVelocityMax : REAL (RADIX := Float) := 1.66669998e+001;
 		ValidData : BOOL (RADIX := Decimal) := 0;
 		WetCutDepth : REAL (RADIX := Float) := 0.00000000e+000;
 		WetCutSpeed : REAL (RADIX := Float) := 0.00000000e+000;
 		WetPasses : DINT (RADIX := Decimal) := 0;
 		Width : REAL (RADIX := Float) := 0.00000000e+000;
+		WorkClamping : BOOL (RADIX := Decimal) := 0;
 		X_AutoCut : BOOL (RADIX := Decimal) := 0;
 		X_BladeChange : BOOL (RADIX := Decimal) := 0;
 		X_BladeMeasure : BOOL (RADIX := Decimal) := 0;
 		X_Fault : BOOL (RADIX := Decimal) := 0;
 		X_Homing : BOOL (RADIX := Decimal) := 0;
 		X_Manual : BOOL (RADIX := Decimal) := 0;
-		X_Off : BOOL (RADIX := Decimal) := 0;
-		X_State : DINT (RADIX := Decimal) := 0;
+		X_Off : BOOL (RADIX := Decimal) := 1;
+		X_State : DINT (RADIX := Decimal) := 1;
 	END_TAG
 
 	PROGRAM Init (MAIN := "Init",
@@ -1047,11 +1050,11 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	              DisableFlag := 0,
 	              UseAsFolder := 0)
 		TAG
-			Initialized : BOOL (RADIX := Decimal) := 0;
+			Initialized : BOOL (RADIX := Decimal) := 1;
 		END_TAG
 
 		ROUTINE Init 
-				N: XIO(Initialized)[MOVE(128.0,TraverseRange) MOVE(6.0,PastPart) ,DIV(14.7,2,SpindlePressureScale) CPT(HorsepowerScale,2 * (160.0 / 328.0) / 14.7) ,CPT(SpindleStallPressure,200.0 / 14.7) CPT(SpindleStallRPM,100.0) MOVE(100.0,SpindleRPMGate) ,MOVE(16.667,GaugeVelocityMax) MOVE(16.667,TraverseVelocityMax) MOVE(1.0,RaiseLowerVelocityMax) ,MOVE(1.667,GaugeVelocityHome) MOVE(0.8333,TraverseVelocityHome) MOVE(0.333,RaiseLowerVelocityHome) ,MOVE(8.333,GaugeVelocityJogMax) MOVE(8.333,TraverseVelocityJogMax) MOVE(0.5,RaiseLowerVelocityJogMax) ,CPT(GaugePotScale,1.0 / 4095.0) CPT(TraversePotScale,1.0 / 4095.0) CPT(RaiseLowerPotScale,1.0 / 4095.0) ,MOVE(200.0,DryCutSpeed) MOVE(0.030,DryCutDepth) ]OTL(Initialized);
+				N: XIO(Initialized)[MOVE(128.0,TraverseRange) MOVE(6.0,PastPart) ,DIV(14.7,2,SpindlePressureScale) CPT(HorsepowerScale,2*(160.0/328.0)/14.7) ,CPT(SpindleStallPressure,200.0/14.7) CPT(SpindleStallRPM,100.0) MOVE(100.0,SpindleRPMGate) ,MOVE(16.667,GaugeVelocityMax) MOVE(16.667,TraverseVelocityMax) MOVE(1.0,RaiseLowerVelocityMax) ,MOVE(1.667,GaugeVelocityHome) MOVE(0.8333,TraverseVelocityHome) MOVE(0.333,RaiseLowerVelocityHome) ,MOVE(8.333,GaugeVelocityJogMax) MOVE(8.333,TraverseVelocityJogMax) MOVE(0.5,RaiseLowerVelocityJogMax) ,CPT(GaugePotScale,1.0/4095.0) CPT(TraversePotScale,1.0/4095.0) CPT(RaiseLowerPotScale,1.0/4095.0) ,MOVE(200.0,DryCutSpeed) MOVE(0.03,DryCutDepth) ]OTL(Initialized);
 		END_ROUTINE
 
 		CHILD_PROGRAMS
@@ -1064,14 +1067,14 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	                DisableFlag := 0,
 	                UseAsFolder := 0)
 		TAG
-			iAxis : DINT (RADIX := Decimal) := 0;
+			iAxis : DINT (RADIX := Decimal) := 1;
 		END_TAG
 
 		ROUTINE Inputs 
 				N: JSR(Spindle,0);
 				N: JSR(RMC,0);
-				N: CPT(ServoPressure,(inAnServoPressure - 205) * 2000.0 / 4095.0)LT(ServoPressure,0.0)MOVE(0,ServoPressure);
-				N: CPT(ClampPressure,(inAnClampPressure - 205) * 2000.0 / 4095.0)LT(ClampPressure,0.0)MOVE(0,ClampPressure);
+				N: CPT(ServoPressure,(inAnServoPressure-205)*2000.0/4095.0)LT(ServoPressure,0.0)MOVE(0,ServoPressure);
+				N: CPT(ClampPressure,(inAnClampPressure-205)*2000.0/4095.0)LT(ClampPressure,0.0)MOVE(0,ClampPressure);
 		END_ROUTINE
 
 		ROUTINE RMC 
@@ -1085,13 +1088,13 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE Spindle 
-				N: CPT(SpindlePressureCW,(inAnSpindleSideA - 205) * 510.0 / 4095.0)LT(SpindlePressureCW,0.0)MOVE(0,SpindlePressureCW);
-				N: CPT(SpindlePressureCCW,(inAnSpindlesideB - 205) * 510.0 / 4095.0)LT(SpindlePressureCCW,0.0)MOVE(0,SpindlePressureCCW);
+				N: CPT(SpindlePressureCW,(inAnSpindleSideA-205)*510.0/4095.0)LT(SpindlePressureCW,0.0)MOVE(0,SpindlePressureCW);
+				N: CPT(SpindlePressureCCW,(inAnSpindlesideB-205)*510.0/4095.0)LT(SpindlePressureCCW,0.0)MOVE(0,SpindlePressureCCW);
 				N: [XIC(SpinCWActive) MOVE(SpindlePressureCW,SpindlePressure) ,XIC(SpinCCWActive) MOVE(SpindlePressureCCW,SpindlePressure) ,XIO(SpinCWActive) XIO(SpinCCWActive) MOVE(0,SpindlePressure) ];
 				N: MUL(SpindlePressure,SpindlePressureScale,SpindlePressureDisplay);
 				RC: "Shouldn$'t Horsepower calculation need to take RPM into account?";
-				N: CPT(HorsepowerActual,(SpindlePressureCW - SpindlePressureCCW) * HorsepowerScale)ABS(HorsepowerActual,HorsepowerActual);
-				N: CPT(SpindleRPM,inAnSpindleSpeed * 2100.0 / 4096.0)LT(SpindleRPM,SpindleRPMGate)MOVE(0,SpindleRPM);
+				N: CPT(HorsepowerActual,(SpindlePressureCW-SpindlePressureCCW)*HorsepowerScale)ABS(HorsepowerActual,HorsepowerActual);
+				N: CPT(SpindleRPM,inAnSpindleSpeed*2100.0/4096.0)LT(SpindleRPM,SpindleRPMGate)MOVE(0,SpindleRPM);
 		END_ROUTINE
 
 		ROUTINE S_RMC_Axis 
@@ -1102,8 +1105,6 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIC(RMC:I2.Data[iAxis].1)OTE(Axis[iAxis].AtVelocity);
 				N: XIC(RMC:I2.Data[iAxis].2)OTE(Axis[iAxis].OpenLoop);
 				N: XIC(RMC:I2.Data[iAxis].3)OTE(Axis[iAxis].FaultInput);
-				N: XIC(RMC:I2.Data[iAxis].4)OTE(Axis[iAxis].LimitPos);
-				N: XIC(RMC:I2.Data[iAxis].5)OTE(Axis[iAxis].LimitNeg);
 				N: XIC(RMC:I2.Data[iAxis].6)OTE(Axis[iAxis].Stopped);
 				N: XIC(RMC:I2.Data[iAxis].7)OTE(Axis[iAxis].InputEstimated);
 				N: XIC(RMC:I2.Data[iAxis].8)OTE(Axis[iAxis].OutputEnabled);
@@ -1168,7 +1169,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			HydRunFallStorage : BOOL (RADIX := Decimal) := 0;
 			HydRunRise : BOOL (RADIX := Decimal) := 0;
 			HydRunRiseStorage : BOOL (RADIX := Decimal) := 0;
-			iAxis : DINT (RADIX := Decimal) := 2;
+			iAxis : DINT (RADIX := Decimal) := 3;
 			ManualSpinCCW : BOOL (RADIX := Decimal) := 0;
 			ManualSpinCW : BOOL (RADIX := Decimal) := 0;
 			SafetyRelayAutoResetDelayStorage : BOOL (RADIX := Decimal) := 0;
@@ -1177,8 +1178,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			tbHydSShot : BOOL (RADIX := Decimal) := 0;
 			tbHydSShotStorage : BOOL (RADIX := Decimal) := 0;
 			timerSafetyRelayDelay : TIMER  := [0,1000,0];
-			timerSpinDownCCW : TIMER  := [0,2000,0];
-			timerSpinDownCW : TIMER  := [0,2000,0];
+			timerSpinDownCCW : TIMER  := [1719881,2000,2000];
+			timerSpinDownCW : TIMER  := [1719893,2000,2000];
 			tmrHydLoopDelay : TIMER  := [0,2000,0];
 		END_TAG
 
@@ -1229,7 +1230,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		ROUTINE Conditions 
 				N: XIO(BladeRadiusKnown)MOVE(0.0,BladeRadius);
 				N: GT(SFPM,0)GT(Width,0)GT(Thickness,0)GT(LastCutDepth,0)GT(HorsepowerTarget,0)GE(WetPasses,1)OTE(ValidData);
-				N: CPT(SpindleRPMError,SpindleRPM - RpmTarget)ABS(SpindleRPMError,SpindleRPMError)LT(SpindleRPMError,150.0)OTE(SpindleRPMAtTarget);
+				N: CPT(SpindleRPMError,SpindleRPM-RpmTarget)ABS(SpindleRPMError,SpindleRPMError)LT(SpindleRPMError,150.0)OTE(SpindleRPMAtTarget);
 				N: XIC(tbAutoCut)ONS(tbAutoCutONS)[XIC(X_AutoCut) OTE(AutoCutCancel) ,XIO(X_AutoCut) OTE(AutoCutReq) ];
 		END_ROUTINE
 
@@ -1360,7 +1361,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIC(State200Build)MOVE(200,State)[ONS(State200ONS) OTU(BuildDone) OTE(AutoCutStateChange) ,MOVE(0,StepCount) OTU(CutOnReturn) OTU(CutForward) ,XIC(BuildDone) OTL(State205) OTU(State200Build) ];
 				N: XIC(State205)MOVE(205,State)[ONS(State205ONS) OTE(AutoCutStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State207TraverseInitial) OTU(State205) OTU(AxisZ_RaiseLower.CommandMove) ];
 				N: XIC(State207TraverseInitial)MOVE(207,State)[ONS(State207ONS) OTL(AxisY_Traverse.CommandMove) OTE(AutoCutStateChange) ,MOVE(0.0,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityMax,AxisY_Traverse.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisY_Traverse.MoveComplete) OTL(State210Direction) OTU(State207TraverseInitial) OTU(AxisY_Traverse.CommandMove) ];
-				N: XIC(State210Direction)MOVE(210,State)[ONS(State210ONS) [CPT(CutStartPosition,AxisY_Traverse.PositionActual + PastPart - 1.0) OTE(AutoCutStateChange) ,GT(CutStartPosition,Width) OTU(CutForward) OTL(CutOnReturn) ,LT(AxisY_Traverse.PositionActual,2.0) MOVE(0.0,CutStartPosition) OTL(CutForward) OTU(CutOnReturn) ,XIO(CutForward) XIO(CutOnReturn) [OTL(AxisZ_RaiseLower.CommandMove) ,MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ] ,[XIC(CutForward) ,XIC(CutOnReturn) ] OTL(State230StartSaw) OTU(State210Direction) ] ,XIO(AutoCutStateChange) OTU(AxisZ_RaiseLower.CommandMove) ];
+				N: XIC(State210Direction)MOVE(210,State)[ONS(State210ONS) [CPT(CutStartPosition,AxisY_Traverse.PositionActual+PastPart-1.0) OTE(AutoCutStateChange) ,GT(CutStartPosition,Width) OTU(CutForward) OTL(CutOnReturn) ,LT(AxisY_Traverse.PositionActual,2.0) MOVE(0.0,CutStartPosition) OTL(CutForward) OTU(CutOnReturn) ,XIO(CutForward) XIO(CutOnReturn) [OTL(AxisZ_RaiseLower.CommandMove) ,MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ] ,[XIC(CutForward) ,XIC(CutOnReturn) ] OTL(State230StartSaw) OTU(State210Direction) ] ,XIO(AutoCutStateChange) OTU(AxisZ_RaiseLower.CommandMove) ];
 				N: XIC(State220TraverseToStart)MOVE(220,State)[ONS(State220ONS) OTL(AxisY_Traverse.CommandMove) OTE(AutoCutStateChange) ,MOVE(CutStartPosition,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityMax,AxisY_Traverse.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisY_Traverse.MoveComplete) OTL(State210Direction) OTU(State207TraverseInitial) OTU(AxisY_Traverse.CommandMove) ];
 				N: XIC(State230StartSaw)MOVE(230,State)[[XIO(Pass[StepCount].WetPass) XIC(CutOnReturn) ,XIC(Pass[StepCount].WetPass) XIC(CutForward) ] OTL(AutoSpinCW) OTU(AutoSpinCCW) ,[XIO(Pass[StepCount].WetPass) XIC(CutForward) ,XIC(Pass[StepCount].WetPass) XIC(CutOnReturn) ] OTU(AutoSpinCW) OTL(AutoSpinCCW) ,OTL(State240) OTU(State230StartSaw) ];
 				N: XIC(State240)MOVE(240,State)[ONS(State240ONS) [OTL(AxisZ_RaiseLower.CommandMove) ,XIC(Pass[0].WetPass) OTL(tbCoolant) ] OTE(AutoCutStateChange) ,MOVE(Pass[StepCount].RemainDepth,AxisZ_RaiseLower.PositionTarget) MOVE(0.833,AxisZ_RaiseLower.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State250CheckRPM) OTU(State240) OTU(AxisZ_RaiseLower.CommandMove) ];
@@ -1385,8 +1386,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIC(BladeMeasure50Stop)MOVE(350,State)[ONS(BladeMeasure50ONS) OTE(BladeMeasureStateChange) ,OTL(AxisZ_RaiseLower.CommandStop) ,XIO(BladeMeasureStateChange) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure55Raise) OTU(BladeMeasure50Stop) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
 				N: XIC(BladeMeasure55Raise)MOVE(355,State)[ONS(BladeMeasure55ONS) OTE(BladeMeasureStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.333,AxisZ_RaiseLower.VelocityTarget) MOVE(12.5,AxisZ_RaiseLower.PositionTarget) ,XIO(BladeMeasureStateChange) XIO(inPe01BladeDetect) [OTL(BladeMeasure60Stop) OTU(BladeMeasure55Raise) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
 				N: XIC(BladeMeasure60Stop)MOVE(360,State)[ONS(BladeMeasure60ONS) OTE(BladeMeasureStateChange) ,OTL(AxisZ_RaiseLower.CommandStop) ,XIO(BladeMeasureStateChange) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure65Measure) OTU(BladeMeasure60Stop) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
-				N: XIC(BladeMeasure65Measure)MOVE(365,State)[ONS(BladeMeasure65ONS) OTE(BladeMeasureStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.033,AxisZ_RaiseLower.VelocityTarget) MOVE(33.640,AxisZ_RaiseLower.PositionTarget) ,XIO(BladeMeasureStateChange) XIC(inPe01BladeDetect) [OTL(BladeMeasure70Calc) OTU(BladeMeasure65Measure) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
-				N: XIC(BladeMeasure70Calc)MOVE(370,State)[ONS(BladeMeasure70ONS) OTE(BladeMeasureStateChange) ,CPT(BladeRadius,AxisZ_RaiseLower.PositionActual - 0.5) OTL(BladeRadiusKnown) OTL(AxisZ_RaiseLower.CommandStop) ,XIO(BladeMeasureStateChange) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure75PartRef) OTU(BladeMeasure70Calc) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
+				N: XIC(BladeMeasure65Measure)MOVE(365,State)[ONS(BladeMeasure65ONS) OTE(BladeMeasureStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.033,AxisZ_RaiseLower.VelocityTarget) MOVE(33.64,AxisZ_RaiseLower.PositionTarget) ,XIO(BladeMeasureStateChange) XIC(inPe01BladeDetect) [OTL(BladeMeasure70Calc) OTU(BladeMeasure65Measure) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
+				N: XIC(BladeMeasure70Calc)MOVE(370,State)[ONS(BladeMeasure70ONS) OTE(BladeMeasureStateChange) ,CPT(BladeRadius,AxisZ_RaiseLower.PositionActual-0.5) OTL(BladeRadiusKnown) OTL(AxisZ_RaiseLower.CommandStop) ,XIO(BladeMeasureStateChange) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure75PartRef) OTU(BladeMeasure70Calc) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
 				N: XIC(BladeMeasure75PartRef)MOVE(375,State)[ONS(BladeMeasure75ONS) OTE(BladeMeasureStateChange) ,MOVE(-0.776,AxisZ_RaiseLower.PositionTarget) OTL(AxisZ_RaiseLower.CommandZero) ,XIO(BladeMeasureStateChange) [OTL(BladeMeasure80Return) OTU(BladeMeasure75PartRef) ,OTU(AxisZ_RaiseLower.CommandZero) ] ];
 				N: XIC(BladeMeasure80Return)MOVE(380,State)[ONS(BladeMeasure80ONS) OTE(BladeMeasureStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.333,AxisZ_RaiseLower.VelocityTarget) MOVE(0,AxisZ_RaiseLower.PositionTarget) ,XIO(BladeMeasureStateChange) XIC(AxisZ_RaiseLower.MoveComplete) [OTU(X_BladeMeasure) OTU(BladeMeasure80Return) ,OTL(BladeRadiusKnown) OTU(AxisZ_RaiseLower.CommandMove) ] ];
 		END_ROUTINE
@@ -1401,9 +1402,9 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 
 		ROUTINE X_Manual 
 				N: XIC(tbZeroGauge)MOVE(0.0,AxisX_Gauge.PositionTarget)OTE(AxisX_Gauge.CommandZero);
-				N: CPT(AxisX_Gauge.VelocityTarget,InAnPotGauge * GaugeVelocityJogMax * GaugePotScale);
-				N: CPT(AxisY_Traverse.VelocityTarget,inAnPotTraverse * TraverseVelocityJogMax * TraversePotScale);
-				N: CPT(AxisZ_RaiseLower.VelocityTarget,inAnPotRaiseLower * RaiseLowerVelocityJogMax * RaiseLowerPotScale);
+				N: CPT(AxisX_Gauge.VelocityTarget,InAnPotGauge*GaugeVelocityJogMax*GaugePotScale);
+				N: CPT(AxisY_Traverse.VelocityTarget,inAnPotTraverse*TraverseVelocityJogMax*TraversePotScale);
+				N: CPT(AxisZ_RaiseLower.VelocityTarget,inAnPotRaiseLower*RaiseLowerVelocityJogMax*RaiseLowerPotScale);
 				N: XIO(outCr04ClampAdvance)[XIC(tbA1JogIn) XIC(AxisX_Gauge.LimitNeg) NEG(AxisX_Gauge.VelocityTarget,AxisX_Gauge.VelocityTarget) ,XIC(tbA1JogOut) XIC(AxisX_Gauge.LimitPos) ]OTE(AxisX_Gauge.CommandJog);
 				N: [XIC(tbA2JogMinus) XIC(AxisY_Traverse.LimitNeg) NEG(AxisY_Traverse.VelocityTarget,AxisY_Traverse.VelocityTarget) ,XIC(tbA2JogPlus) XIC(AxisY_Traverse.LimitPos) ]OTE(AxisY_Traverse.CommandJog);
 				N: [XIC(tbA3JogMinus) XIC(AxisZ_RaiseLower.LimitNeg) NEG(AxisZ_RaiseLower.VelocityTarget,AxisZ_RaiseLower.VelocityTarget) ,XIC(tbA3JogPlus) XIC(AxisZ_RaiseLower.LimitPos) ]OTE(AxisZ_RaiseLower.CommandJog);
@@ -1420,8 +1421,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	                 DisableFlag := 0,
 	                 UseAsFolder := 0)
 		TAG
-			iAxis : DINT (RADIX := Decimal) := 0;
-			timerSwarfDelay : TIMER  := [0,1000,0];
+			iAxis : DINT (RADIX := Decimal) := 3;
+			timerSwarfDelay : TIMER  := [-1608893230,1000,1000];
 		END_TAG
 
 		ROUTINE Brakes 
@@ -1434,8 +1435,10 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE Clamps 
-				N: [XIC(tbGaugeClamp) XIC(HydRunning) ,XIC(outCr06GaugeGripperAdvance) ]XIO(tbGaugeUnclamp)OTE(outCr06GaugeGripperAdvance);
-				N: [XIC(X_AutoCut) XIO(AxisX_Gauge.InPosition) ,[XIC(tbWorkClamp) XIC(HydRunning) ,XIC(outCr04ClampAdvance) ] XIO(tbWorkUnclamp) XIO(X_Homing) XIC(AxisX_Gauge.Stopped) XIO(X_AutoCut) ][OTE(outCr04ClampAdvance) ,OTU(AxisX_Gauge.CommandJog) ];
+				N: XIC(tbGaugeClamp)XIC(HydRunning)XIO(tbGaugeUnclamp)OTE(outCr06GaugeGripperAdvance)OTL(GaugeGripping);
+				N: XIC(tbGaugeUnclamp)OTE(outCr07GaugeGripperRetract)OTU(GaugeGripping);
+				N: [XIC(X_AutoCut) XIO(AxisX_Gauge.InPosition) ,XIC(tbWorkClamp) XIC(HydRunning) XIO(tbWorkUnclamp) XIO(X_Homing) XIC(AxisX_Gauge.Stopped) XIO(X_AutoCut) ][OTE(outCr04ClampAdvance) ,OTU(AxisX_Gauge.CommandJog) ];
+				N: XIC(tbWorkUnclamp)XIO(X_AutoCut)OTE(outCr05ClampRetract);
 		END_ROUTINE
 
 		ROUTINE Coolant 
