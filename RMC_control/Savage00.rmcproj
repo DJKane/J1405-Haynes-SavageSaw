@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Project
-    SWVersion="5.08.1"
+    SWVersion="5.08.4"
     ProjectName="Kane"
     Author=""
     ProjDesc=""
@@ -1247,9 +1247,10 @@
                </Step>
                <Transition>
                   <CheckCondition
-                      Type="IF-THEN"
-                      Condition="xControl.Jog = FALSE"
-                      True="Next"/>
+                      Type="CASE-ELSE"
+                      Condition="xControl.Jog"
+                      True="Repeat"
+                      False="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1311,9 +1312,10 @@
                </Step>
                <Transition>
                   <CheckCondition
-                      Type="IF-THEN"
-                      Condition="yControl.Jog = FALSE"
-                      True="Next"/>
+                      Type="CASE-ELSE"
+                      Condition="yControl.Jog"
+                      True="Repeat"
+                      False="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1375,9 +1377,10 @@
                </Step>
                <Transition>
                   <CheckCondition
-                      Type="IF-THEN"
-                      Condition="zControl.Jog = FALSE"
-                      True="Next"/>
+                      Type="CASE-ELSE"
+                      Condition="zControl.Jog"
+                      True="Repeat"
+                      False="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
