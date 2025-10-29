@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Wed Oct 29 16:07:19 2025
+  Exported  := Wed Oct 29 16:35:53 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -811,14 +811,16 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {9CD39DB4-863D-4E75-80C1-FDA77F606CE5});
 		inMS6SwarfConveyor OF Remote110V:2:I.1 (RADIX := Decimal,
 		            DataExchangeId := {4DDF13AB-5040-4D02-837C-446E84FE0600});
-		inPe01BladeDetect : BOOL (RADIX := Decimal) := 0;
+		inPe01BladeDetect OF Local:1:I.Data.2 (RADIX := Decimal,
+		            DataExchangeId := {95F74AF0-99E1-4813-993D-EAD979CA2FDF});
 		inPs01LoopFilterDirty OF RemoteHPU:2:I.5 (RADIX := Decimal,
 		            DataExchangeId := {CFD7002E-253B-4E6F-B64B-0340319CED41});
 		inPs02PressureFilterDirty OF RemoteHPU:2:I.6 (RADIX := Decimal,
 		            DataExchangeId := {4D6DA4B0-7727-40A3-A6BE-EDB1EA84E601});
 		inPs03MotorCaseDrain OF RemoteHPU:2:I.7 (RADIX := Decimal,
 		            DataExchangeId := {8F6924E2-F441-4510-B763-1967247CB8DE});
-		inPs04SwarfFilterDirty : BOOL (RADIX := Decimal) := 0;
+		inPs04SwarfFilterDirty OF Local:1:I.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {2A7772B6-4E4F-4AB0-BB78-9C50F2D08BE9});
 		inPx01Pump1Inlet OF RemoteHPU:2:I.0 (RADIX := Decimal,
 		            DataExchangeId := {1883E068-E3EC-4E9E-A781-416F524A6211});
 		inPx02Pump2Inlet OF RemoteHPU:2:I.1 (RADIX := Decimal,
@@ -1310,7 +1312,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				RC: "Gauge Axis Following ERROR";
 				N: XIC(AxisX_Gauge.FollowingError)OTL(Fault)MOVE(15,hmiFaultMessageNumber);
 				RC: "Swarf Filter is BLOCKED";
-				N: XIC(inPs04SwarfFilterDirty)MOVE(14,hmiFaultMessageNumber);
+				N: XIO(inPs04SwarfFilterDirty)MOVE(14,hmiFaultMessageNumber);
 				RC: "Spindle Case Line is BLOCKED";
 				N: XIO(inPs03MotorCaseDrain)MOVE(13,hmiFaultMessageNumber);
 				RC: "Pressure Line Hydraulic Filter is DIRTY";
