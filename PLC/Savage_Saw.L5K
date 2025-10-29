@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Tue Oct 28 18:39:25 2025
+  Exported  := Wed Oct 29 12:43:04 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -875,6 +875,10 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {836B7F3A-8094-4C4D-8E07-A672876198C4});
 		outGaugeHomeSwitch OF Local:1:O.Data.0 (RADIX := Decimal,
 		            DataExchangeId := {746199DD-9FFE-439F-AD04-9C80D1755059});
+		outGaugeOvertravelMinus OF Local:1:O.Data.3 (RADIX := Decimal,
+		            DataExchangeId := {8A4F62B4-B16F-4431-AEE0-E4164D7EED10});
+		outGaugeOvertravelPlus OF Local:1:O.Data.4 (RADIX := Decimal,
+		            DataExchangeId := {7B312FF6-55E4-4D97-97C8-A66C208B396D});
 		outLtaStackLtAmber OF Remote110V:7:O.Data.2 (RADIX := Decimal,
 		            DataExchangeId := {4E3C8008-F145-49B5-8F7C-8AF5470AB7BD});
 		outLtgStackLtGreen OF Remote110V:7:O.Data.1 (RADIX := Decimal,
@@ -895,6 +899,10 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {CA886397-7DC5-4490-BBC6-21FBE2CBDF5E});
 		outRaiseLowerHomeSwitch OF Local:1:O.Data.2 (RADIX := Decimal,
 		            DataExchangeId := {2F4A45AB-BA96-42DC-870E-DF388848E7C6});
+		outRaiseLowerOvertravelMinus OF Local:1:O.Data.7 (RADIX := Decimal,
+		            DataExchangeId := {29D322F5-F61C-4C16-9FDE-6688EAB68B41});
+		outRaiseLowerOvertravelPlus OF Local:1:O.Data.8 (RADIX := Decimal,
+		            DataExchangeId := {E9C7ED1E-3D5D-47B9-A061-E420DF2CEBD7});
 		outSpare162 OF Remote110V:6:O.Data.2 (RADIX := Decimal,
 		            DataExchangeId := {C4F4624A-9F0A-462E-97FF-6BEDFF4153F4});
 		outSpare163 OF Remote110V:6:O.Data.3 (RADIX := Decimal,
@@ -903,6 +911,10 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {66EF03AC-9884-43DA-8224-63043E054007});
 		outTraverseHomeSwitch OF Local:1:O.Data.1 (RADIX := Decimal,
 		            DataExchangeId := {D111B862-FD95-4FAA-B821-8991E393B62C});
+		outTraverseOvertravelMinus OF Local:1:O.Data.5 (RADIX := Decimal,
+		            DataExchangeId := {D451EDAB-AFED-423A-8BBE-F14E01F68C13});
+		outTraverseOvertravelPlus OF Local:1:O.Data.6 (RADIX := Decimal,
+		            DataExchangeId := {236EB3D7-8000-460C-B851-4D7C7696BE70});
 		Pass : Pass[21]  := [[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
@@ -1078,6 +1090,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE RMC 
+				RC: "AC inputs from the PLC are passed to the Delta Motion Controller";
 				N: FOR(S_RMC_Axis,iAxis,0,2,1);
 				N: XIC(inLs01OvertravelMnsGauge)OTE(AxisX_Gauge.LimitNeg);
 				N: XIC(inLs02OvertravelPlsGauge)OTE(AxisX_Gauge.LimitPos);
@@ -1306,6 +1319,23 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIC(AxisY_Traverse.ServoFault)OTL(Fault)MOVE(22,hmiFaultMessageNumber);
 				RC: "Traverse Axis Minus OVERTRAVEL";
 				N: XIO(AxisY_Traverse.LimitNeg)MOVE(23,hmiFaultMessageNumber);
+				RC: "Traverse Axis Plus OVERTRAVEL";
+				N: XIO(AxisY_Traverse.LimitPos)MOVE(24,hmiFaultMessageNumber);
+				RC: "Raise/Lower Axis Following ERROR";
+				N: XIC(AxisZ_RaiseLower.FollowingError)OTL(Fault)MOVE(25,hmiFaultMessageNumber);
+				RC: "Raise/Lower Feedback LOSS";
+				N: XIO(AxisZ_RaiseLower.FeedbackOK)OTL(Fault)MOVE(26,hmiFaultMessageNumber);
+				RC: "Raise/Lower Servo ERROR";
+				N: XIC(AxisZ_RaiseLower.ServoFault)OTL(Fault)MOVE(27,hmiFaultMessageNumber);
+				RC: "Raise/Lower  Axis Minus OVERTRAVEL";
+				N: XIO(AxisZ_RaiseLower.LimitNeg)MOVE(28,hmiFaultMessageNumber);
+				RC: "Raise/Lower Axis Plus OVERTRAVEL";
+				N: XIO(AxisZ_RaiseLower.LimitPos)MOVE(29,hmiFaultMessageNumber);
+				RC: "Machine not Homed";
+				N: [XIO(AxisX_Gauge.HomeLatched) ,XIO(AxisY_Traverse.HomeLatched) ,XIO(AxisZ_RaiseLower.HomeLatched) ]MOVE(30,hmiFaultMessageNumber);
+				RC: "Blade Diameter Not Known";
+				N: XIO(BladeRadiusKnown)MOVE(31,hmiFaultMessageNumber);
+				N: XIO(ValidData)MOVE(32,hmiFaultMessageNumber);
 		END_ROUTINE
 
 		ROUTINE RMC 
@@ -1449,16 +1479,23 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE Hydraulics 
-				N: [XIC(HydStart) ,XIC(HydRun) ]XIO(HydStop)XIC(HydReady)XIO(BladeChangeDone)OTE(outMs1HydrulicPump);
+				N: XIO(HydStop)XIC(HydReady)XIO(BladeChangeDone)[XIC(HydStart) ,XIC(HydRun) ]OTE(HydRun)OTE(outMs1HydrulicPump);
 				N: [XIC(tbMS2LoopPump) ,XIC(OilWarm) ,XIC(HydRunning) ]OTE(outMs2LoopPump);
 				N: [XIC(tbMS3HydCoolingFan) ,XIC(OilWarm) ]OTE(outMs3HydraulicCoolFan);
 		END_ROUTINE
 
 		ROUTINE Outputs 
+				RC: "Values from the PLC are passed to the RMC motion controller";
 				N: FOR(RMC_Axis,iAxis,0,2,1);
 				N: XIC(inGaugeHomeSwitch)OTE(outGaugeHomeSwitch);
 				N: XIC(inTraverseHomeSwitch)OTE(outTraverseHomeSwitch);
 				N: XIC(inRaiseLowerHomeSwitch)OTE(outRaiseLowerHomeSwitch);
+				N: XIC(inLs01OvertravelMnsGauge)OTE(outGaugeOvertravelMinus);
+				N: XIC(inLs02OvertravelPlsGauge)OTE(outGaugeOvertravelPlus);
+				N: XIC(inLs03OvertravelMnsTraverse)OTE(outTraverseOvertravelMinus);
+				N: XIC(inLs04OvertravelPlsTraverse)OTE(outTraverseOvertravelPlus);
+				N: XIC(inLs05OvertravelMnsRaiseLower)OTE(outRaiseLowerOvertravelMinus);
+				N: XIC(inLs06OvertravelPlsRaiseLower)OTE(outRaiseLowerOvertravelPlus);
 				N: JSR(Hydraulics,0);
 				N: JSR(Coolant,0);
 				N: JSR(Clamps,0);
