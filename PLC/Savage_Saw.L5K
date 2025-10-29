@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Wed Oct 29 12:43:04 2025
+  Exported  := Wed Oct 29 14:33:38 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -851,7 +851,6 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		LastCutSpeed : REAL (RADIX := Float) := 0.00000000e+000;
 		MC_Reset OF RMC:O2.Data[3].0 (RADIX := Decimal,
 		            DataExchangeId := {6C3631B2-0311-409B-B2AE-FC3773E3B5F5});
-		NorthZero : BOOL (RADIX := Decimal) := 0;
 		OilWarm : BOOL (RADIX := Decimal) := 1;
 		outAnSpindleMotor OF Local:5:O.Ch1Data (RADIX := Decimal,
 		            DataExchangeId := {2845F938-5F59-4D05-8D91-5DADBDA4E89B});
@@ -915,6 +914,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		            DataExchangeId := {D451EDAB-AFED-423A-8BBE-F14E01F68C13});
 		outTraverseOvertravelPlus OF Local:1:O.Data.6 (RADIX := Decimal,
 		            DataExchangeId := {236EB3D7-8000-460C-B851-4D7C7696BE70});
+		OutZero : BOOL (RADIX := Decimal) := 0;
 		Pass : Pass[21]  := [[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
 				],[0,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
@@ -1014,6 +1014,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		tbGaugeClamp : BOOL (RADIX := Decimal) := 0;
 		tbGaugeUnclamp : BOOL (RADIX := Decimal) := 0;
 		tbHome : BOOL (RADIX := Decimal) := 0;
+		tbInRef : BOOL (RADIX := Decimal) := 0;
 		tbLaser : BOOL (RADIX := Decimal) := 0;
 		tbMS1HydPump : BOOL (RADIX := Decimal) := 0;
 		tbMS2LoopPump : BOOL (RADIX := Decimal) := 0;
@@ -1021,10 +1022,9 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		tbMS4CoolantPump : BOOL (RADIX := Decimal) := 0;
 		tbMS5SwarfPump : BOOL (RADIX := Decimal) := 0;
 		tbMS6SwarfConveyor : BOOL (RADIX := Decimal) := 0;
-		tbNorthRef : BOOL (RADIX := Decimal) := 0;
 		tbOnOff : BOOL (RADIX := Decimal) := 0;
+		tbOutRef : BOOL (RADIX := Decimal) := 0;
 		tbPlateMeasure : BOOL (RADIX := Decimal) := 0;
-		tbSouthRef : BOOL (RADIX := Decimal) := 0;
 		tbWetBump : BOOL (RADIX := Decimal) := 0;
 		tbWorkClamp : BOOL (RADIX := Decimal) := 0;
 		tbWorkUnclamp : BOOL (RADIX := Decimal) := 0;
@@ -1273,77 +1273,78 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIO(inSR1SafetyRelay)OTU(tbMS1HydPump)OTU(tbMS2LoopPump)OTU(tbMS3HydCoolingFan)OTU(tbMS4CoolantPump)OTU(tbMS5SwarfPump)OTU(tbLaser);
 				N: XIC(inSR1SafetyRelay)TON(timerSafetyRelayDelay,?,?)XIC(timerSafetyRelayDelay.DN)OSR(SafetyRelayAutoResetDelayStorage,SafetyRelayAutoReset);
 				N: OTU(Fault);
-				RC: "Main Power is OFF";
-				N: XIO(inSR1SafetyRelay)MOVE(1,hmiFaultMessageNumber);
-				RC: "Hydraulic Oil is HOT - Warning";
-				N: XIO(inTs01OilTempWarning)OTE(OilWarm)MOVE(2,hmiFaultMessageNumber);
-				RC: "Hydraulic Oil is HOT - Shutdown";
-				N: XIO(inTs02OilTempShutdownAlarm)OTL(Fault)MOVE(3,hmiFaultMessageNumber);
-				RC: "Hydraulic Oil is LOW - Warning";
-				N: XIO(inFl01OilLevelWarning)MOVE(4,hmiFaultMessageNumber);
-				RC: "Hydraulic Oil is LOW - Shutdown";
-				N: XIO(inFl02OilLevelShutdownAlarm)OTL(Fault)MOVE(5,hmiFaultMessageNumber);
-				RC: "Blade Guard is OPEN";
-				N: XIO(inLs07BladeGuard)OTU(BladeRadiusKnown)MOVE(6,hmiFaultMessageNumber);
-				RC: "Spindle Pump Inlet Valve is OFF";
-				N: XIO(InPx03PumpAA4Inlet)MOVE(7,hmiFaultMessageNumber);
-				RC: "Pump1 Inlet Valve is OFF";
-				N: XIO(inPx01Pump1Inlet)MOVE(8,hmiFaultMessageNumber);
-				RC: "Pump2 Inlet Valve is OFF";
-				N: XIO(inPx02Pump2Inlet)MOVE(9,hmiFaultMessageNumber);
-				RC: "Drain Valve is OPEN";
-				N: XIO(inPx05DrainValve)MOVE(10,hmiFaultMessageNumber);
-				RC: "Loop Hydraulic Filter is DIRTY";
-				N: XIC(inPs01LoopFilterDirty)MOVE(11,hmiFaultMessageNumber);
-				RC: "Pressure Line Hydraulic Filter is DIRTY";
-				N: XIC(inPs02PressureFilterDirty)MOVE(12,hmiFaultMessageNumber);
-				RC: "Spindle Case Line is BLOCKED";
-				N: XIC(inPs03MotorCaseDrain)MOVE(13,hmiFaultMessageNumber);
-				RC: "Swarf Filter is BLOCKED";
-				N: XIC(inPs04SwarfFilterDirty)MOVE(14,hmiFaultMessageNumber);
-				RC: "Gauge Axis Following ERROR";
-				N: XIC(AxisX_Gauge.FollowingError)OTL(Fault)MOVE(15,hmiFaultMessageNumber);
-				RC: "Gauge Axis Feedback LOSS";
-				N: XIO(AxisX_Gauge.FeedbackOK)OTL(Fault)MOVE(16,hmiFaultMessageNumber);
-				RC: "Gauge Axis Servo ERROR";
-				N: XIC(AxisX_Gauge.ServoFault)OTL(Fault)MOVE(17,hmiFaultMessageNumber);
-				RC: "Gauge Axis Minus OVERTRAVEL";
-				N: XIO(AxisX_Gauge.LimitNeg)MOVE(18,hmiFaultMessageNumber);
-				RC: "Gauge Axis Plus OVERTRAVEL";
-				N: XIO(AxisX_Gauge.LimitPos)MOVE(19,hmiFaultMessageNumber);
-				RC: "Traverse Axis Following ERROR";
-				N: XIC(AxisY_Traverse.FollowingError)OTL(Fault)MOVE(20,hmiFaultMessageNumber);
-				RC: "Traverse Axis Feedback LOSS";
-				N: XIO(AxisY_Traverse.FeedbackOK)OTL(Fault)MOVE(21,hmiFaultMessageNumber);
-				RC: "Traverse Axis Servo ERROR";
-				N: XIC(AxisY_Traverse.ServoFault)OTL(Fault)MOVE(22,hmiFaultMessageNumber);
-				RC: "Traverse Axis Minus OVERTRAVEL";
-				N: XIO(AxisY_Traverse.LimitNeg)MOVE(23,hmiFaultMessageNumber);
-				RC: "Traverse Axis Plus OVERTRAVEL";
-				N: XIO(AxisY_Traverse.LimitPos)MOVE(24,hmiFaultMessageNumber);
-				RC: "Raise/Lower Axis Following ERROR";
-				N: XIC(AxisZ_RaiseLower.FollowingError)OTL(Fault)MOVE(25,hmiFaultMessageNumber);
-				RC: "Raise/Lower Feedback LOSS";
-				N: XIO(AxisZ_RaiseLower.FeedbackOK)OTL(Fault)MOVE(26,hmiFaultMessageNumber);
-				RC: "Raise/Lower Servo ERROR";
-				N: XIC(AxisZ_RaiseLower.ServoFault)OTL(Fault)MOVE(27,hmiFaultMessageNumber);
-				RC: "Raise/Lower  Axis Minus OVERTRAVEL";
-				N: XIO(AxisZ_RaiseLower.LimitNeg)MOVE(28,hmiFaultMessageNumber);
-				RC: "Raise/Lower Axis Plus OVERTRAVEL";
-				N: XIO(AxisZ_RaiseLower.LimitPos)MOVE(29,hmiFaultMessageNumber);
-				RC: "Machine not Homed";
-				N: [XIO(AxisX_Gauge.HomeLatched) ,XIO(AxisY_Traverse.HomeLatched) ,XIO(AxisZ_RaiseLower.HomeLatched) ]MOVE(30,hmiFaultMessageNumber);
+				RC: "Data Entry Incomplete";
+				N: XIO(ValidData)MOVE(32,hmiFaultMessageNumber);
 				RC: "Blade Diameter Not Known";
 				N: XIO(BladeRadiusKnown)MOVE(31,hmiFaultMessageNumber);
-				N: XIO(ValidData)MOVE(32,hmiFaultMessageNumber);
+				RC: "Machine not Homed";
+				N: [XIO(AxisX_Gauge.HomeLatched) ,XIO(AxisY_Traverse.HomeLatched) ,XIO(AxisZ_RaiseLower.HomeLatched) ]MOVE(30,hmiFaultMessageNumber);
+				RC: "Raise/Lower Axis Plus OVERTRAVEL";
+				N: XIO(AxisZ_RaiseLower.LimitPos)MOVE(29,hmiFaultMessageNumber);
+				RC: "Raise/Lower  Axis Minus OVERTRAVEL";
+				N: XIO(AxisZ_RaiseLower.LimitNeg)MOVE(28,hmiFaultMessageNumber);
+				RC: "Raise/Lower Servo ERROR";
+				N: XIC(AxisZ_RaiseLower.ServoFault)OTL(Fault)MOVE(27,hmiFaultMessageNumber);
+				RC: "Raise/Lower Feedback LOSS";
+				N: XIO(AxisZ_RaiseLower.FeedbackOK)OTL(Fault)MOVE(26,hmiFaultMessageNumber);
+				RC: "Raise/Lower Axis Following ERROR";
+				N: XIC(AxisZ_RaiseLower.FollowingError)OTL(Fault)MOVE(25,hmiFaultMessageNumber);
+				RC: "Traverse Axis Plus OVERTRAVEL";
+				N: XIO(AxisY_Traverse.LimitPos)MOVE(24,hmiFaultMessageNumber);
+				RC: "Traverse Axis Minus OVERTRAVEL";
+				N: XIO(AxisY_Traverse.LimitNeg)MOVE(23,hmiFaultMessageNumber);
+				RC: "Traverse Axis Servo ERROR";
+				N: XIC(AxisY_Traverse.ServoFault)OTL(Fault)MOVE(22,hmiFaultMessageNumber);
+				RC: "Traverse Axis Feedback LOSS";
+				N: XIO(AxisY_Traverse.FeedbackOK)OTL(Fault)MOVE(21,hmiFaultMessageNumber);
+				RC: "Traverse Axis Following ERROR";
+				N: XIC(AxisY_Traverse.FollowingError)OTL(Fault)MOVE(20,hmiFaultMessageNumber);
+				RC: "Gauge Axis Plus OVERTRAVEL";
+				N: XIO(AxisX_Gauge.LimitPos)MOVE(19,hmiFaultMessageNumber);
+				RC: "Gauge Axis Minus OVERTRAVEL";
+				N: XIO(AxisX_Gauge.LimitNeg)MOVE(18,hmiFaultMessageNumber);
+				RC: "Gauge Axis Servo ERROR";
+				N: XIC(AxisX_Gauge.ServoFault)OTL(Fault)MOVE(17,hmiFaultMessageNumber);
+				RC: "Gauge Axis Feedback LOSS";
+				N: XIO(AxisX_Gauge.FeedbackOK)OTL(Fault)MOVE(16,hmiFaultMessageNumber);
+				RC: "Gauge Axis Following ERROR";
+				N: XIC(AxisX_Gauge.FollowingError)OTL(Fault)MOVE(15,hmiFaultMessageNumber);
+				RC: "Swarf Filter is BLOCKED";
+				N: XIC(inPs04SwarfFilterDirty)MOVE(14,hmiFaultMessageNumber);
+				RC: "Spindle Case Line is BLOCKED";
+				N: XIC(inPs03MotorCaseDrain)MOVE(13,hmiFaultMessageNumber);
+				RC: "Pressure Line Hydraulic Filter is DIRTY";
+				N: XIC(inPs02PressureFilterDirty)MOVE(12,hmiFaultMessageNumber);
+				RC: "Loop Hydraulic Filter is DIRTY";
+				N: XIC(inPs01LoopFilterDirty)MOVE(11,hmiFaultMessageNumber);
+				RC: "Drain Valve is OPEN";
+				N: XIO(inPx05DrainValve)MOVE(10,hmiFaultMessageNumber);
+				RC: "Pump2 Inlet Valve is OFF";
+				N: XIO(inPx02Pump2Inlet)MOVE(9,hmiFaultMessageNumber);
+				RC: "Pump1 Inlet Valve is OFF";
+				N: XIO(inPx01Pump1Inlet)MOVE(8,hmiFaultMessageNumber);
+				RC: "Spindle Pump Inlet Valve is OFF";
+				N: XIO(InPx03PumpAA4Inlet)MOVE(7,hmiFaultMessageNumber);
+				RC: "Blade Guard is OPEN";
+				N: XIO(inLs07BladeGuard)OTU(BladeRadiusKnown)MOVE(6,hmiFaultMessageNumber);
+				RC: "Hydraulic Oil is LOW - Shutdown";
+				N: XIO(inFl02OilLevelShutdownAlarm)OTL(Fault)MOVE(5,hmiFaultMessageNumber);
+				RC: "Hydraulic Oil is LOW - Warning";
+				N: XIO(inFl01OilLevelWarning)MOVE(4,hmiFaultMessageNumber);
+				RC: "Hydraulic Oil is HOT - Shutdown";
+				N: XIO(inTs02OilTempShutdownAlarm)OTL(Fault)MOVE(3,hmiFaultMessageNumber);
+				RC: "Hydraulic Oil is HOT - Warning";
+				N: XIO(inTs01OilTempWarning)OTE(OilWarm)MOVE(2,hmiFaultMessageNumber);
+				RC: "Main Power is OFF";
+				N: XIO(inSR1SafetyRelay)MOVE(1,hmiFaultMessageNumber);
 		END_ROUTINE
 
 		ROUTINE RMC 
 				N: [XIC(tbA1JogIn) ,XIC(tbA1JogOut) ,XIC(tbA2JogMinus) ,XIC(tbA2JogPlus) ,XIC(tbA3JogMinus) ,XIC(tbA3JogPlus) ]OSR(AnyJogStorage,AnyJogRise);
 				N: [XIC(SafetyRelayAutoReset) ,XIC(X_Fault) XIC(AnyJogRise) ]OTE(MC_Reset);
-				N: [XIC(tbNorthRef) ,XIC(NorthZero) ]XIO(tbSouthRef)XIO(X_AutoCut)OTE(NorthZero);
+				N: [XIC(tbOutRef) ,XIC(OutZero) ]XIO(tbInRef)XIO(X_AutoCut)OTE(OutZero);
 				N: MOVE(AxisX_Gauge.PositionActual,AxisX_Gauge.PositionDisplay);
-				N: [XIO(NorthZero) MOVE(AxisY_Traverse.PositionActual,AxisY_Traverse.PositionDisplay) ,XIC(NorthZero) SUB(TraverseRange,AxisY_Traverse.PositionActual,AxisY_Traverse.PositionDisplay) ];
+				N: [XIO(OutZero) MOVE(AxisY_Traverse.PositionActual,AxisY_Traverse.PositionDisplay) ,XIC(OutZero) SUB(TraverseRange,AxisY_Traverse.PositionActual,AxisY_Traverse.PositionDisplay) ];
 				N: SUB(AxisZ_RaiseLower.PositionActual,BladeRadius,AxisZ_RaiseLower.PositionDisplay);
 				N: FOR(S_RMC_Axis,iAxis,0,2,1);
 		END_ROUTINE
