@@ -129,7 +129,7 @@
           ActualVelocityCut-offFreq="100"
           ActualAccelCut-offFreq="25"
           StopThreshold="0.1"
-          LimitInputs="16#00000000"
+          LimitInputs="16#00200211"
           QuadConfig="16#00032080"
           OutputBits="16#00000000"
           OutputLimit="100"
@@ -277,7 +277,7 @@
           ActualVelocityCut-offFreq="100"
           ActualAccelCut-offFreq="25"
           StopThreshold="0.1"
-          LimitInputs="16#00000000"
+          LimitInputs="16#00810831"
           QuadConfig="16#00032080"
           OutputBits="16#00000000"
           OutputLimit="100"
@@ -422,7 +422,7 @@
           ActualVelocityCut-offFreq="100"
           ActualAccelCut-offFreq="25"
           StopThreshold="0.1"
-          LimitInputs="16#00000000"
+          LimitInputs="16#00850871"
           QuadConfig="16#00032080"
           OutputBits="16#00000000"
           OutputLimit="100"
@@ -1067,10 +1067,12 @@
              FaultState="Off"/>
          <IOPoint
              PointNumber="544"
-             Type="Input"/>
+             Type="Input"
+             Tag="xOTMinus"/>
          <IOPoint
              PointNumber="545"
-             Type="Input"/>
+             Type="Input"
+             Tag="xOTPlus"/>
          <IOPoint
              PointNumber="608"
              Type="Input"/>
@@ -1089,27 +1091,31 @@
              Tag="xHomeSwitch"/>
          <IOPoint
              PointNumber="641"
-             Type="Input"/>
+             Type="Input"
+             Tag="yOTMinus"/>
          <IOPoint
              PointNumber="642"
              Type="Input"
              Tag="yHomeSwitch"/>
          <IOPoint
              PointNumber="643"
-             Type="Input"/>
+             Type="Input"
+             Tag="yOTPlus"/>
          <IOPoint
              PointNumber="644"
              Type="Input"
              Tag="zHomeSwitch"/>
          <IOPoint
              PointNumber="645"
-             Type="Input"/>
+             Type="Input"
+             Tag="zOTMinus"/>
          <IOPoint
              PointNumber="646"
              Type="Input"/>
          <IOPoint
              PointNumber="647"
-             Type="Input"/>
+             Type="Input"
+             Tag="zOTPlus"/>
       </DiscreteIO>
       <UserProgramMgr
           EnableExprLogging="True"
