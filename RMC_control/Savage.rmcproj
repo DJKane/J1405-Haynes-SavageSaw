@@ -2,13 +2,13 @@
 
 <Project
     SWVersion="5.08.4"
-    ProjectName="Kane"
-    Author=""
+    ProjectName="Savage"
+    Author="Kane Engineering"
     ProjDesc=""
     SecurityVersion="2">
    <Controller
        Type="RMC200"
-       Name="Kane"
+       Name="Savage"
        CommunicationPath="TCPIP/192.168.3.13::CIP"
        CipBridgePath=""
        CipBridgeSize="500"
