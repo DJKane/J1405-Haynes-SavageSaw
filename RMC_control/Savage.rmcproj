@@ -117,8 +117,8 @@
           AxisNumber="0"
           LinearPositionUnitCustom="in"
           SimWizMaxPos="300.0"
-          AutoStopCfg1="16#00924920"
-          AutoStopCfg2="16#00124904"
+          AutoStopCfg1="16#00924924"
+          AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
           FilterConfig="16#00000000"
@@ -168,7 +168,7 @@
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
-          SimMode="0"
+          SimMode="1"
           SimType="2"
           SimSysGainP="0.3"
           SimSysGainN="0.3"
@@ -257,7 +257,7 @@
           InputType0="Pos"
           FeedbackType0.0="Quad"
           FeedbackModule0.0="Slot_4"
-          FeedbackChannel0.0="2"
+          FeedbackChannel0.0="1"
           OutputType0="Analog"
           OutputModule0="Slot_3"
           OutputChannel0="1"
@@ -266,7 +266,7 @@
           LinearPositionUnitCustom="in"
           SimWizMaxPos="300.0"
           AutoStopCfg1="16#00924924"
-          AutoStopCfg2="16#00124924"
+          AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
           FilterConfig="16#00000000"
@@ -402,7 +402,7 @@
           InputType0="Pos"
           FeedbackType0.0="Quad"
           FeedbackModule0.0="Slot_4"
-          FeedbackChannel0.0="1"
+          FeedbackChannel0.0="2"
           OutputType0="Analog"
           OutputModule0="Slot_3"
           OutputChannel0="2"
@@ -411,7 +411,7 @@
           LinearPositionUnitCustom="in"
           SimWizMaxPos="300.0"
           AutoStopCfg1="16#00924924"
-          AutoStopCfg2="16#00924924"
+          AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
           FilterConfig="16#00000000"
@@ -458,7 +458,7 @@
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
-          SimMode="1"
+          SimMode="0"
           SimType="2"
           SimSysGainP="0.3"
           SimSysGainN="0.3"
@@ -542,152 +542,9 @@
                 Register0="1056788"/>
          </TuningSetup>
       </Axis>
-      <Axis
-          AxisType="PosCtlSrv"
-          InputType0="Pos"
-          FeedbackType0.0="Quad"
-          FeedbackModule0.0="Slot_4"
-          FeedbackChannel0.0="3"
-          OutputType0="Analog"
-          OutputModule0="Slot_3"
-          OutputChannel0="3"
-          Name="Axis3"
-          AxisNumber="3"
-          AutoStopCfg1="16#00924924"
-          AutoStopCfg2="16#00924924"
-          AutoStopCfg3="16#00924924"
-          HaltGroupNumber="0"
-          FilterConfig="16#00000000"
-          PositionScale="1"
-          ActualPositionCut-offFreq="0"
-          PriUnits="0"
-          AxisModeLinearRotary="0"
-          ActualVelocityCut-offFreq="100"
-          ActualAccelCut-offFreq="25"
-          StopThreshold="0.1"
-          LimitInputs="16#00000000"
-          QuadConfig="16#00032080"
-          OutputBits="16#00000000"
-          OutputLimit="100"
-          OutputBias="0"
-          EnOutCfg="16#00000000"
-          FltInCfg="16#00000000"
-          AtSpeedTolerance="0.1"
-          VelErrorTolerance="1"
-          InPositionTolerance="0.05"
-          PosErrorTolerance="0.25"
-          OutputGain="1"
-          DeadbandTolerance="0"
-          OutputDeadband="0"
-          ValveLin="0"
-          UniMode="0"
-          IntMode="1"
-          DefPVCtlMode="0"
-          GainSetMode="0"
-          Symm="0"
-          ProportionalGain="1"
-          IntegralGain="0"
-          DifferentialGain="0"
-          VelFFPos="0"
-          VelFFNeg="0"
-          AccelFeedForward="0"
-          JerkFeedForward="0"
-          AccCtlMode="0"
-          PVOutputFilter0="0"
-          ModOrder="255"
-          OpenLoopHaltRamp="1000"
-          PositiveTravelLimit="0"
-          NegativeTravelLimit="0"
-          TargetType="0"
-          ClosedLoopHaltDecel="100"
-          ReqJerk="1e+05"
-          SimMode="0"
-          SimType="2"
-          SimSysGainP="0.1"
-          SimSysGainN="0.1"
-          NaturalFrequency="20"
-          DampingFactor="0.75"
-          SimPosPhysLim="0"
-          SimNegPhysLim="0"
-          SimDeadband="0"
-          SimNullOffset="0"
-          SimWeight="1000"
-          SimMaxForce="10000"
-          SimMaxComp="0.01">
-         <TuningSetup>
-            <TuningCommand
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""
-                BtnText=""
-                CapturePlot="True"/>
-            <TuningCommand
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""
-                BtnText=""
-                CapturePlot="True"/>
-            <TuningPlotCfg
-                PlotCfgID="3"/>
-            <TuningPlotCfg
-                PlotCfgID="3"/>
-            <TuningStatusMap
-                NoRegisters="1"
-                Register0="1060884"/>
-         </TuningSetup>
-         <TuningSetup>
-            <TuningCommand
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""
-                BtnText=""
-                CapturePlot="True"/>
-            <TuningCommand
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""
-                BtnText=""
-                CapturePlot="True"/>
-            <TuningPlotCfg
-                PlotCfgID="3"/>
-            <TuningPlotCfg
-                PlotCfgID="3"/>
-            <TuningStatusMap
-                NoRegisters="1"
-                Register0="1060884"/>
-         </TuningSetup>
-      </Axis>
       <PlotSchema
           Name="Plot Set 0"
-          NoofPlots="4">
+          NoofPlots="3">
          <Plot
              Name=""
              PlotCfgMode="0"
@@ -712,17 +569,9 @@
              AssignedToAxis="2"
              TriggerPercent="-1"
              TriggerType="16#00000001"/>
-         <Plot
-             Name=""
-             PlotCfgMode="0"
-             NoofSamples="1000"
-             SamplePeriodS="0.001"
-             AssignedToAxis="3"
-             TriggerPercent="-1"
-             TriggerType="16#00000001"/>
       </PlotSchema>
       <Tasks
-          TaskCount="2"
+          TaskCount="4"
           RunProgInput="0"
           EnablePreScan="1"
           StopTasksOnHalt="16#00000001"
@@ -881,8 +730,10 @@
              AxisBits="16#0000000F"/>
          <ELogFilterAxis
              AxisBits="16#0000000F"/>
-         <ELogFilterAxis
-             AxisBits="16#0000000F"/>
+         <ELogFilterTask
+             TaskBits="16#0000000F"/>
+         <ELogFilterTask
+             TaskBits="16#0000000F"/>
          <ELogFilterTask
              TaskBits="16#0000000F"/>
          <ELogFilterTask
@@ -1032,7 +883,7 @@
              Offset="130"
              TagName="zAccDec"
              Format="REAL"
-             DefaultValue="66.66667"/>
+             DefaultValue="6.666667"/>
       </VariableTable>
       <DiscreteIO>
          <IOPoint
@@ -1143,67 +994,67 @@
                    Description=""/>
                <PollItem
                    Condition="xControl.MoveAbsolute"
-                   Task0Action="xMove"
+                   Task1Action="xHome"
                    Description=""/>
                <PollItem
                    Condition="xControl.Stop"
-                   Task0Action="xStop"
+                   Task1Action="xStop"
                    Description=""/>
                <PollItem
                    Condition="xControl.Jog"
-                   Task0Action="xJog"
+                   Task1Action="xJog"
                    Description=""/>
                <PollItem
                    Condition="xControl.Zero"
-                   Task0Action="xZero"
+                   Task1Action="xZero"
                    Description=""/>
                <PollItem
                    Condition="xControl.Home"
-                   Task0Action="xHome"
+                   Task1Action="xHome"
                    Description=""/>
                <PollItem
                    Condition="yControl.MoveAbsolute"
-                   Task0Action="yMove"
+                   Task2Action="yMove"
                    Description=""/>
                <PollItem
                    Condition="yControl.Stop"
-                   Task0Action="yStop"
+                   Task2Action="yStop"
                    Description=""/>
                <PollItem
                    Condition="yControl.Jog"
-                   Task0Action="yJog"
+                   Task2Action="yJog"
                    Description=""/>
                <PollItem
                    Condition="yControl.Home"
-                   Task0Action="yHome"
+                   Task2Action="yHome"
                    Description=""/>
                <PollItem
                    Condition="zControl.MoveAbsolute"
-                   Task0Action="zMove"
+                   Task3Action="zMove"
                    Description=""/>
                <PollItem
                    Condition="zControl.Stop"
-                   Task0Action="zStop"
+                   Task3Action="zStop"
                    Description=""/>
                <PollItem
                    Condition="zControl.Jog"
-                   Task0Action="zJog"
+                   Task3Action="zJog"
                    Description=""/>
                <PollItem
                    Condition="zControl.Zero"
-                   Task0Action="zZero"
+                   Task3Action="zZero"
                    Description=""/>
                <PollItem
                    Condition="zControl.ZeroClear"
-                   Task0Action="zZeroClear"
+                   Task3Action="zZeroClear"
                    Description=""/>
                <PollItem
                    Condition="zControl.MoveRelative"
-                   Task0Action="zMoveRelative"
+                   Task3Action="zMoveRelative"
                    Description=""/>
                <PollItem
                    Condition="zControl.Home"
-                   Task0Action="zHome"
+                   Task3Action="zHome"
                    Description=""/>
             </ProgramBlock>
          </UserProgram>
@@ -1215,6 +1066,21 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1240,6 +1106,21 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1284,6 +1165,21 @@
                 Type="STEP">
                <Step>
                   <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
                       Command="20"
                       CmdAxes="2"
                       CmdPrm1="yPositionTarget"
@@ -1305,6 +1201,21 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1349,6 +1260,21 @@
                 Type="STEP">
                <Step>
                   <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
                       Command="20"
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"
@@ -1370,6 +1296,21 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1477,6 +1418,21 @@
                 Type="STEP">
                <Step>
                   <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
                       Command="49"
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"/>
@@ -1551,6 +1507,21 @@
                 Type="STEP">
                <Step>
                   <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
                       Command="21"
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"
@@ -1576,6 +1547,20 @@
                 Type="STEP">
                <Step>
                   <Command
+                      Command="90"
+                      CmdAxes="1"
+                      CmdPrm1="1"
+                      CmdPrm2="xHome"/>
+               </Step>
+               <Transition>
+                  <Jump
+                      Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
                       Command="50"
                       CmdAxes="4"
                       CmdPrm1="0.0"
@@ -1586,6 +1571,21 @@
                <Transition>
                   <Jump
                       Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1623,57 +1623,10 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="50"
-                      CmdAxes="3"
-                      CmdPrm1="0.0"
-                      CmdPrm2="H Rising (0)"
-                      CmdPrm3="Single (0)"
-                      CmdPrm4="H (0)"/>
-               </Step>
-               <Transition>
-                  <Jump
-                      Type="NEXT"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="90"
-                      CmdAxes="2"
-                      CmdPrm1="1"
+                      CmdAxes="1"
+                      CmdPrm1="2"
                       CmdPrm2="yHome"/>
-               </Step>
-               <Transition>
-                  <Jump
-                      Type="NEXT"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="37"
-                      CmdAxes="1"
-                      CmdPrm1="xVelocityTarget"
-                      CmdPrm2="xAccDec"
-                      CmdPrm3="xAccDec"
-                      CmdPrm4="Signed (+4)"/>
-               </Step>
-               <Transition>
-                  <CheckCondition
-                      Type="IF-THEN"
-                      Condition="xHomeSwitch"
-                      True="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="6"
-                      CmdAxes="1"
-                      CmdPrm1="xAccDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1702,6 +1655,21 @@
                <Transition>
                   <Jump
                       Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1743,6 +1711,37 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="50"
+                      CmdAxes="2"
+                      CmdPrm1="0.0"
+                      CmdPrm2="H Rising (0)"
+                      CmdPrm3="Single (0)"
+                      CmdPrm4="H (0)"/>
+               </Step>
+               <Transition>
+                  <Jump
+                      Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1803,6 +1802,37 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="50"
+                      CmdAxes="4"
+                      CmdPrm1="0.0"
+                      CmdPrm2="H Rising (0)"
+                      CmdPrm3="Single (0)"
+                      CmdPrm4="H (0)"/>
+               </Step>
+               <Transition>
+                  <Jump
+                      Type="NEXT"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
+               </Step>
+               <Transition>
+                  <Delay
+                      Type="JUMP"
+                      Duration="0.05"
+                      Next="Next"/>
+               </Transition>
+            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
