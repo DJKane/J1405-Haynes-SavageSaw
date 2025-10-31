@@ -581,71 +581,9 @@
       <ShortcutKeySet
           Name="Set 0">
          <ShortcutKey
-             Key="0">
-            <ShortcutAction
-                Axis="0"
-                Command="6"
-                Param1="100.0"
-                Param2="0.0"
-                Param3="0.0"
-                Param4="0.0"
-                Param5="0.0"
-                Param6="0.0"
-                Param7="0.0"
-                Param8="0.0"
-                Param9="0.0"/>
-            <ShortcutAction
-                Axis="1"
-                Command="7"
-                Param1="0.0"
-                Param2="0.0"
-                Param3="0.0"
-                Param4="0.0"
-                Param5="0.0"
-                Param6="0.0"
-                Param7="0.0"
-                Param8="0.0"
-                Param9="0.0"/>
-            <ShortcutAction
-                Axis="2"
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""/>
-            <ShortcutAction
-                Axis="3"
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""/>
-         </ShortcutKey>
+             Key="0"/>
          <ShortcutKey
-             Key="1">
-            <ShortcutAction
-                Axis="0"
-                Command="6"
-                Param1="100.0"
-                Param2="0.0"
-                Param3="0.0"
-                Param4="0.0"
-                Param5="0.0"
-                Param6="0.0"
-                Param7="0.0"
-                Param8="0.0"
-                Param9="0.0"/>
-         </ShortcutKey>
+             Key="1"/>
          <ShortcutKey
              Key="2"/>
          <ShortcutKey
@@ -661,20 +599,7 @@
          <ShortcutKey
              Key="8"/>
          <ShortcutKey
-             Key="9">
-            <ShortcutAction
-                Axis="0"
-                Command="4"
-                Param1="0.0"
-                Param2="0.0"
-                Param3="0.0"
-                Param4="0.0"
-                Param5="0.0"
-                Param6="0.0"
-                Param7="0.0"
-                Param8="0.0"
-                Param9="0.0"/>
-         </ShortcutKey>
+             Key="9"/>
       </ShortcutKeySet>
       <Curves/>
       <IndirectDataMap>
@@ -714,6 +639,15 @@
          <MapEntry
              Offset="37"
              RegisterAddress="%MD258.55"/>
+         <MapEntry
+             Offset="38"
+             RegisterAddress="%MD256.1"/>
+         <MapEntry
+             Offset="39"
+             RegisterAddress="%MD257.1"/>
+         <MapEntry
+             Offset="40"
+             RegisterAddress="%MD258.1"/>
       </IndirectDataMap>
       <AddressMapModbus/>
       <AddressMapDF1/>
@@ -1070,21 +1004,6 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="20"
                       CmdAxes="1"
                       CmdPrm1="xPositionTarget"
@@ -1106,21 +1025,6 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1165,21 +1069,6 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="20"
                       CmdAxes="2"
                       CmdPrm1="yPositionTarget"
@@ -1201,21 +1090,6 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1260,21 +1134,6 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="20"
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"
@@ -1296,21 +1155,6 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1418,21 +1262,6 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="49"
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"/>
@@ -1503,21 +1332,6 @@
              IncludeInBuild="True"
              SingleInstance="True"
              TaskMask="4294967295">
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
             <ProgramBlock
                 Type="STEP">
                <Step>
@@ -1661,21 +1475,6 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="37"
                       CmdAxes="1"
                       CmdPrm1="xVelocityTarget"
@@ -1725,21 +1524,6 @@
                <Transition>
                   <Jump
                       Type="NEXT"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1816,21 +1600,6 @@
                <Transition>
                   <Jump
                       Type="NEXT"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock

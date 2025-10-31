@@ -3,7 +3,7 @@
   Import-Export
   Version   := RSLogix 5000 v37.01
   Owner     := , 
-  Exported  := Thu Oct 30 17:07:35 2025
+  Exported  := Fri Oct 31 13:45:47 2025
 
   Note:  File encoded in UTF-8.  Only edit file in a program 
          which supports UTF-8 (like Notepad, not Wordpad).
@@ -71,73 +71,44 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		BIT FeedbackOK ZZZZZZZZZZAxisData32 : 2;
 		BIT FeedbackOkSecondary ZZZZZZZZZZAxisData32 : 3;
 		BIT StateMachineEnabled ZZZZZZZZZZAxisData32 : 4;
-		BIT zs29 ZZZZZZZZZZAxisData32 : 5;
-		BIT zs30 ZZZZZZZZZZAxisData32 : 6;
-		BIT CommandAcknowledged ZZZZZZZZZZAxisData32 : 7;
+		BIT CommandAcknowledged ZZZZZZZZZZAxisData32 : 5;
+		BIT Encoder_A_In ZZZZZZZZZZAxisData32 : 6;
+		BIT Encoder_A_WireBreak ZZZZZZZZZZAxisData32 : 7;
 		SINT ZZZZZZZZZZAxisData41 (Hidden := 1);
-		BIT Encoder_A_In ZZZZZZZZZZAxisData41 : 0;
-		BIT Encoder_A_WireBreak ZZZZZZZZZZAxisData41 : 1;
-		BIT Encoder_A_Fault ZZZZZZZZZZAxisData41 : 2;
-		BIT Encoder_B_In ZZZZZZZZZZAxisData41 : 3;
-		BIT Encoder_B_WireBreak ZZZZZZZZZZAxisData41 : 4;
-		BIT Encoder_B_Fault ZZZZZZZZZZAxisData41 : 5;
-		BIT Encoder_Z_In ZZZZZZZZZZAxisData41 : 6;
-		BIT Encoder_Z_WireBreak ZZZZZZZZZZAxisData41 : 7;
+		BIT Encoder_A_Fault ZZZZZZZZZZAxisData41 : 0;
+		BIT Encoder_B_In ZZZZZZZZZZAxisData41 : 1;
+		BIT Encoder_B_WireBreak ZZZZZZZZZZAxisData41 : 2;
+		BIT Encoder_B_Fault ZZZZZZZZZZAxisData41 : 3;
+		BIT Encoder_Z_In ZZZZZZZZZZAxisData41 : 4;
+		BIT Encoder_Z_WireBreak ZZZZZZZZZZAxisData41 : 5;
+		BIT Encoder_Z_Fault ZZZZZZZZZZAxisData41 : 6;
+		BIT Encoder_Z_Learning ZZZZZZZZZZAxisData41 : 7;
 		SINT ZZZZZZZZZZAxisData50 (Hidden := 1);
-		BIT Encoder_Z_Fault ZZZZZZZZZZAxisData50 : 0;
-		BIT Encoder_Z_Learning ZZZZZZZZZZAxisData50 : 1;
-		BIT HomeIn ZZZZZZZZZZAxisData50 : 2;
-		BIT HomeFault ZZZZZZZZZZAxisData50 : 3;
-		BIT HomeArmed ZZZZZZZZZZAxisData50 : 4;
-		BIT HomeLatched ZZZZZZZZZZAxisData50 : 5;
-		BIT RegistrationIn ZZZZZZZZZZAxisData50 : 6;
-		BIT Registration0_Armed ZZZZZZZZZZAxisData50 : 7;
+		BIT HomeIn ZZZZZZZZZZAxisData50 : 0;
+		BIT HomeFault ZZZZZZZZZZAxisData50 : 1;
+		BIT HomeArmed ZZZZZZZZZZAxisData50 : 2;
+		BIT HomeLatched ZZZZZZZZZZAxisData50 : 3;
+		BIT RegistrationIn ZZZZZZZZZZAxisData50 : 4;
+		BIT Registration0_Armed ZZZZZZZZZZAxisData50 : 5;
+		BIT Registration0_Latched ZZZZZZZZZZAxisData50 : 6;
+		BIT Registration1_Armed ZZZZZZZZZZAxisData50 : 7;
 		SINT ZZZZZZZZZZAxisData59 (Hidden := 1);
-		BIT Registration0_Latched ZZZZZZZZZZAxisData59 : 0;
-		BIT Registration1_Armed ZZZZZZZZZZAxisData59 : 1;
-		BIT Registration1_Latched ZZZZZZZZZZAxisData59 : 2;
-		BIT CommandMove ZZZZZZZZZZAxisData59 : 3;
-		BIT CommandJog ZZZZZZZZZZAxisData59 : 4;
-		BIT CommandStop ZZZZZZZZZZAxisData59 : 5;
-		BIT CommandHome ZZZZZZZZZZAxisData59 : 6;
-		BIT CommandZero ZZZZZZZZZZAxisData59 : 7;
-		SINT ZZZZZZZZZZAxisData68 (Hidden := 1);
-		BIT CommandMoveRelative ZZZZZZZZZZAxisData68 : 0;
-		BIT CommandClearZero ZZZZZZZZZZAxisData68 : 1;
-		BIT z07 ZZZZZZZZZZAxisData68 : 2;
-		BIT z08 ZZZZZZZZZZAxisData68 : 3;
-		BIT z09 ZZZZZZZZZZAxisData68 : 4;
-		BIT z10 ZZZZZZZZZZAxisData68 : 5;
-		BIT z11 ZZZZZZZZZZAxisData68 : 6;
-		BIT z12 ZZZZZZZZZZAxisData68 : 7;
-		SINT ZZZZZZZZZZAxisData77 (Hidden := 1);
-		BIT z13 ZZZZZZZZZZAxisData77 : 0;
-		BIT z14 ZZZZZZZZZZAxisData77 : 1;
-		BIT z15 ZZZZZZZZZZAxisData77 : 2;
-		BIT z16 ZZZZZZZZZZAxisData77 : 3;
-		BIT z17 ZZZZZZZZZZAxisData77 : 4;
-		BIT z18 ZZZZZZZZZZAxisData77 : 5;
-		BIT z19 ZZZZZZZZZZAxisData77 : 6;
-		BIT z20 ZZZZZZZZZZAxisData77 : 7;
-		SINT ZZZZZZZZZZAxisData86 (Hidden := 1);
-		BIT z21 ZZZZZZZZZZAxisData86 : 0;
-		BIT z22 ZZZZZZZZZZAxisData86 : 1;
-		BIT z23 ZZZZZZZZZZAxisData86 : 2;
-		BIT z24 ZZZZZZZZZZAxisData86 : 3;
-		BIT z25 ZZZZZZZZZZAxisData86 : 4;
-		BIT z26 ZZZZZZZZZZAxisData86 : 5;
-		BIT z27 ZZZZZZZZZZAxisData86 : 6;
-		BIT z28 ZZZZZZZZZZAxisData86 : 7;
-		SINT ZZZZZZZZZZAxisData95 (Hidden := 1);
-		BIT z29 ZZZZZZZZZZAxisData95 : 0;
-		BIT z30 ZZZZZZZZZZAxisData95 : 1;
-		BIT z31 ZZZZZZZZZZAxisData95 : 2;
+		BIT Registration1_Latched ZZZZZZZZZZAxisData59 : 0;
+		BIT CommandMove ZZZZZZZZZZAxisData59 : 1;
+		BIT CommandJog ZZZZZZZZZZAxisData59 : 2;
+		BIT CommandStop ZZZZZZZZZZAxisData59 : 3;
+		BIT CommandHome ZZZZZZZZZZAxisData59 : 4;
+		BIT CommandZero ZZZZZZZZZZAxisData59 : 5;
+		BIT CommandMoveRelative ZZZZZZZZZZAxisData59 : 6;
+		BIT CommandClearZero ZZZZZZZZZZAxisData59 : 7;
 		REAL PositionDisplay;
-		SINT ZZZZZZZZZZAxisData100 (Hidden := 1);
-		BIT MoveComplete ZZZZZZZZZZAxisData100 : 0;
-		BIT FollowingError ZZZZZZZZZZAxisData100 : 1;
-		BIT ServoFault ZZZZZZZZZZAxisData100 : 2;
-		BIT CommandAny ZZZZZZZZZZAxisData100 : 3;
+		SINT ZZZZZZZZZZAxisData69 (Hidden := 1);
+		BIT MoveComplete ZZZZZZZZZZAxisData69 : 0;
+		BIT FollowingError ZZZZZZZZZZAxisData69 : 1;
+		BIT ServoFault ZZZZZZZZZZAxisData69 : 2;
+		BIT CommandAny ZZZZZZZZZZAxisData69 : 3;
+		BIT OutputSaturated ZZZZZZZZZZAxisData69 : 4;
+		BIT Homed ZZZZZZZZZZAxisData69 : 5;
 	END_DATATYPE
 
 	DATATYPE Pass (FamilyType := NoFamily)
@@ -667,7 +638,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	            KeyMask := 2#0000_0000_0001_1111,
 	            SafetyEnabled := 0,
 	            DataExchangeId := {93105D03-E833-4416-87C2-29B876ABE3D4})
-			ExtendedProp := [[[___<public><PL>01<Version Name=$Q1.1$Q/><Connection Name=$Q_200424042C022C01$Q Format=$Q4$Q/><Connection Name=$Q_200424042C062C05$Q Format=$Q2$Q/></PL><CatNum>R200-CPU20L</CatNum><DataTypeFormats><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 01 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 02 30 03$Q Format=$Q1$Q Type=$QOutput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 05 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2C 06 30 03$Q Format=$Q1$Q Type=$QOutput$Q/></DataTypeFormats></public>___]]]
+			ExtendedProp := [[[___<public><PL>01<Version Name=$Q1.1$Q/><Connection Name=$Q_200424042C022C01$Q Format=$Q4$Q/><Connection Name=$Q_200424042C062C05$Q Format=$Q2$Q/></PL><Vendor>Delta Computer Systems, Inc.</Vendor><CatNum>R200-CPU20L</CatNum><DataTypeFormats><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 01 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 02 30 03$Q Format=$Q1$Q Type=$QOutput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 05 30 03$Q Format=$Q1$Q Type=$QInput$Q/><DataTypeFormat InstanceApplicationPath=$Q20 04 2c 06 30 03$Q Format=$Q1$Q Type=$QOutput$Q/></DataTypeFormats></public>___]]]
 			CONNECTION _200424042C022C01 (Rate := 20000,
 			                              InputSize := 40,
 			                              OutputSize := 24,
@@ -678,14 +649,14 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                              ConnectionPath := "20 04 24 04 2c 02 2c 01",
 			                              InputTagSuffix := "I1",
 			                              OutputTagSuffix := "O1")
-					InputData  := [0,[3.78560028e+001,1.30000007e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,-2.98149255e-003
-		,0.00000000e+000,0.00000000e+000,0.00000000e+000]];
-					OutputData  := [[0.00000000e+000,1.29999995e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+					InputData  := [0,[2.45745712e-041,2.45745712e-041,2.45745712e-041,2.45745712e-041,2.45745712e-041,2.45745712e-041
+		,2.45745712e-041,2.45745712e-041,2.45745712e-041]];
+					OutputData  := [[6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001,6.95999756e+001
 		]];
 			END_CONNECTION
 
 			CONNECTION _200424042C062C05 (Rate := 20000,
-			                              InputSize := 28,
+			                              InputSize := 40,
 			                              OutputSize := 16,
 			                              EventID := 0,
 			                              Priority := Scheduled,
@@ -694,8 +665,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			                              ConnectionPath := "20 04 24 04 2c 06 2c 05",
 			                              InputTagSuffix := "I2",
 			                              OutputTagSuffix := "O2")
-					InputData  := [0,[67117632,67117633,67117633,0,0,17537]];
-					OutputData  := [[1116418816,1116418816,1116418816,1116418864]];
+					InputData  := [0,[17537,17537,17537,17537,17537,17537,17537,17537,17537]];
+					OutputData  := [[1116418864,1116418864,1116418864,1116418864]];
 			END_CONNECTION
 
 	END_MODULE
@@ -711,46 +682,31 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		AutoSpinCCW : BOOL (RADIX := Decimal) := 0;
 		AutoSpinCW : BOOL (RADIX := Decimal) := 0;
 		Axis : AxisData[3]  := [[3.78560028e+001,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,112,34,0
-				,4,0,0,0,0,0,0,0,0.00000000e+000,0],[1.30000007e+000,0.00000000e+000,0.00000000e+000,1.29999995e+000
-				,0.00000000e+000,113,34,0,4,0,0,0,0,0,0,0,0.00000000e+000,1],[-5.00000000e-004,7.29691144e-003,0.00000000e+000
-				,0.00000000e+000,0.00000000e+000,113,34,0,4,-128,68,0,0,0,0,0,0.00000000e+000,1]];
+				,4,0,0,0,0.00000000e+000,0],[1.30000007e+000,0.00000000e+000,0.00000000e+000,1.29999995e+000,0.00000000e+000
+				,113,34,0,4,0,0,0,0.00000000e+000,1],[-5.00000000e-004,7.29691144e-003,0.00000000e+000,0.00000000e+000
+				,0.00000000e+000,113,34,0,4,32,17,0,0.00000000e+000,1]];
 		AxisX_Gauge OF Axis[0] ;
 		AxisY_Traverse OF Axis[1] ;
 		AxisZ_RaiseLower OF Axis[2] ;
 		BladeChange10 : BOOL (RADIX := Decimal) := 0;
-		BladeChange10ONS : BOOL (RADIX := Decimal) := 0;
 		BladeChange20 : BOOL (RADIX := Decimal) := 0;
-		BladeChange20ONS : BOOL (RADIX := Decimal) := 1;
 		BladeChangeDone : BOOL (RADIX := Decimal) := 0;
 		BladeChangeStartONS : BOOL (RADIX := Decimal) := 0;
-		BladeChangeStateChange : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure10ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure10StopAll : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure15ClearZero : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure20ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure20Retract : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure30ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure30Traverse : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure40Lower : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure40ONS : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure50ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure50Stop : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure55ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure55Raise : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure60ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure60Stop : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure65Measure : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure65ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure70Calc : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure70ONS : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure75ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure75PartRef : BOOL (RADIX := Decimal) := 0;
-		BladeMeasure80ONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasure80Return : BOOL (RADIX := Decimal) := 0;
 		BladeMeasureAbort : BOOL (RADIX := Decimal) := 0;
 		BladeMeasureAbortONS : BOOL (RADIX := Decimal) := 0;
 		BladeMeasureStartONS : BOOL (RADIX := Decimal) := 0;
-		BladeMeasureStateChange : BOOL (RADIX := Decimal) := 0;
 		BladeRadius : REAL (RADIX := Float) := 0.00000000e+000;
 		BladeRadiusKnown : BOOL (RADIX := Decimal) := 0;
 		BuildCount : DINT (RADIX := Decimal) := 0;
@@ -1062,11 +1018,11 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		tbWorkUnclamp : BOOL (RADIX := Decimal) := 0;
 		tbZeroGauge : BOOL (RADIX := Decimal) := 0;
 		Thickness : REAL (RADIX := Float) := 0.00000000e+000;
-		timerBladeMeasure15 : TIMER  := [1690503,1000,0];
+		timerBladeMeasure15 : TIMER  := [1690503,100,0];
 		timerGaugeBrakeDelay : TIMER  := [1970346,2000,2000];
 		timerRaiseLowerBrakeDelay : TIMER  := [1970372,2000,2001];
 		timerSpindleStall : TIMER  := [0,3000,0];
-		timerState250CheckRPM : TIMER  := [0,0,0];
+		timerState250CheckRPM : TIMER  := [0,250,0];
 		timerTraverseBrakeDelay : TIMER  := [1970356,2000,2000];
 		TraverseJogIn : BOOL (RADIX := Decimal) := 0;
 		TraverseJogOut : BOOL (RADIX := Decimal) := 0;
@@ -1098,11 +1054,11 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 	              DisableFlag := 0,
 	              UseAsFolder := 0)
 		TAG
-			Initialized : BOOL (RADIX := Decimal) := 1;
+			Initialized : BOOL (RADIX := Decimal) := 0;
 		END_TAG
 
 		ROUTINE Init 
-				N: XIO(Initialized)[MOVE(128.0,TraverseRange) MOVE(6.0,PastPart) ,DIV(14.7,2,SpindlePressureScale) CPT(HorsepowerScale,2*(160.0/328.0)/14.7) ,CPT(SpindleStallPressure,200.0/14.7) CPT(SpindleStallRPM,100.0) MOVE(100.0,SpindleRPMGate) ,MOVE(16.667,GaugeVelocityMax) MOVE(16.667,TraverseVelocityMax) MOVE(1.0,RaiseLowerVelocityMax) ,MOVE(1.667,GaugeVelocityHome) MOVE(0.8333,TraverseVelocityHome) MOVE(0.333,RaiseLowerVelocityHome) ,MOVE(8.333,GaugeVelocityJogMax) MOVE(8.333,TraverseVelocityJogMax) MOVE(0.5,RaiseLowerVelocityJogMax) ,CPT(GaugePotScale,1.0/4095.0) CPT(TraversePotScale,1.0/4095.0) CPT(RaiseLowerPotScale,1.0/4095.0) ,MOVE(200.0,DryCutSpeed) MOVE(0.03,DryCutDepth) ]OTL(Initialized);
+				N: XIO(Initialized)[MOVE(128.0,TraverseRange) MOVE(6.0,PastPart) ,DIV(14.7,2,SpindlePressureScale) CPT(HorsepowerScale,2*(160.0/328.0)/14.7) ,CPT(SpindleStallPressure,200.0/14.7) CPT(SpindleStallRPM,100.0) MOVE(100.0,SpindleRPMGate) ,MOVE(16.667,GaugeVelocityMax) MOVE(16.667,TraverseVelocityMax) MOVE(1.0,RaiseLowerVelocityMax) ,MOVE(1.667,GaugeVelocityHome) MOVE(0.8333,TraverseVelocityHome) MOVE(0.333,RaiseLowerVelocityHome) ,MOVE(8.333,GaugeVelocityJogMax) MOVE(8.333,TraverseVelocityJogMax) MOVE(0.5,RaiseLowerVelocityJogMax) ,CPT(GaugePotScale,1.0/4095.0) CPT(TraversePotScale,1.0/4095.0) CPT(RaiseLowerPotScale,1.0/4095.0) ,MOVE(200.0,DryCutSpeed) MOVE(0.03,DryCutDepth) ,OTU(AxisX_Gauge.Homed) OTU(AxisY_Traverse.Homed) OTU(AxisZ_RaiseLower.Homed) ]OTL(Initialized);
 		END_ROUTINE
 
 		CHILD_PROGRAMS
@@ -1150,6 +1106,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: MOVE(RMC:I1.Data[iAxis],Axis[iAxis].PositionActual);
 				N: MOVE(RMC:I1.Data[3+iAxis],Axis[iAxis].FinalOutput);
 				N: MOVE(RMC:I1.Data[6+iAxis],Axis[iAxis].VelocityActual);
+				RC: "Status Bits";
 				N: XIC(RMC:I2.Data[iAxis].0)OTE(Axis[iAxis].InPosition);
 				N: XIC(RMC:I2.Data[iAxis].1)OTE(Axis[iAxis].AtVelocity);
 				N: XIC(RMC:I2.Data[iAxis].2)OTE(Axis[iAxis].OpenLoop);
@@ -1177,9 +1134,8 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIC(RMC:I2.Data[iAxis].26)OTE(Axis[iAxis].FeedbackOK);
 				N: XIC(RMC:I2.Data[iAxis].27)OTE(Axis[iAxis].FeedbackOkSecondary);
 				N: XIC(RMC:I2.Data[iAxis].28)OTE(Axis[iAxis].StateMachineEnabled);
-				N: XIC(RMC:I2.Data[iAxis].29)OTE(Axis[iAxis].zs29);
-				N: XIC(RMC:I2.Data[iAxis].30)OTE(Axis[iAxis].zs30);
 				N: XIC(RMC:I2.Data[iAxis].31)OTE(Axis[iAxis].CommandAcknowledged);
+				RC: "Encoder Bits";
 				N: XIC(RMC:I2.Data[3+iAxis].0)OTE(Axis[iAxis].Encoder_A_In);
 				N: XIC(RMC:I2.Data[3+iAxis].1)OTE(Axis[iAxis].Encoder_A_WireBreak);
 				N: XIC(RMC:I2.Data[3+iAxis].2)OTE(Axis[iAxis].Encoder_A_Fault);
@@ -1199,6 +1155,12 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: XIC(RMC:I2.Data[3+iAxis].16)OTE(Axis[iAxis].Registration0_Latched);
 				N: XIC(RMC:I2.Data[3+iAxis].17)OTE(Axis[iAxis].Registration1_Armed);
 				N: XIC(RMC:I2.Data[3+iAxis].18)OTE(Axis[iAxis].Registration1_Latched);
+				RC: "Error Bits";
+				N: XIC(RMC:I2.Data[6+iAxis].0)OTE(Axis[iAxis].FollowingError);
+				N: XIC(RMC:I2.Data[6+iAxis].2)OTE(Axis[iAxis].OutputSaturated);
+				RC: "Derived Values";
+				N: XIC(Axis[iAxis].FaultInput)OTE(Axis[iAxis].ServoFault);
+				N: XIC(Axis[iAxis].HomeLatched)OTL(Axis[iAxis].Homed);
 		END_ROUTINE
 
 		CHILD_PROGRAMS
@@ -1236,17 +1198,42 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 			tbRaiseLowerJogRaiseONS : BOOL (RADIX := Decimal) := 0;
 			tbTraverseJogInONS : BOOL (RADIX := Decimal) := 0;
 			tbTraversJogOutONS : BOOL (RADIX := Decimal) := 0;
+			timer205 : TIMER  := [0,50,0];
+			timer206 : TIMER  := [0,100,0];
+			timer207 : TIMER  := [0,50,0];
+			timer208 : TIMER  := [0,100,0];
+			timer210 : TIMER  := [0,100,0];
+			timer220 : TIMER  := [0,50,0];
+			timer221 : TIMER  := [0,100,0];
+			timer240 : TIMER  := [0,50,0];
+			timer241 : TIMER  := [0,100,0];
+			timer260 : TIMER  := [0,50,0];
+			timer261 : TIMER  := [0,100,0];
+			timer290 : TIMER  := [0,50,0];
+			timer291 : TIMER  := [0,100,0];
+			timerBladeChange10 : TIMER  := [0,50,0];
+			timerBladeChange11 : TIMER  := [0,50,0];
+			timerBladeChange20 : TIMER  := [0,50,0];
+			timerBladeChange21 : TIMER  := [0,50,0];
 			timerBladeMeasure10 : TIMER  := [1689503,100,0];
-			timerBladeMeasure20 : TIMER  := [1700429,100,0];
-			timerBladeMeasure30 : TIMER  := [1700529,100,0];
-			timerBladeMeasure40 : TIMER  := [1704208,100,0];
+			timerBladeMeasure20 : TIMER  := [1700429,50,0];
+			timerBladeMeasure21 : TIMER  := [0,100,0];
+			timerBladeMeasure30 : TIMER  := [1700529,50,0];
+			timerBladeMeasure31 : TIMER  := [0,100,0];
+			timerBladeMeasure40 : TIMER  := [1704208,50,0];
+			timerBladeMeasure41 : TIMER  := [0,100,0];
 			timerBladeMeasure50 : TIMER  := [1704368,100,0];
-			timerBladeMeasure55 : TIMER  := [1722427,100,0];
+			timerBladeMeasure55 : TIMER  := [1722427,50,0];
+			timerBladeMeasure56 : TIMER  := [0,100,0];
 			timerBladeMeasure60 : TIMER  := [1722528,100,0];
-			timerBladeMeasure65 : TIMER  := [1731947,100,0];
+			timerBladeMeasure65 : TIMER  := [1731947,50,0];
+			timerBladeMeasure66 : TIMER  := [0,100,0];
 			timerBladeMeasure70 : TIMER  := [1732048,100,0];
-			timerBladeMeasure75 : TIMER  := [1732148,100,0];
-			timerBladeMeasure80 : TIMER  := [-1608878146,100,100];
+			timerBladeMeasure75 : TIMER  := [1732148,50,0];
+			timerBladeMeasure76 : TIMER  := [0,50,0];
+			timerBladeMeasure80 : TIMER  := [-1608878146,50,100];
+			timerBladeMeasure81 : TIMER  := [0,100,100];
+			timerHoming : TIMER  := [0,50,0];
 			timerSafetyRelayDelay : TIMER  := [-1608641904,1000,1001];
 			timerSpinDownCCW : TIMER  := [1970832,2000,2000];
 			timerSpinDownCW : TIMER  := [1970832,2000,2000];
@@ -1337,7 +1324,7 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				RC: "Blade Diameter Not Known";
 				N: XIO(BladeRadiusKnown)MOVE(31,hmiFaultMessageNumber);
 				RC: "Machine not Homed";
-				N: [XIO(AxisX_Gauge.HomeLatched) ,XIO(AxisY_Traverse.HomeLatched) ,XIO(AxisZ_RaiseLower.HomeLatched) ]MOVE(30,hmiFaultMessageNumber);
+				N: [XIO(AxisX_Gauge.Homed) ,XIO(AxisY_Traverse.Homed) ,XIO(AxisZ_RaiseLower.Homed) ]MOVE(30,hmiFaultMessageNumber);
 				RC: "Raise/Lower Axis Plus OVERTRAVEL";
 				N: XIO(AxisZ_RaiseLower.LimitPos)MOVE(29,hmiFaultMessageNumber);
 				RC: "Raise/Lower  Axis Minus OVERTRAVEL";
@@ -1431,12 +1418,13 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 				N: [[XIC(AutoCutCancel) ,XIC(FaultRise) ] [FOR(S_Stop_Axis,iAxis,0,2,1) ,OSF(AutoCutCancelOSF,AutoCutCancelFall) ] ,XIC(AutoCutCancelFall) OTU(AxisX_Gauge.CommandStop) OTU(AxisY_Traverse.CommandStop) OTU(AxisZ_RaiseLower.CommandStop) ];
 				N: [XIC(AutoCutReq) XIC(X_Manual) XIC(ValidData) ,XIC(X_AutoCut) XIO(AutoCutCancel) XIO(State299) XIO(X_Fault) ][OTE(X_AutoCut) MOVE(6,X_State) ,ONS(AutoCutStartONS) OTL(State200Build) ,JSR(X_AutoCut,0) ];
 				N: XIO(X_AutoCut)[OTU(State200ONS) OTU(State200Build) OTU(State205) OTU(State207TraverseInitial) OTU(State210Direction) OTU(State220TraverseToStart) OTU(State230StartSaw) ,OTU(State240) OTU(State250CheckRPM) OTU(State260Cut) OTU(State280) OTU(State285BladeMeasure) OTU(State290RaiseBlade) OTU(State299) ];
-				N: [XIC(tbBladeChange) XIC(X_Manual) ,XIC(X_BladeChange) ]XIC(AxisX_Gauge.HomeLatched)XIC(AxisY_Traverse.HomeLatched)XIC(AxisZ_RaiseLower.HomeLatched)[OTE(X_BladeChange) MOVE(5,X_State) ,ONS(BladeChangeStartONS) OTL(BladeChange10) ,JSR(X_BladeChange,0) ];
-				N: XIO(X_BladeChange)OTU(BladeChange10ONS)OTU(BladeChange10)OTU(BladeChange20);
+				N: [XIC(tbBladeChange) XIC(X_Manual) ,XIC(X_BladeChange) ]XIC(AxisX_Gauge.Homed)XIC(AxisY_Traverse.Homed)XIC(AxisZ_RaiseLower.Homed)[OTE(X_BladeChange) MOVE(5,X_State) ,ONS(BladeChangeStartONS) OTL(BladeChange10) ,JSR(X_BladeChange,0) ];
+				N: XIO(X_BladeChange)OTU(BladeChange10)OTU(BladeChange20);
 				N: XIC(tbBladeMeasure)ONS(tbBladeMeasureONS)XIC(X_BladeMeasure)OTL(BladeMeasureAbort);
-				N: [XIC(tbBladeMeasure) XIC(X_Manual) ,XIC(X_BladeMeasure) XIO(X_Fault) ]XIO(X_Off)[XIC(AxisX_Gauge.HomeLatched) XIC(AxisY_Traverse.HomeLatched) XIC(AxisZ_RaiseLower.HomeLatched) ,][OTE(X_BladeMeasure) MOVE(4,X_State) ,ONS(BladeMeasureStartONS) OTL(BladeMeasure10StopAll) ,JSR(X_BladeMeasure,0) ];
-				N: XIO(X_BladeMeasure)[XIO(X_AutoCut) ,XIO(State285BladeMeasure) ][OTU(BladeMeasure10ONS) OTU(BladeMeasure10StopAll) OTU(BladeMeasure15ClearZero) OTU(BladeMeasure20Retract) ,OTU(BladeMeasure30Traverse) OTU(BladeMeasure40Lower) OTU(BladeMeasure50Stop) ,OTU(BladeMeasure55Raise) OTU(BladeMeasure60Stop) OTU(BladeMeasure65Measure) ,OTU(BladeMeasure70Calc) OTU(BladeMeasure75PartRef) OTU(BladeMeasure80Return) ];
-				N: [XIC(tbHome) XIC(X_Manual) ,XIC(X_Homing) [XIO(AxisX_Gauge.HomeLatched) ,XIO(AxisY_Traverse.HomeLatched) ,XIO(AxisZ_RaiseLower.HomeLatched) ] XIO(Fault) ][OTE(X_Homing) MOVE(3,X_State) ,JSR(X_Homing,0) ];
+				N: [XIC(tbBladeMeasure) XIC(X_Manual) ,XIC(X_BladeMeasure) XIO(X_Fault) ]XIO(X_Off)XIC(AxisX_Gauge.Homed)XIC(AxisY_Traverse.Homed)XIC(AxisZ_RaiseLower.Homed)[OTE(X_BladeMeasure) MOVE(4,X_State) ,ONS(BladeMeasureStartONS) OTL(BladeMeasure10StopAll) ,JSR(X_BladeMeasure,0) ];
+				N: XIO(X_BladeMeasure)[XIO(X_AutoCut) ,XIO(State285BladeMeasure) ][OTU(BladeMeasure10StopAll) OTU(BladeMeasure15ClearZero) OTU(BladeMeasure20Retract) ,OTU(BladeMeasure30Traverse) OTU(BladeMeasure40Lower) OTU(BladeMeasure50Stop) ,OTU(BladeMeasure55Raise) OTU(BladeMeasure60Stop) OTU(BladeMeasure65Measure) ,OTU(BladeMeasure70Calc) OTU(BladeMeasure75PartRef) OTU(BladeMeasure80Return) ];
+				N: [XIC(tbHome) XIC(X_Manual) ,XIC(X_Homing) [XIO(AxisX_Gauge.Homed) ,XIO(AxisY_Traverse.Homed) ,XIO(AxisZ_RaiseLower.Homed) ] XIO(Fault) ][OTE(X_Homing) MOVE(3,X_State) ,MOVE(GaugeVelocityHome,AxisX_Gauge.VelocityTarget) MOVE(TraverseVelocityHome,AxisY_Traverse.VelocityTarget) ,MOVE(RaiseLowerVelocityHome,AxisZ_RaiseLower.VelocityTarget) TON(timerHoming,?,?) ,JSR(X_Homing,0) ];
+				N: XIO(X_Homing)OTU(AxisX_Gauge.CommandHome)OTU(AxisY_Traverse.CommandHome)OTU(AxisZ_RaiseLower.CommandHome);
 		END_ROUTINE
 
 		ROUTINE S_RMC_Axis 
@@ -1450,47 +1438,45 @@ CONTROLLER Savage_Saw (ProcessorType := "1769-L18ER-BB1B",
 		END_ROUTINE
 
 		ROUTINE X_AutoCut 
-				N: XIC(State200Build)MOVE(200,State)[ONS(State200ONS) OTU(BuildDone) OTE(AutoCutStateChange) ,MOVE(0,StepCount) OTU(CutOnReturn) OTU(CutForward) ,XIC(BuildDone) OTL(State205) OTU(State200Build) ];
-				N: XIC(State205)MOVE(205,State)[ONS(State205ONS) OTE(AutoCutStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State207TraverseInitial) OTU(State205) OTU(AxisZ_RaiseLower.CommandMove) ];
-				N: XIC(State207TraverseInitial)MOVE(207,State)[ONS(State207ONS) OTL(AxisY_Traverse.CommandMove) OTE(AutoCutStateChange) ,MOVE(0.0,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityMax,AxisY_Traverse.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisY_Traverse.MoveComplete) OTL(State210Direction) OTU(State207TraverseInitial) OTU(AxisY_Traverse.CommandMove) ];
-				N: XIC(State210Direction)MOVE(210,State)[ONS(State210ONS) [CPT(CutStartPosition,AxisY_Traverse.PositionActual+PastPart-1.0) OTE(AutoCutStateChange) ,GT(CutStartPosition,Width) OTU(CutForward) OTL(CutOnReturn) ,LT(AxisY_Traverse.PositionActual,2.0) MOVE(0.0,CutStartPosition) OTL(CutForward) OTU(CutOnReturn) ,XIO(CutForward) XIO(CutOnReturn) [OTL(AxisZ_RaiseLower.CommandMove) ,MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ] ,[XIC(CutForward) ,XIC(CutOnReturn) ] OTL(State230StartSaw) OTU(State210Direction) ] ,XIO(AutoCutStateChange) OTU(AxisZ_RaiseLower.CommandMove) ];
-				N: XIC(State220TraverseToStart)MOVE(220,State)[ONS(State220ONS) OTL(AxisY_Traverse.CommandMove) OTE(AutoCutStateChange) ,MOVE(CutStartPosition,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityMax,AxisY_Traverse.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisY_Traverse.MoveComplete) OTL(State210Direction) OTU(State207TraverseInitial) OTU(AxisY_Traverse.CommandMove) ];
+				N: XIC(State200Build)MOVE(200,State)[ONS(State200ONS) OTU(BuildDone) ,MOVE(0,StepCount) OTU(CutOnReturn) OTU(CutForward) ,XIC(BuildDone) OTL(State205) OTU(State200Build) ];
+				N: XIC(State205)MOVE(205,State)[MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) TON(timer205,?,?) ,XIC(timer205.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timer206,?,?) ,XIC(timer206.DN) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State207TraverseInitial) OTU(State205) OTU(AxisZ_RaiseLower.CommandMove) ];
+				N: XIC(State207TraverseInitial)MOVE(207,State)[MOVE(0.0,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityMax,AxisY_Traverse.VelocityTarget) TON(timer207,?,?) ,XIC(timer207.DN) OTL(AxisY_Traverse.CommandMove) TON(timer208,?,?) ,XIC(timer208.DN) XIC(AxisY_Traverse.MoveComplete) OTL(State210Direction) OTU(State207TraverseInitial) OTU(AxisY_Traverse.CommandMove) ];
+				N: XIC(State210Direction)MOVE(210,State)[[CPT(CutStartPosition,AxisY_Traverse.PositionActual+PastPart-1.0) ,GT(CutStartPosition,Width) OTU(CutForward) OTL(CutOnReturn) ,LT(AxisY_Traverse.PositionActual,2.0) MOVE(0.0,CutStartPosition) OTL(CutForward) OTU(CutOnReturn) ,XIO(CutForward) XIO(CutOnReturn) [OTL(AxisZ_RaiseLower.CommandMove) TON(timer210,?,?) ,MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ] ,[XIC(CutForward) ,XIC(CutOnReturn) ] OTL(State230StartSaw) OTU(State210Direction) ] ,XIC(timer210.DN) XIC(AxisZ_RaiseLower.MoveComplete) OTU(AxisZ_RaiseLower.CommandMove) ];
+				N: XIC(State220TraverseToStart)MOVE(220,State)[MOVE(CutStartPosition,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityMax,AxisY_Traverse.VelocityTarget) TON(timer220,?,?) ,XIC(timer220.DN) OTL(AxisY_Traverse.CommandMove) TON(timer221,?,?) ,XIC(timer221.DN) XIC(AxisY_Traverse.MoveComplete) OTL(State210Direction) OTU(State207TraverseInitial) OTU(AxisY_Traverse.CommandMove) ];
 				N: XIC(State230StartSaw)MOVE(230,State)[[XIO(Pass[StepCount].WetPass) XIC(CutOnReturn) ,XIC(Pass[StepCount].WetPass) XIC(CutForward) ] OTL(AutoSpinCW) OTU(AutoSpinCCW) ,[XIO(Pass[StepCount].WetPass) XIC(CutForward) ,XIC(Pass[StepCount].WetPass) XIC(CutOnReturn) ] OTU(AutoSpinCW) OTL(AutoSpinCCW) ,OTL(State240) OTU(State230StartSaw) ];
-				N: XIC(State240)MOVE(240,State)[ONS(State240ONS) [OTL(AxisZ_RaiseLower.CommandMove) ,XIC(Pass[0].WetPass) OTL(tbCoolant) ] OTE(AutoCutStateChange) ,MOVE(Pass[StepCount].RemainDepth,AxisZ_RaiseLower.PositionTarget) MOVE(0.833,AxisZ_RaiseLower.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State250CheckRPM) OTU(State240) OTU(AxisZ_RaiseLower.CommandMove) ];
-				N: XIC(State250CheckRPM)MOVE(250,State)[ONS(State250ONS) OTE(AutoCutStateChange) ,XIO(AutoCutStateChange) [XIC(SpindleRPMAtTarget) ,XIO(SpindleRPMAtTarget) ] TON(timerState250CheckRPM,?,?) ,XIC(timerState250CheckRPM.DN) OTL(State260Cut) OTU(State250CheckRPM) ];
-				N: XIC(State260Cut)MOVE(260,State)[ONS(State260ONS) OTL(AxisY_Traverse.CommandMove) OTE(AutoCutStateChange) ,XIC(CutForward) ADD(Width,PastPart,CutEndPosition) ,XIC(CutOnReturn) MOVE(0.0,CutEndPosition) ,MOVE(CutEndPosition,AxisY_Traverse.PositionTarget) DIV(Pass[StepCount].FeedRate,60.0,AxisY_Traverse.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisY_Traverse.MoveComplete) OTL(State280) OTU(State260Cut) OTU(AxisY_Traverse.CommandMove) ];
-				N: XIC(State280)[ONS(State280ONS) OTE(AutoCutStateChange) MOVE(280,State) LE(Pass[StepCount].RemainDepth,0.0) OTL(State290RaiseBlade) ,XIO(AutoCutStateChange) [XIC(Pass[StepCount].Measure) OTL(BladeMeasure10StopAll) OTU(BladeRadiusKnown) OTL(State285BladeMeasure) ,XIO(Pass[StepCount].Measure) OTL(State210Direction) ] ]ADD(StepCount,1,StepCount)OTU(State280);
+				N: XIC(State240)MOVE(240,State)[[MOVE(Pass[StepCount].RemainDepth,AxisZ_RaiseLower.PositionTarget) MOVE(0.833,AxisZ_RaiseLower.VelocityTarget) TON(timer240,?,?) ,XIC(Pass[0].WetPass) OTL(tbCoolant) ] ,XIC(timer240.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timer241,?,?) ,XIC(timer241.DN) XIO(AutoCutStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State250CheckRPM) OTU(State240) OTU(AxisZ_RaiseLower.CommandMove) ];
+				N: XIC(State250CheckRPM)MOVE(250,State)[[XIC(SpindleRPMAtTarget) ,XIO(SpindleRPMAtTarget) ] TON(timerState250CheckRPM,?,?) ,XIC(timerState250CheckRPM.DN) OTL(State260Cut) OTU(State250CheckRPM) ];
+				N: XIC(State260Cut)MOVE(260,State)[XIC(CutForward) ADD(Width,PastPart,CutEndPosition) ,XIC(CutOnReturn) MOVE(0.0,CutEndPosition) ,MOVE(CutEndPosition,AxisY_Traverse.PositionTarget) DIV(Pass[StepCount].FeedRate,60.0,AxisY_Traverse.VelocityTarget) TON(timer260,?,?) ,XIC(timer260.DN) OTL(AxisY_Traverse.CommandMove) TON(timer261,?,?) ,XIC(timer261.DN) XIC(AxisY_Traverse.MoveComplete) OTL(State280) OTU(State260Cut) OTU(AxisY_Traverse.CommandMove) ];
+				N: XIC(State280)[MOVE(280,State) LE(Pass[StepCount].RemainDepth,0.0) OTL(State290RaiseBlade) ,XIO(State290RaiseBlade) [XIC(Pass[StepCount].Measure) OTL(BladeMeasure10StopAll) OTU(BladeRadiusKnown) OTL(State285BladeMeasure) ,XIO(Pass[StepCount].Measure) OTL(State210Direction) ] ]ADD(StepCount,1,StepCount)OTU(State280);
 				N: XIC(State285BladeMeasure)JSR(X_BladeMeasure,0)XIC(BladeRadiusKnown)OTL(State205)OTU(State285BladeMeasure);
-				N: XIC(State290RaiseBlade)MOVE(290,State)[ONS(State290ONS) OTE(AutoCutStateChange) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) ,XIO(AutoCutStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State299) OTU(State290RaiseBlade) OTU(AxisZ_RaiseLower.CommandMove) ];
+				N: XIC(State290RaiseBlade)MOVE(290,State)[MOVE(5.5,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityMax,AxisZ_RaiseLower.VelocityTarget) TON(timer290,?,?) ,XIC(timer290.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timer291,?,?) ,XIC(timer291.DN) XIC(AxisZ_RaiseLower.MoveComplete) OTL(State299) OTU(State290RaiseBlade) OTU(AxisZ_RaiseLower.CommandMove) ];
 		END_ROUTINE
 
 		ROUTINE X_BladeChange 
-				N: XIC(BladeChange10)[ONS(BladeChange10ONS) OTL(AxisY_Traverse.CommandMove) OTE(BladeChangeStateChange) ,MOVE(130.0,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityHome,AxisY_Traverse.VelocityTarget) ,XIO(BladeChangeStateChange) XIC(AxisY_Traverse.MoveComplete) OTU(AxisY_Traverse.CommandMove) OTL(BladeChange20) OTU(BladeChange10) ];
-				N: XIC(BladeChange20)[ONS(BladeChange20ONS) OTL(AxisZ_RaiseLower.CommandMove) OTE(BladeChangeStateChange) ,MOVE(1.51,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityHome,AxisZ_RaiseLower.VelocityTarget) ,XIO(BladeChangeStateChange) XIC(AxisZ_RaiseLower.MoveComplete) OTU(AxisZ_RaiseLower.CommandMove) OTL(BladeChangeDone) OTU(X_BladeChange) OTU(BladeChange20) ];
+				N: XIC(BladeChange10)[MOVE(130.0,AxisY_Traverse.PositionTarget) MOVE(TraverseVelocityHome,AxisY_Traverse.VelocityTarget) TON(timerBladeChange10,?,?) ,XIC(timerBladeChange10.DN) OTL(AxisY_Traverse.CommandMove) TON(timerBladeChange11,?,?) ,XIC(timerBladeChange11.DN) XIC(AxisY_Traverse.MoveComplete) OTU(AxisY_Traverse.CommandMove) OTL(BladeChange20) OTU(BladeChange10) ];
+				N: XIC(BladeChange20)[MOVE(1.51,AxisZ_RaiseLower.PositionTarget) MOVE(RaiseLowerVelocityHome,AxisZ_RaiseLower.VelocityTarget) TON(timerBladeChange20,?,?) ,XIC(timerBladeChange20.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timerBladeChange21,?,?) ,XIC(timerBladeChange21.DN) XIC(AxisZ_RaiseLower.MoveComplete) OTU(AxisZ_RaiseLower.CommandMove) OTL(BladeChangeDone) OTU(X_BladeChange) OTU(BladeChange20) ];
 		END_ROUTINE
 
 		ROUTINE X_BladeMeasure 
-				N: XIC(BladeMeasureAbort)[OTL(AxisZ_RaiseLower.CommandStop) OTL(AxisY_Traverse.CommandStop) ,ONS(BladeMeasureAbortONS) OTE(BladeMeasureStateChange) ,OTU(AxisZ_RaiseLower.CommandZero) OTU(AxisZ_RaiseLower.CommandClearZero) ,OTU(AxisY_Traverse.CommandMove) OTU(AxisZ_RaiseLower.CommandMove) ,OTU(BladeMeasure10StopAll) OTU(BladeMeasure15ClearZero) OTU(BladeMeasure20Retract) OTU(BladeMeasure30Traverse) OTU(BladeMeasure40Lower) OTU(BladeMeasure50Stop) ,OTU(BladeMeasure55Raise) OTU(BladeMeasure60Stop) OTU(BladeMeasure65Measure) OTU(BladeMeasure70Calc) OTU(BladeMeasure75PartRef) OTU(BladeMeasure80Return) ,XIO(BladeMeasureStateChange) XIC(AxisZ_RaiseLower.Stopped) XIC(AxisY_Traverse.Stopped) OTU(BladeMeasureAbort) OTU(X_BladeMeasure) ];
+				N: XIC(BladeMeasureAbort)[OTL(AxisZ_RaiseLower.CommandStop) OTL(AxisY_Traverse.CommandStop) ,OTU(AxisZ_RaiseLower.CommandZero) OTU(AxisZ_RaiseLower.CommandClearZero) ,OTU(AxisY_Traverse.CommandMove) OTU(AxisZ_RaiseLower.CommandMove) ,OTU(BladeMeasure10StopAll) OTU(BladeMeasure15ClearZero) OTU(BladeMeasure20Retract) OTU(BladeMeasure30Traverse) OTU(BladeMeasure40Lower) OTU(BladeMeasure50Stop) ,OTU(BladeMeasure55Raise) OTU(BladeMeasure60Stop) OTU(BladeMeasure65Measure) OTU(BladeMeasure70Calc) OTU(BladeMeasure75PartRef) OTU(BladeMeasure80Return) ,XIC(AxisZ_RaiseLower.Stopped) XIC(AxisY_Traverse.Stopped) OTU(AxisY_Traverse.CommandStop) OTU(AxisZ_RaiseLower.CommandStop) OTU(BladeMeasureAbort) OTU(X_BladeMeasure) ];
 				N: XIC(BladeMeasure10StopAll)MOVE(310,State)[TON(timerBladeMeasure10,?,?) OTU(tbCoolant) OTU(tbA1JogIn) OTU(tbA1JogOut) OTU(tbA2JogMinus) OTU(tbA2JogPlus) OTU(tbA3JogMinus) OTU(tbA3JogPlus) ,OTL(AxisX_Gauge.CommandStop) OTL(AxisY_Traverse.CommandStop) OTL(AxisZ_RaiseLower.CommandStop) ,XIC(timerBladeMeasure10.DN) XIC(AxisX_Gauge.Stopped) XIC(AxisY_Traverse.Stopped) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure15ClearZero) OTU(BladeMeasure10StopAll) ,OTU(AxisX_Gauge.CommandStop) OTU(AxisY_Traverse.CommandStop) OTU(AxisZ_RaiseLower.CommandStop) ] ];
 				N: XIC(BladeMeasure15ClearZero)MOVE(315,State)[OTL(AxisZ_RaiseLower.CommandClearZero) TON(timerBladeMeasure15,?,?) ,XIC(timerBladeMeasure15.DN) OTU(AxisZ_RaiseLower.CommandClearZero) OTL(BladeMeasure20Retract) OTU(BladeMeasure15ClearZero) ];
-				N: XIC(BladeMeasure20Retract)MOVE(320,State)[TON(timerBladeMeasure20,?,?) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(1.667,AxisZ_RaiseLower.VelocityTarget) MOVE(16.0,AxisZ_RaiseLower.PositionTarget) ,XIC(timerBladeMeasure20.DN) XIC(AxisZ_RaiseLower.MoveComplete) [OTL(BladeMeasure30Traverse) OTU(BladeMeasure20Retract) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
-				N: XIC(BladeMeasure30Traverse)MOVE(330,State)[TON(timerBladeMeasure30,?,?) ,OTL(AxisY_Traverse.CommandMove) MOVE(5.0,AxisY_Traverse.VelocityTarget) MOVE(1.3,AxisY_Traverse.PositionTarget) ,XIC(timerBladeMeasure30.DN) XIC(AxisY_Traverse.MoveComplete) [OTL(BladeMeasure40Lower) OTU(BladeMeasure30Traverse) ,OTU(AxisY_Traverse.CommandMove) ] ];
-				N: XIC(BladeMeasure40Lower)MOVE(340,State)[TON(timerBladeMeasure40,?,?) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.833,AxisZ_RaiseLower.VelocityTarget) MOVE(5.0,AxisZ_RaiseLower.PositionTarget) ,XIC(timerBladeMeasure40.DN) XIC(inPe01BladeDetect) [OTL(BladeMeasure50Stop) OTU(BladeMeasure40Lower) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
+				N: XIC(BladeMeasure20Retract)MOVE(320,State)[MOVE(1.667,AxisZ_RaiseLower.VelocityTarget) MOVE(16.0,AxisZ_RaiseLower.PositionTarget) TON(timerBladeMeasure20,?,?) ,XIC(timerBladeMeasure20.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timerBladeMeasure21,?,?) ,XIC(timerBladeMeasure21.DN) XIC(AxisZ_RaiseLower.MoveComplete) [OTL(BladeMeasure30Traverse) OTU(BladeMeasure20Retract) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
+				N: XIC(BladeMeasure30Traverse)MOVE(330,State)[MOVE(5.0,AxisY_Traverse.VelocityTarget) MOVE(1.3,AxisY_Traverse.PositionTarget) TON(timerBladeMeasure30,?,?) ,XIC(timerBladeMeasure30.DN) OTL(AxisY_Traverse.CommandMove) TON(timerBladeMeasure31,?,?) ,XIC(timerBladeMeasure31.DN) XIC(AxisY_Traverse.MoveComplete) [OTL(BladeMeasure40Lower) OTU(BladeMeasure30Traverse) ,OTU(AxisY_Traverse.CommandMove) ] ];
+				N: XIC(BladeMeasure40Lower)MOVE(340,State)[MOVE(0.833,AxisZ_RaiseLower.VelocityTarget) MOVE(5.0,AxisZ_RaiseLower.PositionTarget) TON(timerBladeMeasure40,?,?) ,XIC(timerBladeMeasure40.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timerBladeMeasure41,?,?) ,XIC(timerBladeMeasure41.DN) XIC(inPe01BladeDetect) [OTL(BladeMeasure50Stop) OTU(BladeMeasure40Lower) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
 				N: XIC(BladeMeasure50Stop)MOVE(350,State)[OTL(AxisZ_RaiseLower.CommandStop) TON(timerBladeMeasure50,?,?) ,XIC(timerBladeMeasure50.DN) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure55Raise) OTU(BladeMeasure50Stop) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
-				N: XIC(BladeMeasure55Raise)MOVE(355,State)[TON(timerBladeMeasure55,?,?) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.333,AxisZ_RaiseLower.VelocityTarget) MOVE(12.5,AxisZ_RaiseLower.PositionTarget) ,XIC(timerBladeMeasure55.DN) XIO(inPe01BladeDetect) [OTL(BladeMeasure60Stop) OTU(BladeMeasure55Raise) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
+				N: XIC(BladeMeasure55Raise)MOVE(355,State)[MOVE(0.333,AxisZ_RaiseLower.VelocityTarget) MOVE(12.5,AxisZ_RaiseLower.PositionTarget) TON(timerBladeMeasure55,?,?) ,XIC(timerBladeMeasure55.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timerBladeMeasure56,?,?) ,XIC(timerBladeMeasure56.DN) XIO(inPe01BladeDetect) [OTL(BladeMeasure60Stop) OTU(BladeMeasure55Raise) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
 				N: XIC(BladeMeasure60Stop)MOVE(360,State)[OTL(AxisZ_RaiseLower.CommandStop) TON(timerBladeMeasure60,?,?) ,XIC(timerBladeMeasure60.DN) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure65Measure) OTU(BladeMeasure60Stop) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
-				N: XIC(BladeMeasure65Measure)MOVE(365,State)[TON(timerBladeMeasure65,?,?) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.033,AxisZ_RaiseLower.VelocityTarget) MOVE(5,AxisZ_RaiseLower.PositionTarget) ,XIC(timerBladeMeasure65.DN) XIC(inPe01BladeDetect) [OTL(BladeMeasure70Calc) OTU(BladeMeasure65Measure) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
-				N: XIC(BladeMeasure70Calc)MOVE(370,State)[TON(timerBladeMeasure70,?,?) ,CPT(BladeRadius,AxisZ_RaiseLower.PositionActual-0.5) OTL(BladeRadiusKnown) OTL(AxisZ_RaiseLower.CommandStop) ,XIC(timerBladeMeasure70.DN) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure75PartRef) OTU(BladeMeasure70Calc) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
-				N: XIC(BladeMeasure75PartRef)MOVE(375,State)[TON(timerBladeMeasure75,?,?) ,MOVE(-0.776,AxisZ_RaiseLower.PositionTarget) OTL(AxisZ_RaiseLower.CommandZero) ,XIC(timerBladeMeasure75.DN) [OTL(BladeMeasure80Return) OTU(BladeMeasure75PartRef) ,OTU(AxisZ_RaiseLower.CommandZero) ] ];
-				N: XIC(BladeMeasure80Return)MOVE(380,State)[TON(timerBladeMeasure80,?,?) ,OTL(AxisZ_RaiseLower.CommandMove) MOVE(0.333,AxisZ_RaiseLower.VelocityTarget) MOVE(0,AxisZ_RaiseLower.PositionTarget) ,XIC(timerBladeMeasure80.DN) XIC(AxisZ_RaiseLower.MoveComplete) [OTU(X_BladeMeasure) OTU(BladeMeasure80Return) ,OTL(BladeRadiusKnown) OTU(AxisZ_RaiseLower.CommandMove) ] ];
+				N: XIC(BladeMeasure65Measure)MOVE(365,State)[MOVE(0.033,AxisZ_RaiseLower.VelocityTarget) MOVE(5,AxisZ_RaiseLower.PositionTarget) TON(timerBladeMeasure65,?,?) ,XIC(timerBladeMeasure65.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timerBladeMeasure66,?,?) ,XIC(timerBladeMeasure66.DN) XIC(inPe01BladeDetect) [OTL(BladeMeasure70Calc) OTU(BladeMeasure65Measure) ,OTU(AxisZ_RaiseLower.CommandMove) ] ];
+				N: XIC(BladeMeasure70Calc)MOVE(370,State)[OTL(AxisZ_RaiseLower.CommandStop) TON(timerBladeMeasure70,?,?) ,CPT(BladeRadius,AxisZ_RaiseLower.PositionActual-0.5) OTL(BladeRadiusKnown) ,XIC(timerBladeMeasure70.DN) XIC(AxisZ_RaiseLower.Stopped) [OTL(BladeMeasure75PartRef) OTU(BladeMeasure70Calc) ,OTU(AxisZ_RaiseLower.CommandStop) ] ];
+				N: XIC(BladeMeasure75PartRef)MOVE(375,State)[MOVE(-0.776,AxisZ_RaiseLower.PositionTarget) TON(timerBladeMeasure75,?,?) ,XIC(timerBladeMeasure75.DN) OTL(AxisZ_RaiseLower.CommandZero) TON(timerBladeMeasure76,?,?) ,XIC(timerBladeMeasure76.DN) [OTL(BladeMeasure80Return) OTU(BladeMeasure75PartRef) ,OTU(AxisZ_RaiseLower.CommandZero) ] ];
+				N: XIC(BladeMeasure80Return)MOVE(380,State)[MOVE(0.333,AxisZ_RaiseLower.VelocityTarget) MOVE(0,AxisZ_RaiseLower.PositionTarget) TON(timerBladeMeasure80,?,?) ,XIC(timerBladeMeasure80.DN) OTL(AxisZ_RaiseLower.CommandMove) TON(timerBladeMeasure81,?,?) ,XIC(timerBladeMeasure81.DN) XIC(AxisZ_RaiseLower.MoveComplete) [OTU(X_BladeMeasure) OTU(BladeMeasure80Return) ,OTL(BladeRadiusKnown) OTU(AxisZ_RaiseLower.CommandMove) ] ];
 		END_ROUTINE
 
 		ROUTINE X_Homing 
-				N: XIO(AxisZ_RaiseLower.HomeLatched)OTE(AxisZ_RaiseLower.CommandHome);
-				N: XIC(AxisZ_RaiseLower.HomeLatched)[XIO(AxisX_Gauge.HomeLatched) OTE(AxisX_Gauge.CommandHome) ,XIO(AxisY_Traverse.HomeLatched) OTE(AxisY_Traverse.CommandHome) ];
-				N: MOVE(GaugeVelocityHome,AxisX_Gauge.VelocityTarget);
-				N: MOVE(TraverseVelocityHome,AxisY_Traverse.VelocityTarget);
-				N: MOVE(RaiseLowerVelocityHome,AxisZ_RaiseLower.VelocityTarget);
+				N: XIC(timerHoming.DN)XIO(AxisZ_RaiseLower.Homed)OTE(AxisZ_RaiseLower.CommandHome);
+				N: XIC(timerHoming.DN)XIO(AxisX_Gauge.HomeLatched)OTE(AxisX_Gauge.CommandHome);
+				N: XIC(timerHoming.DN)XIC(AxisZ_RaiseLower.Homed)XIO(AxisY_Traverse.HomeLatched)OTE(AxisY_Traverse.CommandHome);
 		END_ROUTINE
 
 		ROUTINE X_Manual 
