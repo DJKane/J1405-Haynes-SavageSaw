@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Project
-    SWVersion="5.08.4"
+    SWVersion="5.08.1"
     ProjectName="Savage"
     Author="Kane Engineering"
     ProjDesc=""
@@ -129,7 +129,7 @@
           ActualVelocityCut-offFreq="100"
           ActualAccelCut-offFreq="25"
           StopThreshold="0.1"
-          LimitInputs="16#00200211"
+          LimitInputs="16#00200210"
           QuadConfig="16#00032080"
           OutputBits="16#00000000"
           OutputLimit="100"
@@ -149,26 +149,23 @@
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="6000"
-          IntegralGain="0"
+          ProportionalGain="250"
+          IntegralGain="2197.529"
           DifferentialGain="0"
-          VelFFPos="1"
-          VelFFNeg="1"
+          VelFFPos="3.3333333"
+          VelFFNeg="3.3333333"
           AccelFeedForward="0.039788734"
           JerkFeedForward="0"
           AccCtlMode="0"
           PVOutputFilter0="0"
-          ModOrder="1"
-          ModGainP="1.4907035"
-          ModGainN="1.4509072"
-          ModTimeConst="0.00082798343"
+          ModOrder="255"
           OpenLoopHaltRamp="1000"
           PositiveTravelLimit="300"
           NegativeTravelLimit="0"
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
-          SimMode="1"
+          SimMode="0"
           SimType="2"
           SimSysGainP="0.3"
           SimSysGainN="0.3"
@@ -277,7 +274,7 @@
           ActualVelocityCut-offFreq="100"
           ActualAccelCut-offFreq="25"
           StopThreshold="0.1"
-          LimitInputs="16#00810831"
+          LimitInputs="16#00810830"
           QuadConfig="16#00032080"
           OutputBits="16#00000000"
           OutputLimit="100"
@@ -297,7 +294,7 @@
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="137.44467"
+          ProportionalGain="250"
           IntegralGain="2197.529"
           DifferentialGain="0"
           VelFFPos="3.3333333"
@@ -313,7 +310,7 @@
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
-          SimMode="1"
+          SimMode="0"
           SimType="2"
           SimSysGainP="0.3"
           SimSysGainN="0.3"
@@ -422,7 +419,7 @@
           ActualVelocityCut-offFreq="100"
           ActualAccelCut-offFreq="25"
           StopThreshold="0.1"
-          LimitInputs="16#00850871"
+          LimitInputs="16#00850870"
           QuadConfig="16#00032080"
           OutputBits="16#00000000"
           OutputLimit="100"
@@ -442,7 +439,7 @@
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="137.44467"
+          ProportionalGain="250"
           IntegralGain="2197.529"
           DifferentialGain="0"
           VelFFPos="3.3333333"
@@ -1284,7 +1281,7 @@
                <Step>
                   <Command
                       Command="4"
-                      CmdAxes="0"/>
+                      CmdAxes="7"/>
                </Step>
                <Transition>
                   <Jump
@@ -1296,7 +1293,7 @@
                <Step>
                   <Command
                       Command="7"
-                      CmdAxes="0"/>
+                      CmdAxes="7"/>
                </Step>
                <Transition>
                   <End/>
