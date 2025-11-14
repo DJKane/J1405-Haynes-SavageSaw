@@ -1461,43 +1461,10 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="50"
+                      Command="90"
                       CmdAxes="4"
-                      CmdPrm1="0.0"
-                      CmdPrm2="H Rising (0)"
-                      CmdPrm3="Single (0)"
-                      CmdPrm4="H (0)"/>
-               </Step>
-               <Transition>
-                  <Jump
-                      Type="NEXT"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="0"
-                      CmdAxes="0"
-                      CmdAxesSet="False"/>
-               </Step>
-               <Transition>
-                  <Delay
-                      Type="JUMP"
-                      Duration="0.05"
-                      Next="Next"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
-                      Command="37"
-                      CmdAxes="4"
-                      CmdPrm1="zVelocityTarget"
-                      CmdPrm2="zAccDec"
-                      CmdPrm3="zAccDec"
-                      CmdPrm4="Signed (+4)"/>
+                      CmdPrm1="3"
+                      CmdPrm2="zHome"/>
                </Step>
                <Transition>
                   <CheckCondition
@@ -1510,21 +1477,8 @@
                 Type="STEP">
                <Step>
                   <Command
-                      Command="6"
-                      CmdAxes="4"
-                      CmdPrm1="zAccDec"/>
-               </Step>
-               <Transition>
-                  <Jump
-                      Type="NEXT"/>
-               </Transition>
-            </ProgramBlock>
-            <ProgramBlock
-                Type="STEP">
-               <Step>
-                  <Command
                       Command="90"
-                      CmdAxes="1"
+                      CmdAxes="2"
                       CmdPrm1="2"
                       CmdPrm2="yHome"/>
                </Step>
@@ -1678,7 +1632,7 @@
                   <Command
                       Command="50"
                       CmdAxes="4"
-                      CmdPrm1="0.0"
+                      CmdPrm1="zPositionTarget"
                       CmdPrm2="H Rising (0)"
                       CmdPrm3="Single (0)"
                       CmdPrm4="H (0)"/>
