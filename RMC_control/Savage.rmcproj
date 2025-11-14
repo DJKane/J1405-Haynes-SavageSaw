@@ -122,7 +122,7 @@
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
           FilterConfig="16#00000000"
-          PositionScale="0.00048828125"
+          PositionScale="-0.00012207031"
           ActualPositionCut-offFreq="0"
           PriUnits="4"
           AxisModeLinearRotary="0"
@@ -149,8 +149,8 @@
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="250"
-          IntegralGain="2197.529"
+          ProportionalGain="6000"
+          IntegralGain="0"
           DifferentialGain="0"
           VelFFPos="3.3333333"
           VelFFNeg="3.3333333"
@@ -294,8 +294,8 @@
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="250"
-          IntegralGain="2197.529"
+          ProportionalGain="1500"
+          IntegralGain="0"
           DifferentialGain="0"
           VelFFPos="3.3333333"
           VelFFNeg="3.3333333"
@@ -412,7 +412,7 @@
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
           FilterConfig="16#00000000"
-          PositionScale="0.001953125"
+          PositionScale="-3.0517578e-05"
           ActualPositionCut-offFreq="0"
           PriUnits="4"
           AxisModeLinearRotary="0"
@@ -421,7 +421,7 @@
           StopThreshold="0.1"
           LimitInputs="16#00850870"
           QuadConfig="16#00032080"
-          OutputBits="16#00000000"
+          OutputBits="16#00000100"
           OutputLimit="100"
           OutputBias="0"
           EnOutCfg="16#00000000"
@@ -439,8 +439,8 @@
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="250"
-          IntegralGain="2197.529"
+          ProportionalGain="500"
+          IntegralGain="0"
           DifferentialGain="0"
           VelFFPos="3.3333333"
           VelFFNeg="3.3333333"
@@ -544,28 +544,117 @@
           NoofPlots="3">
          <Plot
              Name=""
-             PlotCfgMode="0"
+             PlotCfgMode="1"
              NoofSamples="1000"
              SamplePeriodS="0.001"
              AssignedToAxis="0"
              TriggerPercent="-1"
-             TriggerType="16#00000001"/>
+             TriggerType="16#00000001">
+            <Item
+                Address="%MD256.180"/>
+            <Item
+                Address="%MD256.21"/>
+            <Quantity
+                Name="xGauge Position Error"
+                CustomName="True"
+                Units="in"
+                Formula="%MD256.180"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#00E0E0"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="xGauge Actual Velocity"
+                Units="in/s"
+                Formula="%MD256.21"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#FF0000"
+                AutoScale="True"
+                AutoGroup="True"/>
+         </Plot>
          <Plot
              Name=""
-             PlotCfgMode="0"
+             PlotCfgMode="1"
              NoofSamples="1000"
              SamplePeriodS="0.001"
              AssignedToAxis="1"
              TriggerPercent="-1"
-             TriggerType="16#00000001"/>
+             TriggerType="16#00000001">
+            <Item
+                Address="%MD257.180"/>
+            <Item
+                Address="%MD257.21"/>
+            <Quantity
+                Name="yTraverse Position Error"
+                CustomName="True"
+                Units="in"
+                Formula="%MD257.180"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#4200FF"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Actual Velocity"
+                Units="in/s"
+                Formula="%MD257.21"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#FF0000"
+                AutoScale="True"
+                AutoGroup="True"/>
+         </Plot>
          <Plot
              Name=""
-             PlotCfgMode="0"
+             PlotCfgMode="1"
              NoofSamples="1000"
              SamplePeriodS="0.001"
              AssignedToAxis="2"
              TriggerPercent="-1"
-             TriggerType="16#00000001"/>
+             TriggerType="16#00000001">
+            <Item
+                Address="%MD258.21"/>
+            <Item
+                Address="%MD258.180"/>
+            <Quantity
+                Name="zRaiseLower Actual Velocity"
+                Units="in/s"
+                Formula="%MD258.21"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#FF0000"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="zRaiseLower Position Error"
+                Units="in"
+                Formula="%MD258.180"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#00E0E0"
+                AutoScale="True"
+                AutoGroup="True"/>
+         </Plot>
       </PlotSchema>
       <Tasks
           TaskCount="4"
@@ -1604,7 +1693,7 @@
                <Step>
                   <Command
                       Command="37"
-                      CmdAxes="2"
+                      CmdAxes="4"
                       CmdPrm1="zVelocityTarget"
                       CmdPrm2="zAccDec"
                       CmdPrm3="zAccDec"
@@ -1622,7 +1711,7 @@
                <Step>
                   <Command
                       Command="6"
-                      CmdAxes="2"
+                      CmdAxes="4"
                       CmdPrm1="zAccDec"/>
                </Step>
                <Transition>
