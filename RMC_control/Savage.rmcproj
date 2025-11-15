@@ -708,6 +708,15 @@
              Offset="5"
              RegisterAddress="%MD258.141"/>
          <MapEntry
+             Offset="6"
+             RegisterAddress="%MD256.21"/>
+         <MapEntry
+             Offset="7"
+             RegisterAddress="%MD257.21"/>
+         <MapEntry
+             Offset="8"
+             RegisterAddress="%MD258.21"/>
+         <MapEntry
              Offset="32"
              RegisterAddress="%MD256.0"/>
          <MapEntry
