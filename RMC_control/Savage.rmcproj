@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Project
-    SWVersion="5.08.1"
-    ProjectName="Savage"
-    Author="Kane Engineering"
+    SWVersion="5.08.4"
+    ProjectName="upload"
+    Author=""
     ProjDesc=""
     SecurityVersion="2">
    <Controller
@@ -115,8 +115,6 @@
           OutputChannel0="0"
           Name="xGauge"
           AxisNumber="0"
-          LinearPositionUnitCustom="in"
-          SimWizMaxPos="300.0"
           AutoStopCfg1="16#00924924"
           AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
@@ -260,8 +258,6 @@
           OutputChannel0="1"
           Name="yTraverse"
           AxisNumber="1"
-          LinearPositionUnitCustom="in"
-          SimWizMaxPos="300.0"
           AutoStopCfg1="16#00924924"
           AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
@@ -284,26 +280,29 @@
           AtSpeedTolerance="0.1"
           VelErrorTolerance="1"
           InPositionTolerance="0.05"
-          PosErrorTolerance="0.25"
+          PosErrorTolerance="4"
           OutputGain="1"
-          DeadbandTolerance="0"
-          OutputDeadband="0"
+          DeadbandTolerance="0.005"
+          OutputDeadband="12"
           ValveLin="0"
           UniMode="0"
           IntMode="1"
           DefPVCtlMode="0"
           GainSetMode="0"
           Symm="0"
-          ProportionalGain="1500"
-          IntegralGain="0"
+          ProportionalGain="20.31"
+          IntegralGain="36.79"
           DifferentialGain="0"
-          VelFFPos="3.3333333"
-          VelFFNeg="3.3333333"
-          AccelFeedForward="0.039788734"
+          VelFFPos="2.715"
+          VelFFNeg="3.709"
+          AccelFeedForward="0.2237"
           JerkFeedForward="0"
           AccCtlMode="0"
           PVOutputFilter0="0"
-          ModOrder="255"
+          ModOrder="1"
+          ModGainP="0.3511891"
+          ModGainN="0.3679592"
+          ModTimeConst="0.08494593"
           OpenLoopHaltRamp="1000"
           PositiveTravelLimit="300"
           NegativeTravelLimit="0"
@@ -325,29 +324,29 @@
           SimMaxComp="0.5">
          <TuningSetup>
             <TuningCommand
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""
+                Command="20"
+                Param1="50.0"
+                Param2="4.1667"
+                Param3="1"
+                Param4="1"
+                Param5="Nearest (0)"
+                Param6="Nearest (0)"
+                Param7="Nearest (0)"
+                Param8="Nearest (0)"
+                Param9="Nearest (0)"
                 BtnText=""
                 CapturePlot="True"/>
             <TuningCommand
-                Command="0"
-                Param1=""
-                Param2=""
-                Param3=""
-                Param4=""
-                Param5=""
-                Param6=""
-                Param7=""
-                Param8=""
-                Param9=""
+                Command="20"
+                Param1="70.0"
+                Param2="4.1667"
+                Param3="1"
+                Param4="1"
+                Param5="Nearest (0)"
+                Param6="Nearest (0)"
+                Param7="Nearest (0)"
+                Param8="Nearest (0)"
+                Param9="Nearest (0)"
                 BtnText=""
                 CapturePlot="True"/>
             <TuningPlotCfg
@@ -405,8 +404,6 @@
           OutputChannel0="2"
           Name="zRaiseLower"
           AxisNumber="2"
-          LinearPositionUnitCustom="in"
-          SimWizMaxPos="300.0"
           AutoStopCfg1="16#00924924"
           AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
@@ -582,42 +579,12 @@
          </Plot>
          <Plot
              Name=""
-             PlotCfgMode="1"
-             NoofSamples="1000"
+             PlotCfgMode="0"
+             NoofSamples="10000"
              SamplePeriodS="0.001"
              AssignedToAxis="1"
              TriggerPercent="-1"
-             TriggerType="16#00000001">
-            <Item
-                Address="%MD257.180"/>
-            <Item
-                Address="%MD257.21"/>
-            <Quantity
-                Name="yTraverse Position Error"
-                CustomName="True"
-                Units="in"
-                Formula="%MD257.180"
-                Filter="False"
-                Type="REAL"
-                DisplayType="REAL"
-                DecPlaces="3"
-                Graph="True"
-                Pen="16#4200FF"
-                AutoScale="True"
-                AutoGroup="True"/>
-            <Quantity
-                Name="yTraverse Actual Velocity"
-                Units="in/s"
-                Formula="%MD257.21"
-                Filter="False"
-                Type="REAL"
-                DisplayType="REAL"
-                DecPlaces="3"
-                Graph="True"
-                Pen="16#FF0000"
-                AutoScale="True"
-                AutoGroup="True"/>
-         </Plot>
+             TriggerType="16#00000001"/>
          <Plot
              Name=""
              PlotCfgMode="1"
@@ -778,11 +745,11 @@
       </EventLogMgr>
       <RSLogixUDTInput
           CommCount="1"
-          RMCName="Kane"
-          InLength1="10"
+          RMCName=""
+          InLength1="0"
           InLength2="0"
           InLength3="0"
-          OutLength1="10"
+          OutLength1="0"
           OutLength2="0"
           OutLength3="0"/>
       <VariableTable>
@@ -902,17 +869,17 @@
              Offset="128"
              TagName="xAccDec"
              Format="REAL"
-             DefaultValue="6.666667"/>
+             DefaultValue="1"/>
          <Variable
              Offset="129"
              TagName="yAccDec"
              Format="REAL"
-             DefaultValue="6.666667"/>
+             DefaultValue="1"/>
          <Variable
              Offset="130"
              TagName="zAccDec"
              Format="REAL"
-             DefaultValue="6.666667"/>
+             DefaultValue="1"/>
       </VariableTable>
       <DiscreteIO>
          <IOPoint
