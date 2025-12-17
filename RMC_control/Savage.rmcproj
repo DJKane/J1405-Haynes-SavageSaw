@@ -158,8 +158,8 @@
           PVOutputFilter0="0"
           ModOrder="255"
           OpenLoopHaltRamp="1000"
-          PositiveTravelLimit="300"
-          NegativeTravelLimit="0"
+          PositiveTravelLimit="1000"
+          NegativeTravelLimit="-1000"
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
@@ -304,8 +304,8 @@
           ModGainN="0.3679592"
           ModTimeConst="0.08494593"
           OpenLoopHaltRamp="1000"
-          PositiveTravelLimit="300"
-          NegativeTravelLimit="0"
+          PositiveTravelLimit="1000"
+          NegativeTravelLimit="-1000"
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
@@ -428,8 +428,8 @@
           InPositionTolerance="0.05"
           PosErrorTolerance="0.25"
           OutputGain="1"
-          DeadbandTolerance="0"
-          OutputDeadband="0"
+          DeadbandTolerance="0.0025"
+          OutputDeadband="12"
           ValveLin="0"
           UniMode="0"
           IntMode="1"
@@ -437,7 +437,7 @@
           GainSetMode="0"
           Symm="0"
           ProportionalGain="500"
-          IntegralGain="0"
+          IntegralGain="500"
           DifferentialGain="0"
           VelFFPos="3.3333333"
           VelFFNeg="3.3333333"
@@ -445,10 +445,13 @@
           JerkFeedForward="0"
           AccCtlMode="0"
           PVOutputFilter0="0"
-          ModOrder="255"
+          ModOrder="1"
+          ModGainP="0.0015761325"
+          ModGainN="0.0038859772"
+          ModTimeConst="0.087962"
           OpenLoopHaltRamp="1000"
-          PositiveTravelLimit="300"
-          NegativeTravelLimit="0"
+          PositiveTravelLimit="1000"
+          NegativeTravelLimit="-1000"
           TargetType="0"
           ClosedLoopHaltDecel="100"
           ReqJerk="1e+05"
@@ -538,7 +541,7 @@
       </Axis>
       <PlotSchema
           Name="Plot Set 0"
-          NoofPlots="3">
+          NoofPlots="6">
          <Plot
              Name=""
              PlotCfgMode="1"
@@ -579,12 +582,42 @@
          </Plot>
          <Plot
              Name=""
-             PlotCfgMode="0"
-             NoofSamples="10000"
+             PlotCfgMode="1"
+             NoofSamples="1000"
              SamplePeriodS="0.001"
              AssignedToAxis="1"
              TriggerPercent="-1"
-             TriggerType="16#00000001"/>
+             TriggerType="16#00000001">
+            <Item
+                Address="%MD257.180"/>
+            <Item
+                Address="%MD257.21"/>
+            <Quantity
+                Name="yTraverse Position Error"
+                CustomName="True"
+                Units="in"
+                Formula="%MD257.180"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#4200FF"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Actual Velocity"
+                Units="in/s"
+                Formula="%MD257.21"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#FF0000"
+                AutoScale="True"
+                AutoGroup="True"/>
+         </Plot>
          <Plot
              Name=""
              PlotCfgMode="1"
@@ -622,6 +655,198 @@
                 AutoScale="True"
                 AutoGroup="True"/>
          </Plot>
+         <Plot
+             Name=""
+             PlotCfgMode="0"
+             NoofSamples="1000"
+             SamplePeriodS="0.001"
+             AssignedToAxis="0"
+             TriggerPercent="-1"
+             TriggerType="16#00000001"/>
+         <Plot
+             Name="y"
+             PlotCfgMode="1"
+             NoofSamples="1000"
+             SamplePeriodS="0.001"
+             AssignedToAxis="1"
+             TrendDurationS="300"
+             TriggerPercent="-1"
+             TriggerType="16#00000001">
+            <Item
+                Address="%MD257.400"/>
+            <Item
+                Address="%MD257.20"/>
+            <Item
+                Address="%MD257.401"/>
+            <Item
+                Address="%MD257.21"/>
+            <Item
+                Address="%MD257.140"/>
+            <Item
+                Address="%MD257.0"/>
+            <Item
+                Address="%MD1024.4"/>
+            <Item
+                Address="%MD1024.1"/>
+            <Item
+                Address="%MD1024.129"/>
+            <Item
+                Address="%MD1024.33"/>
+            <Item
+                Address="%MD194.1"/>
+            <Quantity
+                Name="yTraverse Target Position"
+                Units="in"
+                Formula="%MD257.400"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#E0E000"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Actual Position"
+                Units="in"
+                Formula="%MD257.20"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#0000FF"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Target Velocity"
+                Units="in/s"
+                Formula="%MD257.401"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#FF00FF"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Actual Velocity"
+                Units="in/s"
+                Formula="%MD257.21"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#FF0000"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Control Output"
+                Units="%"
+                Formula="%MD257.140"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="2"
+                Graph="True"
+                Pen="16#00E000"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Status Bits"
+                Units=""
+                Formula="%MD257.0"
+                Filter="False"
+                Type="HEX"
+                DisplayType="DWORD"
+                Graph="False"
+                Pen="16#FFFFFFFF"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="yTraverse Position Mean Squared Err"
+                Units=""
+                Formula="MSE(%MD257.20,%MD257.400)"
+                Filter="False"
+                Type="REAL"
+                DecPlaces="-4"
+                Graph="False"
+                Pen="16#FFFFFFFF"
+                AutoScale="True"
+                AutoGroup="True"
+                SingleVal="True"
+                FinalCalc="True"
+                ReqCaptureState="2"/>
+            <Quantity
+                Name="4 - yVelocityTarget"
+                Units=""
+                Formula="%MD1024.4"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#00E0E0"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="1 - yPositionTarget"
+                Units=""
+                Formula="%MD1024.1"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#000000"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="129 - yAccDec"
+                Units=""
+                Formula="%MD1024.129"
+                Filter="False"
+                Type="REAL"
+                DisplayType="REAL"
+                DecPlaces="3"
+                Graph="True"
+                Pen="16#C0C0C0"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="33 - yControl"
+                Units=""
+                Formula="%MD1024.33"
+                Filter="False"
+                Type="HEX"
+                DisplayType="DWORD"
+                Graph="False"
+                Pen="16#FFFFFFFF"
+                AutoScale="True"
+                AutoGroup="True"/>
+            <Quantity
+                Name="Task 2 Current Program/Step"
+                Units=""
+                Formula="%MD194.1"
+                Filter="False"
+                Type="LOC"
+                DisplayType="INTEGER"
+                Graph="False"
+                Pen="16#FFFFFFFF"
+                AutoScale="True"
+                AutoGroup="True"/>
+         </Plot>
+         <Plot
+             Name=""
+             PlotCfgMode="0"
+             NoofSamples="1000"
+             SamplePeriodS="0.001"
+             AssignedToAxis="2"
+             TrendDurationS="300"
+             TriggerPercent="-1"
+             TriggerType="16#00000001"/>
       </PlotSchema>
       <Tasks
           TaskCount="4"
@@ -781,6 +1006,16 @@
          <Variable
              Offset="5"
              TagName="zVelocityTarget"
+             Format="REAL"
+             DefaultValue="0"/>
+         <Variable
+             Offset="7"
+             TagName="yVelocityCmd"
+             Format="REAL"
+             DefaultValue="0"/>
+         <Variable
+             Offset="8"
+             TagName="zVelocityCmd"
              Format="REAL"
              DefaultValue="0"/>
          <Variable
@@ -1155,20 +1390,26 @@
             <ProgramBlock
                 Type="STEP">
                <Step>
+                  <Expression
+                      Src="yVelocityCmd := yVelocityTarget;"/>
                   <Command
                       Command="37"
                       CmdAxes="2"
-                      CmdPrm1="yVelocityTarget"
+                      CmdPrm1="yVelocityCmd"
                       CmdPrm2="yAccDec"
                       CmdPrm3="yAccDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
                   <CheckCondition
+                      Type="CASE"
+                      Condition="yVelocityCmd &lt;&gt; yVelocityTarget"
+                      True="Repeat"/>
+                  <CheckCondition
                       Type="CASE-ELSE"
-                      Condition="yControl.Jog"
-                      True="Repeat"
-                      False="Next"/>
+                      Condition="NOT yControl.Jog "
+                      True="Next"
+                      False="Wait"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1220,20 +1461,26 @@
             <ProgramBlock
                 Type="STEP">
                <Step>
+                  <Expression
+                      Src="zVelocityCmd := zVelocityTarget; "/>
                   <Command
                       Command="37"
                       CmdAxes="4"
-                      CmdPrm1="zVelocityTarget"
+                      CmdPrm1="zVelocityCmd"
                       CmdPrm2="zAccDec"
                       CmdPrm3="zAccDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
                   <CheckCondition
+                      Type="CASE"
+                      Condition="zVelocityCmd &lt;&gt; zVelocityTarget"
+                      True="Repeat"/>
+                  <CheckCondition
                       Type="CASE-ELSE"
-                      Condition="zControl.Jog"
-                      True="Repeat"
-                      False="Next"/>
+                      Condition="NOT zControl.Jog"
+                      True="Next"
+                      False="Wait"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
