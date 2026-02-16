@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Project
-    SWVersion="5.08.4"
+    SWVersion="5.08.1"
     ProjectName="upload"
     Author=""
     ProjDesc=""
@@ -327,8 +327,8 @@
                 Command="20"
                 Param1="50.0"
                 Param2="4.1667"
-                Param3="1"
-                Param4="1"
+                Param3="1.0"
+                Param4="1.0"
                 Param5="Nearest (0)"
                 Param6="Nearest (0)"
                 Param7="Nearest (0)"
@@ -340,8 +340,8 @@
                 Command="20"
                 Param1="70.0"
                 Param2="4.1667"
-                Param3="1"
-                Param4="1"
+                Param3="1.0"
+                Param4="1.0"
                 Param5="Nearest (0)"
                 Param6="Nearest (0)"
                 Param7="Nearest (0)"
@@ -1009,6 +1009,11 @@
              Format="REAL"
              DefaultValue="0"/>
          <Variable
+             Offset="6"
+             TagName="xVelocityCmd"
+             Format="REAL"
+             DefaultValue="0"/>
+         <Variable
              Offset="7"
              TagName="yVelocityCmd"
              Format="REAL"
@@ -1114,7 +1119,7 @@
              Offset="130"
              TagName="zAccDec"
              Format="REAL"
-             DefaultValue="1"/>
+             DefaultValue="0.3"/>
       </VariableTable>
       <DiscreteIO>
          <IOPoint
@@ -1325,20 +1330,26 @@
             <ProgramBlock
                 Type="STEP">
                <Step>
+                  <Expression
+                      Src="xVelocityCmd := xVelocityTarget"/>
                   <Command
                       Command="37"
                       CmdAxes="1"
-                      CmdPrm1="xVelocityTarget"
+                      CmdPrm1="xVelocityCmd"
                       CmdPrm2="xAccDec"
                       CmdPrm3="xAccDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
                   <CheckCondition
+                      Type="CASE"
+                      Condition="xVelocityCmd &lt;&gt; xVelocityTarget"
+                      True="Repeat"/>
+                  <CheckCondition
                       Type="CASE-ELSE"
-                      Condition="xControl.Jog"
-                      True="Repeat"
-                      False="Next"/>
+                      Condition="NOT xControl.Jog"
+                      True="Next"
+                      False="Wait"/>
                </Transition>
             </ProgramBlock>
             <ProgramBlock
@@ -1871,7 +1882,7 @@
                   <Command
                       Command="37"
                       CmdAxes="4"
-                      CmdPrm1="zVelocityTarget"
+                      CmdPrm1="0.3"
                       CmdPrm2="zAccDec"
                       CmdPrm3="zAccDec"
                       CmdPrm4="Signed (+4)"/>
