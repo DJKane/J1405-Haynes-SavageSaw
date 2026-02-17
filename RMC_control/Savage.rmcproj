@@ -804,7 +804,7 @@
                 AutoScale="True"
                 AutoGroup="True"/>
             <Quantity
-                Name="129 - yAccDec"
+                Name="129 - yAcc"
                 Units=""
                 Formula="%MD1024.129"
                 Filter="False"
@@ -1107,17 +1107,32 @@
              DefaultValue="16#00000000"/>
          <Variable
              Offset="128"
-             TagName="xAccDec"
+             TagName="xAcc"
              Format="REAL"
              DefaultValue="1"/>
          <Variable
              Offset="129"
-             TagName="yAccDec"
+             TagName="yAcc"
              Format="REAL"
              DefaultValue="1"/>
          <Variable
              Offset="130"
-             TagName="zAccDec"
+             TagName="zAcc"
+             Format="REAL"
+             DefaultValue="0.3"/>
+         <Variable
+             Offset="131"
+             TagName="xDec"
+             Format="REAL"
+             DefaultValue="1"/>
+         <Variable
+             Offset="132"
+             TagName="yDec"
+             Format="REAL"
+             DefaultValue="4"/>
+         <Variable
+             Offset="133"
+             TagName="zDec"
              Format="REAL"
              DefaultValue="0.3"/>
       </VariableTable>
@@ -1310,8 +1325,8 @@
                       CmdAxes="1"
                       CmdPrm1="xPositionTarget"
                       CmdPrm2="xVelocityTarget"
-                      CmdPrm3="xAccDec"
-                      CmdPrm4="xAccDec"
+                      CmdPrm3="xAcc"
+                      CmdPrm4="xDec"
                       CmdPrm5="Nearest (0)"/>
                </Step>
                <Transition>
@@ -1336,8 +1351,8 @@
                       Command="37"
                       CmdAxes="1"
                       CmdPrm1="xVelocityCmd"
-                      CmdPrm2="xAccDec"
-                      CmdPrm3="xAccDec"
+                      CmdPrm2="xAcc"
+                      CmdPrm3="xDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
@@ -1358,7 +1373,7 @@
                   <Command
                       Command="6"
                       CmdAxes="1"
-                      CmdPrm1="xAccDec"/>
+                      CmdPrm1="xDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1381,8 +1396,8 @@
                       CmdAxes="2"
                       CmdPrm1="yPositionTarget"
                       CmdPrm2="yVelocityTarget"
-                      CmdPrm3="yAccDec"
-                      CmdPrm4="yAccDec"
+                      CmdPrm3="yAcc"
+                      CmdPrm4="yDec"
                       CmdPrm5="Nearest (0)"/>
                </Step>
                <Transition>
@@ -1407,8 +1422,8 @@
                       Command="37"
                       CmdAxes="2"
                       CmdPrm1="yVelocityCmd"
-                      CmdPrm2="yAccDec"
-                      CmdPrm3="yAccDec"
+                      CmdPrm2="yAcc"
+                      CmdPrm3="yDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
@@ -1429,7 +1444,7 @@
                   <Command
                       Command="6"
                       CmdAxes="2"
-                      CmdPrm1="yAccDec"/>
+                      CmdPrm1="yDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1452,8 +1467,8 @@
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"
                       CmdPrm2="zVelocityTarget"
-                      CmdPrm3="zAccDec"
-                      CmdPrm4="zAccDec"
+                      CmdPrm3="zAcc"
+                      CmdPrm4="zDec"
                       CmdPrm5="Nearest (0)"/>
                </Step>
                <Transition>
@@ -1478,8 +1493,8 @@
                       Command="37"
                       CmdAxes="4"
                       CmdPrm1="zVelocityCmd"
-                      CmdPrm2="zAccDec"
-                      CmdPrm3="zAccDec"
+                      CmdPrm2="zAcc"
+                      CmdPrm3="zDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
@@ -1500,7 +1515,7 @@
                   <Command
                       Command="6"
                       CmdAxes="4"
-                      CmdPrm1="zAccDec"/>
+                      CmdPrm1="zDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1521,7 +1536,7 @@
                   <Command
                       Command="6"
                       CmdAxes="1"
-                      CmdPrm1="xAccDec"/>
+                      CmdPrm1="xDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1542,7 +1557,7 @@
                   <Command
                       Command="6"
                       CmdAxes="2"
-                      CmdPrm1="yAccDec"/>
+                      CmdPrm1="yDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1563,7 +1578,7 @@
                   <Command
                       Command="6"
                       CmdAxes="4"
-                      CmdPrm1="zAccDec"/>
+                      CmdPrm1="zDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1660,8 +1675,8 @@
                       CmdAxes="4"
                       CmdPrm1="zPositionTarget"
                       CmdPrm2="zVelocityTarget"
-                      CmdPrm3="zAccDec"
-                      CmdPrm4="zAccDec"
+                      CmdPrm3="zAcc"
+                      CmdPrm4="zDec"
                       CmdPrm5="TarPos (2)"/>
                </Step>
                <Transition>
@@ -1752,8 +1767,8 @@
                       Command="37"
                       CmdAxes="1"
                       CmdPrm1="xVelocityTarget"
-                      CmdPrm2="xAccDec"
-                      CmdPrm3="xAccDec"
+                      CmdPrm2="xAcc"
+                      CmdPrm3="xDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
@@ -1769,7 +1784,7 @@
                   <Command
                       Command="6"
                       CmdAxes="1"
-                      CmdPrm1="xAccDec"/>
+                      CmdPrm1="xDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1807,8 +1822,8 @@
                       Command="37"
                       CmdAxes="2"
                       CmdPrm1="yVelocityTarget"
-                      CmdPrm2="yAccDec"
-                      CmdPrm3="yAccDec"
+                      CmdPrm2="yAcc"
+                      CmdPrm3="yDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
@@ -1824,7 +1839,7 @@
                   <Command
                       Command="6"
                       CmdAxes="2"
-                      CmdPrm1="yAccDec"/>
+                      CmdPrm1="yDec"/>
                </Step>
                <Transition>
                   <End/>
@@ -1883,8 +1898,8 @@
                       Command="37"
                       CmdAxes="4"
                       CmdPrm1="0.3"
-                      CmdPrm2="zAccDec"
-                      CmdPrm3="zAccDec"
+                      CmdPrm2="zAcc"
+                      CmdPrm3="zDec"
                       CmdPrm4="Signed (+4)"/>
                </Step>
                <Transition>
@@ -1900,7 +1915,7 @@
                   <Command
                       Command="6"
                       CmdAxes="4"
-                      CmdPrm1="zAccDec"/>
+                      CmdPrm1="zDec"/>
                </Step>
                <Transition>
                   <End/>
