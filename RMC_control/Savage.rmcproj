@@ -115,7 +115,7 @@
           OutputChannel0="0"
           Name="xGauge"
           AxisNumber="0"
-          AutoStopCfg1="16#00924924"
+          AutoStopCfg1="16#00924824"
           AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
@@ -258,7 +258,7 @@
           OutputChannel0="1"
           Name="yTraverse"
           AxisNumber="1"
-          AutoStopCfg1="16#00924924"
+          AutoStopCfg1="16#00924824"
           AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
@@ -404,7 +404,7 @@
           OutputChannel0="2"
           Name="zRaiseLower"
           AxisNumber="2"
-          AutoStopCfg1="16#00924924"
+          AutoStopCfg1="16#00924824"
           AutoStopCfg2="16#00924804"
           AutoStopCfg3="16#00924924"
           HaltGroupNumber="0"
@@ -1074,6 +1074,7 @@
              Bit4Name="Zero"
              Bit5Name="ZeroClear"
              Bit6Name="MoveRelative"
+             Bit7Name="OpenLoop"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="33"
@@ -1086,6 +1087,7 @@
              Bit4Name="Zero"
              Bit5Name="ZeroClear"
              Bit6Name="MoveRelative"
+             Bit7Name="OpenLoop"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="34"
@@ -1098,6 +1100,7 @@
              Bit4Name="Zero"
              Bit5Name="ZeroClear"
              Bit6Name="MoveRelative"
+             Bit7Name="OpenLoop"
              DefaultValue="16#00000000"/>
          <Variable
              Offset="35"
@@ -1248,7 +1251,7 @@
                    Task1Action="xHome"
                    Description=""/>
                <PollItem
-                   Condition="xControl.Stop"
+                   Condition="xControl.Stop AND NOT xControl.OpenLoop"
                    Task1Action="xStop"
                    Description=""/>
                <PollItem
@@ -1264,11 +1267,15 @@
                    Task1Action="xHome"
                    Description=""/>
                <PollItem
+                   Condition="xControl.OpenLoop"
+                   Task1Action="xOpen"
+                   Description=""/>
+               <PollItem
                    Condition="yControl.MoveAbsolute"
                    Task2Action="yMove"
                    Description=""/>
                <PollItem
-                   Condition="yControl.Stop"
+                   Condition="yControl.Stop AND NOT yControl.OpenLoop"
                    Task2Action="yStop"
                    Description=""/>
                <PollItem
@@ -1280,11 +1287,15 @@
                    Task2Action="yHome"
                    Description=""/>
                <PollItem
+                   Condition="yControl.OpenLoop"
+                   Task2Action="yOpen"
+                   Description=""/>
+               <PollItem
                    Condition="zControl.MoveAbsolute"
                    Task3Action="zMove"
                    Description=""/>
                <PollItem
-                   Condition="zControl.Stop"
+                   Condition="zControl.Stop AND NOT zControl.OpenLoop"
                    Task3Action="zStop"
                    Description=""/>
                <PollItem
@@ -1306,6 +1317,10 @@
                <PollItem
                    Condition="zControl.Home"
                    Task3Action="zHome"
+                   Description=""/>
+               <PollItem
+                   Condition="zControl.OpenLoop"
+                   Task3Action="zOpen"
                    Description=""/>
             </ProgramBlock>
          </UserProgram>
@@ -1391,14 +1406,36 @@
             <ProgramBlock
                 Type="STEP">
                <Step>
+                  <Expression
+                      Src="yVelocityCmd := yVelocityTarget"/>
                   <Command
                       Command="20"
                       CmdAxes="2"
                       CmdPrm1="yPositionTarget"
-                      CmdPrm2="yVelocityTarget"
+                      CmdPrm2="yVelocityCmd"
                       CmdPrm3="yAcc"
                       CmdPrm4="yDec"
                       CmdPrm5="Nearest (0)"/>
+               </Step>
+               <Transition>
+                  <CheckCondition
+                      Type="CASE"
+                      Condition="yVelocityCmd &lt;&gt; yVelocityTarget"
+                      True="Repeat"/>
+                  <CheckCondition
+                      Type="CASE-ELSE"
+                      Condition="NOT yControl.MoveAbsolute"
+                      True="Next"
+                      False="Wait"/>
+               </Transition>
+            </ProgramBlock>
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="0"
+                      CmdAxes="0"
+                      CmdAxesSet="False"/>
                </Step>
                <Transition>
                   <End/>
@@ -1916,6 +1953,69 @@
                       Command="6"
                       CmdAxes="4"
                       CmdPrm1="zDec"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="xOpen"
+             Type="STEP"
+             Number="18"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="22"
+                      CmdAxes="1"
+                      CmdPrm1="1000.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="yOpen"
+             Type="STEP"
+             Number="19"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="22"
+                      CmdAxes="2"
+                      CmdPrm1="1000.0"/>
+               </Step>
+               <Transition>
+                  <End/>
+               </Transition>
+            </ProgramBlock>
+         </UserProgram>
+         <UserProgram
+             Name="zOpen"
+             Type="STEP"
+             Number="20"
+             Desc=""
+             IncludeInBuild="True"
+             SingleInstance="True"
+             TaskMask="4294967295">
+            <ProgramBlock
+                Type="STEP">
+               <Step>
+                  <Command
+                      Command="22"
+                      CmdAxes="4"
+                      CmdPrm1="1000.0"/>
                </Step>
                <Transition>
                   <End/>
