@@ -137,7 +137,7 @@
           AtSpeedTolerance="0.1"
           VelErrorTolerance="1"
           InPositionTolerance="0.05"
-          PosErrorTolerance="1e+06"
+          PosErrorTolerance="6"
           OutputGain="0.01"
           DeadbandTolerance="0"
           OutputDeadband="0"
@@ -1127,7 +1127,7 @@
              Offset="131"
              TagName="xDec"
              Format="REAL"
-             DefaultValue="1"/>
+             DefaultValue="4"/>
          <Variable
              Offset="132"
              TagName="yDec"
